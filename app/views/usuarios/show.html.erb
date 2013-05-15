@@ -1,0 +1,30 @@
+<% content_for :sidebar do %>
+
+<% end %>
+
+<% content_for :content do %>
+
+	<h2><%= @usuario.nombre %> <%= @usuario.apellido %></h2>
+    <p class="epigrafe"><%= @usuario.bio %></p>
+	    
+  
+		
+		<h3>Datos Personales</h3>
+		    <span class="form-label">Usuario</span><big><strong><%= @usuario.usuario %></strong></big><br />
+			<span class="form-label">Tipo</span><%= @usuario.tipo %> <br />
+			<span class="form-label">Rut</span><%= @usuario.rut %> <br />
+			<span class="form-label">Email</span><a href"mailto:<%= @usuario.mail %>"><%= @usuario.mail %></a><br />
+			<span class="form-label">2º Email</span><a href"mailto:<%= @usuario.mail_2 %>"><%= @usuario.mail_2 %></a><br />
+			<span class="form-label">Dirección</span><%= @usuario.direccion %><br />
+			<span class="form-label">Teléfono Fijo</span><%= @usuario.telefono_fijo %><br />
+			<span class="form-label">Teléfono Cel.</span><%= @usuario.telefono_cel %><br />
+
+	
+
+		<h3>Servicios Web</h3>
+			<span class="form-label">URL</span><a href="<%= @usuario.web %>" title="Sitio Personal"><%= @usuario.web %></a><br />
+			<span class="form-label">twitterName</span><a href="http://www.twitter.com/<%= @usuario.twitter %>"><%= @usuario.twitter %></a><br /> 
+			<span class="form-label">Flickr</span><a href="http://www.flickr.com/photos/<%= @usuario.flickr %>"><%= @usuario.flickr %></a><br />
+
+	
+<% end %>

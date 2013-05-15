@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>personas e[ad]</title>
+	
+	<%= stylesheet_link_tag    "bootstrap.min"  %>
+	<%= stylesheet_link_tag    "bootstrap-responsive.min"  %>
+
+	<%= javascript_include_tag "prototype" %>
+	<%= javascript_include_tag "effects" %>
+	<%= javascript_include_tag "tablesort" %>	
+	<%= javascript_include_tag "application" %>
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="row-fluid">
+
+    <div class="span2 well">
+		<div id="header">		
+			<h1 class="title">Personas e<span class="red">[</span>ad<span class="red">]</span></h1>
+			<p>Autenticación de Servicios Web</p>	 	
+		</div>
+
+		<ul class="nav nav-list">
+			<% if session[:cas_user] %>
+				<% @u = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]]) %>
+				<% if @u.admin == "si" %>					
+					<li class="nav-header">Administración</li>
+					<li <% if action_name=="list" %> class="active" <% end %> >
+						<a class="search" href="/usuarios/list/0">Buscar</a>
+					</li>
+					<li <% if action_name=="signup" %> class="active" <% end %>>
+						<a class="add" href="/usuarios/signup">Nuevo Usuario</a>
+					</li>
+					<li <% if action_name=="blockedUsers" %> class="active" <% end %>>
+						<a class="block" href="/usuarios/blockedUsers">Bloqueados</a>
+					</li>
+					<li <% if action_name=="maillist" %> class="active" <% end %>>
+						<a class="filter" href="/usuarios/maillist">Filtrar</a>
+					</li>
+				<% end %>
+				<li class="nav-header">Cuenta</li>
+				<li><a class="edit" href="/usuarios/edit/<%= @u.id %>">Editar Datos</a></li>
+				<li><a class="logout" href="/usuarios/logout">LogOut</a></li>
+			<% else %>
+				<% if session[:cas_user].blank? %>
+				    <li class="nav-header">Cuenta</li>
+					<li><%= link_to "Registrarse", :controller => "usuarios", :action => "signup" %></li>
+					<li><%= link_to "Ingresar", :controller => "usuarios", :action => "list" %></li>
+					<li><%= link_to "Recuperar Contraseña", :controller => "usuarios", :action => "recuperacionDatos" %></li>
+				<% end %>
+			<% end %>
+			<br />
+
+		</ul>
+		<div id="extraSideBar"><%= yield :sidebar %></div>
+    </div>
+
+    <div class="span9">
+		<div class="content">	
+			<% if flash[:notice] %>
+				<div class="alert alert-error">
+					<%=flash[:notice] %>
+				</div>
+
+			<% end %>			
+			<%= yield :content %>
+		</div>
+    </div>
+</div>	
+</body>
+</html>

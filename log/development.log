@@ -1,0 +1,294 @@
+
+
+Started GET "/" for 192.168.1.11 at Mon May 20 01:13:05 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios/signup" for 192.168.1.11 at Mon May 20 01:13:08 -0400 2013
+  Processing by UsuariosController#signup as HTML
+Completed   in 9ms
+
+Mysql2::Error (Table 'ead_persons.usuarios' doesn't exist):
+  app/controllers/usuarios_controller.rb:387:in `new'
+  app/controllers/usuarios_controller.rb:387:in `signup'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/personas/usuarios/list" for 192.168.1.11 at Mon May 20 01:13:14 -0400 2013
+  Processing by UsuariosController#list as HTML
+DEPRECATION WARNING: RAILS_DEFAULT_LOGGER is deprecated. Please use ::Rails.logger. (called from service at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104)
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list" for 192.168.1.11 at Mon May 20 01:13:50 -0400 2013
+  Processing by UsuariosController#list as HTML
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 1ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1369026816rEE60BCCFFFD0502D48" for 192.168.1.11 at Mon May 20 01:13:56 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1369026816rEE60BCCFFFD0502D48"}
+Request contains ticket "ST-1369026816rEE60BCCFFFD0502D48".
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1369026816rEE60BCCFFFD0502D48&service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>hspencer</cas:user>
+    <nombre>Herbert</nombre>
+    <mail>hspencer@ead.cl</mail>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1369026816rEE60BCCFFFD0502D48" for service "http://hspencer.local:3000/personas/usuarios/list" belonging to user "hspencer" is VALID.
+Extra user attributes provided along with ticket "ST-1369026816rEE60BCCFFFD0502D48": {"mail"=>"hspencer@ead.cl", "nombre"=>"Herbert"}.
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Completed   in 423ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1):
+  app/controllers/usuarios_controller.rb:549:in `verificaAdmin'
+  app/controllers/usuarios_controller.rb:292:in `list'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.5ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1369026837r87A48131A4908D9AB3" for 192.168.1.11 at Mon May 20 01:14:16 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1369026837r87A48131A4908D9AB3"}
+Request contains ticket "ST-1369026837r87A48131A4908D9AB3".
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1369026837r87A48131A4908D9AB3&service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>hspencer</cas:user>
+    <nombre>Herbert</nombre>
+    <mail>hspencer@ead.cl</mail>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1369026837r87A48131A4908D9AB3" for service "http://hspencer.local:3000/personas/usuarios/list" belonging to user "hspencer" is VALID.
+Extra user attributes provided along with ticket "ST-1369026837r87A48131A4908D9AB3": {"mail"=>"hspencer@ead.cl", "nombre"=>"Herbert"}.
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Completed   in 380ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1):
+  app/controllers/usuarios_controller.rb:549:in `verificaAdmin'
+  app/controllers/usuarios_controller.rb:292:in `list'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.9ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.2ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1369026842r90F6E47CA8768B04B6" for 192.168.1.11 at Mon May 20 01:14:22 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1369026842r90F6E47CA8768B04B6"}
+Request contains ticket "ST-1369026842r90F6E47CA8768B04B6".
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1369026842r90F6E47CA8768B04B6&service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>hspencer</cas:user>
+    <nombre>Herbert</nombre>
+    <mail>hspencer@ead.cl</mail>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1369026842r90F6E47CA8768B04B6" for service "http://hspencer.local:3000/personas/usuarios/list" belonging to user "hspencer" is VALID.
+Extra user attributes provided along with ticket "ST-1369026842r90F6E47CA8768B04B6": {"mail"=>"hspencer@ead.cl", "nombre"=>"Herbert"}.
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Completed   in 5518ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1):
+  app/controllers/usuarios_controller.rb:549:in `verificaAdmin'
+  app/controllers/usuarios_controller.rb:292:in `list'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.9ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.3ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1369026843rB33AF2E8435DF335B0" for 192.168.1.11 at Mon May 20 01:14:28 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1369026843rB33AF2E8435DF335B0"}
+Request contains ticket "ST-1369026843rB33AF2E8435DF335B0".
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1369026843rB33AF2E8435DF335B0&service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>hspencer</cas:user>
+    <nombre>Herbert</nombre>
+    <mail>hspencer@ead.cl</mail>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1369026843rB33AF2E8435DF335B0" for service "http://hspencer.local:3000/personas/usuarios/list" belonging to user "hspencer" is VALID.
+Extra user attributes provided along with ticket "ST-1369026843rB33AF2E8435DF335B0": {"mail"=>"hspencer@ead.cl", "nombre"=>"Herbert"}.
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Completed   in 304ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1):
+  app/controllers/usuarios_controller.rb:549:in `verificaAdmin'
+  app/controllers/usuarios_controller.rb:292:in `list'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1369026844r890FC617BFAF332169" for 192.168.1.11 at Mon May 20 01:14:28 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1369026844r890FC617BFAF332169"}
+Request contains ticket "ST-1369026844r890FC617BFAF332169".
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1369026844r890FC617BFAF332169&service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>hspencer</cas:user>
+    <nombre>Herbert</nombre>
+    <mail>hspencer@ead.cl</mail>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1369026844r890FC617BFAF332169" for service "http://hspencer.local:3000/personas/usuarios/list" belonging to user "hspencer" is VALID.
+Extra user attributes provided along with ticket "ST-1369026844r890FC617BFAF332169": {"mail"=>"hspencer@ead.cl", "nombre"=>"Herbert"}.
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Completed   in 373ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1):
+  app/controllers/usuarios_controller.rb:549:in `verificaAdmin'
+  app/controllers/usuarios_controller.rb:292:in `list'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.3ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started GET "/" for 192.168.1.11 at Mon May 20 01:26:40 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios/signup" for 192.168.1.11 at Mon May 20 01:26:43 -0400 2013
+  Processing by UsuariosController#signup as HTML
+Completed   in 6ms
+
+Mysql2::Error (Table 'ead_persons.usuarios' doesn't exist):
+  app/controllers/usuarios_controller.rb:387:in `new'
+  app/controllers/usuarios_controller.rb:387:in `signup'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/personas/usuarios/signup" for 192.168.1.11 at Mon May 20 01:26:53 -0400 2013
+  Processing by UsuariosController#signup as HTML
+Completed   in 6ms
+
+Mysql2::Error (Table 'ead_persons.usuarios' doesn't exist):
+  app/controllers/usuarios_controller.rb:387:in `new'
+  app/controllers/usuarios_controller.rb:387:in `signup'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.1ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/personas/usuarios/recuperacionDatos" for 192.168.1.11 at Mon May 20 01:27:10 -0400 2013
+  Processing by UsuariosController#recuperacionDatos as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_recuperacion_atos_html_erb___1847369300_2265875100_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/recuperacionDatos.html.erb:9)
+Rendered usuarios/recuperacionDatos.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/personas/usuarios/enviaRecuperaMail" for 192.168.1.11 at Mon May 20 01:40:23 -0400 2013
+  Processing by UsuariosController#enviaRecuperaMail as HTML
+  Parameters: {"mail"=>"hspencer@ead.cl", "authenticity_token"=>"PQ2kh+wqkjbEp1LZabSQyfiKvilPl5jxgs0y4pdDHhk=", "utf8"=>"✓", "commit"=>"Solicitar"}
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (mail = 'hspencer@ead.cl') LIMIT 1
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (mail = 'hspencer@ead.cl') LIMIT 1
+Completed   in 5ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (mail = 'hspencer@ead.cl') LIMIT 1):
+  app/controllers/usuarios_controller.rb:23:in `enviaRecuperaMail'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.1ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started GET "/" for 192.168.1.11 at Mon May 20 01:58:44 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios/list" for 192.168.1.11 at Mon May 20 01:58:47 -0400 2013
+  Processing by UsuariosController#list as HTML
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1369029507rAC2D89A3E0003800CF" for 192.168.1.11 at Mon May 20 01:58:47 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1369029507rAC2D89A3E0003800CF"}
+Request contains ticket "ST-1369029507rAC2D89A3E0003800CF".
+Guessed service url: "http://hspencer.local:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1369029507rAC2D89A3E0003800CF&service=http%3A%2F%2Fhspencer.local%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>hspencer</cas:user>
+    <nombre>Herbert</nombre>
+    <mail>hspencer@ead.cl</mail>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1369029507rAC2D89A3E0003800CF" for service "http://hspencer.local:3000/personas/usuarios/list" belonging to user "hspencer" is VALID.
+Extra user attributes provided along with ticket "ST-1369029507rAC2D89A3E0003800CF": {"mail"=>"hspencer@ead.cl", "nombre"=>"Herbert"}.
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Completed   in 297ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'ead_persons.usuarios' doesn't exist: SELECT  `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1):
+  app/controllers/usuarios_controller.rb:549:in `verificaAdmin'
+  app/controllers/usuarios_controller.rb:292:in `list'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started GET "/personas/usuarios/signup" for 192.168.1.11 at Mon May 20 01:58:51 -0400 2013
+  Processing by UsuariosController#signup as HTML
+Completed   in 7ms
+
+Mysql2::Error (Table 'ead_persons.usuarios' doesn't exist):
+  app/controllers/usuarios_controller.rb:387:in `new'
+  app/controllers/usuarios_controller.rb:387:in `signup'
+
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)

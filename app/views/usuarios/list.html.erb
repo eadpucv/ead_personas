@@ -115,9 +115,9 @@
 				<td class="opciones"><a href'#' onclick='if (confirm("Realmente desea bloquear a este usuario?")) new Ajax.Updater({success:"not<%= user.id %>"}, "/usuarios/block/<%= user.id %>", {asynchronous:true, evalScripts:true}); return false;'><img src='../../images/minus-small-circle.png'></a></td>
 				<td class="opciones">
 					<% if user.admin == "si" %>		
-						<b id='llave_<%= user.id %>'><a href'#' onclick='if (confirm("Realmente desea que el usuario <%= user.nombre %> <%= user.apellido %> ya no sea Administrador?")) new Ajax.Updater({success:"llave_<%= user.id %>"}, "/usuarios/userIsAdmin/<%= user.id %>?accion=n", {asynchronous:true, evalScripts:true}); return false;'><img src='../../images/key.png'></a></b>
+						<b id='llave_<%= user.id %>'><a href'#' onclick='if (confirm("Realmente desea que el usuario <%= user.nombre %> <%= user.apellido %> ya no sea Administrador?")) new Ajax.Updater({success:"llave_<%= user.id %>"}, "/usuarios/userIsAdmin/<%= user.id %>?accion=n", {asynchronous:true, evalScripts:true}); return false;'><img src='../../images/key.png'></a></strong>
 					<% else %>
-						<b id='llave_<%= user.id %>'><a href'#' onclick='if (confirm("Realmente desea que el usuario <%= user.nombre %> <%= user.apellido %> sea Administrador de Personas?")) new Ajax.Updater({success:"llave_<%= user.id %>"}, "/usuarios/userIsAdmin/<%= user.id %>?accion=y", {asynchronous:true, evalScripts:true}); return false;'><img src='../../images/key_gris.png'></a></b>				
+						<b id='llave_<%= user.id %>'><a href'#' onclick='if (confirm("Realmente desea que el usuario <%= user.nombre %> <%= user.apellido %> sea Administrador de Personas?")) new Ajax.Updater({success:"llave_<%= user.id %>"}, "/usuarios/userIsAdmin/<%= user.id %>?accion=y", {asynchronous:true, evalScripts:true}); return false;'><img src='../../images/key_gris.png'></a></strong>				
 					<% end %>
 				</td>
 				

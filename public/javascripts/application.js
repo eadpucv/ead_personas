@@ -30,11 +30,11 @@ function checkPass()
 	if (primera == segunda)
 		{
 			document.getElementById('enviar').style.display = 'inline';
-			document.getElementById('passwordNotify').innerHTML = '<b style="color:green;">coinciden</b>';
+			document.getElementById('passwordNotify').innerHTML = '<b style="color:green;">coinciden</strong>';
 		}
 	else
 		{
-			document.getElementById('passwordNotify').innerHTML = '<b style="color:red;">No coinciden</b>';
+			document.getElementById('passwordNotify').innerHTML = '<b style="color:red;">No coinciden</strong>';
 		}
 }
 

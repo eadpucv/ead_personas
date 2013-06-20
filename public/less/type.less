@@ -54,6 +54,13 @@ a.text-success:focus { color: darken(@successText, 10%); }
 .text-center         { text-align: center; }
 
 
+@air: @baseLineHeight;
+.air-top{margin-top: @air}
+.air-right{margin-right: @air}
+.air-bottom{margin-bottom: @air}
+.air-left{margin-left: @air}
+.air{margin: @air}
+
 // Headings
 // -------------------------
 
@@ -245,4 +252,17 @@ address {
   margin-bottom: @baseLineHeight;
   font-style: normal;
   line-height: @baseLineHeight;
+}
+
+footer{
+  background-color: @navbarBackground;
+  padding: @baseLineHeight 0;
+  margin-top: @baseLineHeight;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, .4);
+  font-size: 11px;
+
+  li{
+    display: inline-block;
+    
+  }
 }

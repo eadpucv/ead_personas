@@ -243,3 +243,18 @@ table th[class*="span"],
     background-color: darken(@infoBackground, 5%);
   }
 }
+
+// Options
+td.options{
+  a{
+    color: @grayLight;
+    &.active{
+      color: @black;
+    }
+  }
+  a:hover{
+    color: @linkColor;
+    text-decoration: none;
+  }
+
+}

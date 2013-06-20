@@ -71,12 +71,13 @@
 					</li>
 					
 					<% else %>
+					<ul class="nav pull-right">
 						<% if session[:cas_user].blank? %>
-						    <li class="nav-header">Cuenta</li>
 							<li><%= link_to "Registrarse", :controller => "usuarios", :action => "signup" %></li>
 							<li><%= link_to "Ingresar", :controller => "usuarios", :action => "list" %></li>
 							<li><%= link_to "Recuperar Contraseña", :controller => "usuarios", :action => "recuperacionDatos" %></li>
 						<% end %>
+					</ul>
 					<% end %>
 				</ul>
 			</div>
@@ -85,22 +86,30 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="span12">
-		<div id="extraSideBar"><%= yield :sidebar %></div>
-    </div>
+  	<div class="row">
+	    <div class="span12">
+			<div id="extraSideBar"><%= yield :sidebar %></div>
+	    </div>
 
-    <div class="span12">
-		<div class="content">	
-			<% if flash[:notice] %>
-				<div class="alert alert-error">
-					<%=flash[:notice] %>
-				</div>
+	    <div class="span12">
+			<div class="content">	
+				<% if flash[:notice] %>
+					<div class="alert alert-error">
+						<%=flash[:notice] %>
+					</div>
 
-			<% end %>			
-			<%= yield :content %>
-		</div>
-    </div>
+				<% end %>			
+				<%= yield :content %>
+			</div>
+	    </div>
+	</div>
 </div>	
+
+<footer>
+	<div class="container">
+		<p class="text-center"><strong>Personas</strong> es un sistema de registro único (SSO) desarrollado por el <a href="http://www.ead.pucv.cl/mundo/investigacion/tig/">.:TIG:.</a> para todos los servicios de la <a href="http://www.ead.pucv.cl/">e[ad] Escuela de Arquitectura y Diseño PUCV</a>.</p>
+	</div>
+</footer>
+
 </body>
 </html>

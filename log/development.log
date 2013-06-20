@@ -9266,3 +9266,41 @@ The error occurred while evaluating nil.each):
 Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
 Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.1ms)
 Rendered /Users/hspencer/.rvm/gems/ruby-1.8.7-p371/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/usuarios/signup" for 192.168.0.3 at Thu Jun 20 16:57:53 -0400 2013
+  Processing by UsuariosController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb__1032339314_2245386860_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_usuarios_signup_html_erb__1032339314_2245386860_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:6)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb__1032339314_2245386860_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:6)
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Rendered usuarios/signup.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 35ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 192.168.0.3 at Thu Jun 20 16:59:41 -0400 2013
+  Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Rendered usuarios/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 192.168.0.3 at Thu Jun 20 16:59:58 -0400 2013
+  Processing by UsuariosController#index as HTML
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Rendered usuarios/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 192.168.0.3 at Thu Jun 20 17:00:58 -0400 2013
+  Processing by UsuariosController#index as HTML
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Rendered usuarios/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 192.168.0.3 at Thu Jun 20 17:01:17 -0400 2013
+  Processing by UsuariosController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Rendered usuarios/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.4ms)

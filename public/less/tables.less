@@ -249,7 +249,12 @@ td.options{
   a{
     color: @grayLight;
     &.active{
-      color: @black;
+      color: @gold;
+      background-color: @gray;
+      .border-radius(10px);
+      text-shadow: 0 0 2px @black;
+      padding: 0 4px;
+      margin: 0 -4px;
     }
   }
   a:hover{

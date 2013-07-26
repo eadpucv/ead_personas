@@ -336,9 +336,9 @@ require 'media_wiki'
 	def checkUser
 		@usuario = Usuario.find(:all, :conditions => ["usuario = ? ", params[:user]])
 		if @usuario.blank?
-			@notificacion = "Ok!"
+			@notificacion = '<span class="label label-success">disponible</span>'
 		else
-			@notificacion = "Ocupado!"
+			@notificacion = '<span class="label label-important">no disponible</span>'
 		end
 		render(:text => @notificacion)
 	end

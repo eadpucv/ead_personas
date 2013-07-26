@@ -10650,3 +10650,125 @@ Started POST "/usuarios/checkUser?user=asas" for 192.168.214.121 at Fri Jul 26 1
   [1m[35mUsuario Load (2.1ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'asas' )
 Rendered text template (0.0ms)
 Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/usuarios/signup" for 192.168.214.121 at Fri Jul 26 15:59:17 -0400 2013
+  Processing by UsuariosController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2297591920_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_usuarios_signup_html_erb___1767047358_2297591920_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2297591920_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Rendered usuarios/signup.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 31ms (Views: 21.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/usuarios/checkUser?user=hspencer" for 192.168.214.121 at Fri Jul 26 15:59:22 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspencer"}
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer' )
+Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usuarios/signup" for 192.168.214.121 at Fri Jul 26 16:01:51 -0400 2013
+  Processing by UsuariosController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2298592760_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_usuarios_signup_html_erb___1767047358_2298592760_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2298592760_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Rendered usuarios/signup.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 29ms (Views: 20.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usuarios/checkUser?user=hspencer" for 192.168.214.121 at Fri Jul 26 16:01:59 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspencer"}
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer' )
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/usuarios/checkUser?user=hspencery" for 192.168.214.121 at Fri Jul 26 16:02:03 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspencery"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencery' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usuarios/signup" for 192.168.214.121 at Fri Jul 26 16:03:56 -0400 2013
+  Processing by UsuariosController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2297048320_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_usuarios_signup_html_erb___1767047358_2297048320_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2297048320_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Rendered usuarios/signup.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 28ms (Views: 19.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usuarios/checkUser?user=hspe" for 192.168.214.121 at Fri Jul 26 16:04:01 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspe"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspe' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/usuarios/checkUser?user=hspen" for 192.168.214.121 at Fri Jul 26 16:04:15 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspen"}
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspen' )
+Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usuarios/signup" for 192.168.214.121 at Fri Jul 26 16:05:10 -0400 2013
+  Processing by UsuariosController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2297053680_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_usuarios_signup_html_erb___1767047358_2297053680_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2297053680_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Rendered usuarios/signup.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 27ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usuarios/checkUser?user=hspe" for 192.168.214.121 at Fri Jul 26 16:05:15 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspe"}
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspe' )
+Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usuarios/checkUser?user=hspencer" for 192.168.214.121 at Fri Jul 26 16:05:19 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspencer"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usuarios/signup" for 192.168.214.121 at Fri Jul 26 16:06:13 -0400 2013
+  Processing by UsuariosController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2296898360_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_usuarios_signup_html_erb___1767047358_2296898360_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_usuarios_signup_html_erb___1767047358_2296898360_0 at /Users/hspencer/Sites/ead_persons/app/views/usuarios/signup.html.erb:8)
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1
+Rendered usuarios/signup.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 37ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usuarios/checkUser?user=hspencery" for 192.168.214.121 at Fri Jul 26 16:06:20 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspencery"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencery' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/usuarios/checkUser?user=hspencer" for 192.168.214.121 at Fri Jul 26 16:06:24 -0400 2013
+  Processing by UsuariosController#checkUser as JS
+  Parameters: {"user"=>"hspencer"}
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer' )
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.3ms)

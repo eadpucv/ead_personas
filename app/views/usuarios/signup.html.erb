@@ -13,7 +13,7 @@
 			<div class="control-group">
 				<label class="control-label" for="input01">Usuario</label>
 				<div class="controls">
-					<%= f.text_field :usuario,:size => 20, :onchange => "checkUser(this.value)" %> <span id="check_user" class="label label-important"></span>
+					<%= f.text_field :usuario,:size => 20, :onchange => "checkUser(this.value)" %> <span id="check_user" ></span>
 					<p class="help-block">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</p>
 				</div>
 			</div>	
@@ -83,13 +83,13 @@
 			<div class="control-group">
 				<label class="control-label" for="input01">Contraseña</label>
 				<div class="controls">
-					<input id="usuario_contrasena" name="usuario[password]" size="20" type="password" /><br />
+					<input id="usuario_contrasena" name="usuario[password]" size="20" type="password">
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="input01">Verifica</label>
+				<label class="control-label" for="input01">Verificación</label>
 				<div class="controls">
-					<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()" />
+					<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()">
 					<p id="passwordNotify" class="help-block"></p>
 				</div>
 			</div>	

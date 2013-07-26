@@ -256,7 +256,7 @@ address {
 
 footer{
   background-color: @navbarBackground;
-  padding: @footerPadding;
+  padding: @footerPadding 0;
   height: @footerHeight;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, .3);
   font-size: 12px;
@@ -264,6 +264,9 @@ footer{
   left: 0;
   bottom: 0;
   width: 100%;
+  .container{
+    width: 90%;
+  }
   li{
     display: inline-block;
   }

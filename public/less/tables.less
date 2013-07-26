@@ -244,6 +244,8 @@ table th[class*="span"],
   }
 }
 
+//////////////////////////////////////////// Custom clases
+
 // Options
 td.options{
   a{
@@ -262,4 +264,20 @@ td.options{
     text-decoration: none;
   }
 
+}
+
+
+// Username
+td.username{
+  font-weight: bold;
+  a:hover{
+    text-decoration: none;
+    &:before{
+      position: absolute;
+      display: inline;
+      font-family: 'FontAwesome';
+      content: @wrench;
+      margin: 2px 0 0 -20px;
+    }
+  }
 }

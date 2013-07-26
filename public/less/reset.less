@@ -45,8 +45,14 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-  height: 100%;
+  position: relative;
+  min-height: 100%;
 }
+
+body{
+  margin-bottom: @footerTotalHeight;
+}
+
 // Focus states
 a:focus {
   .tab-focus();

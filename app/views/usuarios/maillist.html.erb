@@ -4,8 +4,10 @@
 
 
 <% content_for :content do %>
-	<h2>Creador de Lista de Correos e[ad]</h2>
-	<% if @loged.admin == "si" %>
+<div class="row">
+	<div class="span8 offset2">
+		<h2>Creador de Lista de Correos e[ad]</h2>
+		<% if @loged.admin == "si" %>
 		<form action="listaCorreo" id="listaCorreo" class="form-horizontal">
 			<div class="control-group">
 				<label class="control-label" for="input01">Tipo</label>
@@ -56,13 +58,15 @@
 			</div>
 			<div class="control-group">
 				<div class="controls">
-					<input id="btn_lista" onclick="new Ajax.Updater('lc','/usuarios/maillistgenerator', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this.form)});" type="button" value="Consultar" />
+					<input id="btn_lista" onclick="new Ajax.Updater('lc','/usuarios/maillistgenerator', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this.form)});" type="button" value="Consultar" class="btn btn-primary">
 				</div>
 			</div>
 		</form>
-	<% else %>
+		<% else %>
 		<p><%= image_tag 'exclamation.png'%>  <strong> Ups...!! </strong> Estás tratando de hacer algo no permitido. </p>
-	<% end %>
-	<br />
-	<div id="lc"></div>
+		<% end %>
+		<br />
+		<div id="lc"></div>
+	</div>
+</div>
 <% end %>

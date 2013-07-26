@@ -2,11 +2,13 @@
 <% end %>
 
 <% content_for :content do %>
-	<div style="float:right"><%= image_tag 'estornino.jpg' %></div> 	
-	<% form_for :usuario, @usuario, :url => { :action => "create" },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
+<div class="row">
+	<div class="grid8 offset2">
+		<div style="float:right"><%= image_tag 'estornino.jpg' %></div> 	
+		<% form_for :usuario, @usuario, :url => { :action => "create" },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
 
 		<fieldset>
-		
+
 			<h3>Nuevo Usuario</h3> 			
 			<div class="control-group">
 				<label class="control-label" for="input01">Usuario</label>
@@ -102,21 +104,27 @@
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="input01">EULA</label>
-				<div class="controls">
-					<input type="checkbox" id="tyc" name="tyc" value="no">
-					Acepto los <a href="http://personas.ead.pucv.cl/usuarios/terminos">términos y condiciones</a> e[ad].
+				<div class="controls inline">
+					<label class="inline">
+						<input type="checkbox" id="tyc" name="tyc" value="no">
+						Acepto los <a href="http://personas.ead.pucv.cl/usuarios/terminos">términos y condiciones</a> e[ad].
+					</label>
 				</div>
 			</div>
-            <script language="JavaScript">
-            	function confirma(){
-					if (!document.getElementById('tyc').checked){
-						if (confirm('No ha aceptado los terminos y condiciones de uso, los desea aceptar ahora?'))
-							{ document.form.submit() }
-					}
-					else { document.form.submit() }
+			<script language="JavaScript">
+			function confirma(){
+				if (!document.getElementById('tyc').checked){
+					if (confirm('No ha aceptado los terminos y condiciones de uso, los desea aceptar ahora?'))
+						{ document.form.submit() }
 				}
-			</script><br /><br />
-			<input type=button onclick="confirma()" value="Crear nuevo usuario">
-		</fieldset>
-		<% end %>
-	<% end %>
+				else { document.form.submit() }
+			}
+	</script><br /><br />
+	<div class="controls">
+		<input type=button onclick="confirma()" value="Crear nuevo usuario" class="btn btn-large btn-success">
+	</div>
+</fieldset>
+<% end %>
+</div>
+</div>
+<% end %>

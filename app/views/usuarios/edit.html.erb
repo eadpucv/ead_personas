@@ -2,9 +2,10 @@
 
 <% end %>
 
-
 <% content_for :content do %>
-	<% if @loged.id.to_s == @usuario.id.to_s || @loged.admin == "si" %>
+<div class="row">
+	<div class="span8 offset2">
+		<% if @loged.id.to_s == @usuario.id.to_s || @loged.admin == "si" %>
 		<% form_for :usuario, @usuario, :url => { :action => "update", :id => @id },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
 		<fieldset>
 			<h3>Edición de perfil</h3> 			
@@ -73,30 +74,34 @@
 					<%= f.text_field :wikipage,:size => 20 %>
 					<p class="help-block">En caso de no especificar una pagina, se creara una pagina con tus datos en la wiki</p>
 				</div>
-			</div>			
-			<%= submit_tag 'Editar Información' %>			
+			</div>
+			<div class="controls">		
+				<%= submit_tag 'Editar Información' , :class=>"btn btn-success" %>		
+			</div>	
 		</fieldset>
 		<% end %>
-		
-		<br /><br />
 		<h3>Editar Contraseña</h3>	
 		<% form_for :usuario, @usuario, :url => { :action => "update", :id=> @id },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
-			<div class="control-group">
-				<label class="control-label" for="input01">Contraseña Nueva</label>
-				<div class="controls">
-					<input id="usuario_contrasena" name="usuario[password]" size="20" type="password" />
-				</div>
+		<div class="control-group">
+			<label class="control-label" for="input01">Contraseña Nueva</label>
+			<div class="controls">
+				<input id="usuario_contrasena" name="usuario[password]" size="20" type="password" />
 			</div>
-			<div class="control-group">
-				<label class="control-label" for="input01">Verificación</label>
-				<div class="controls">
-					<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()" />
-					<p class="help-block" id="passwordNotify"></p>
-				</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="input01">Verificación</label>
+			<div class="controls">
+				<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()" />
+				<p class="help-block" id="passwordNotify"></p>
 			</div>
-			<%= submit_tag 'Editar Password' %>
+		</div>
+		<div class="controls">		
+			<%= submit_tag 'Editar Contraseña' , :class=>"btn btn-danger" %>		
+		</div>	
 		<% end %>	
-	<% else %>
-		<p><%= image_tag 'exclamation.png'%>  <strong> Ups...!! </strong> Estás tratando de hacer algo no permitido. </p>
-	<% end %>
+		<% else %>
+		<p><%= image_tag 'exclamation.png'%>  <strong>Ups...!!</strong> Estás tratando de hacer algo no permitido. </p>
+		<% end %>
+	</div>
+</div>
 <% end %>

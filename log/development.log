@@ -10772,3 +10772,671 @@ Started POST "/usuarios/checkUser?user=hspencer" for 192.168.214.121 at Fri Jul 
   [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer' )
 Rendered text template (0.0ms)
 Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-26 17:44:40 -0400
+
+SyntaxError (/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:74: invalid multibyte char (US-ASCII)
+/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:74: invalid multibyte char (US-ASCII)
+/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:74: syntax error, unexpected $end, expecting keyword_end
+			@mails = "<b>Error, Mal formato en rango de años</b>"
+			                                               ^):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-26 17:44:42 -0400
+
+SyntaxError (/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:74: invalid multibyte char (US-ASCII)
+/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:74: invalid multibyte char (US-ASCII)
+/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:74: syntax error, unexpected $end, expecting keyword_end
+			@mails = "<b>Error, Mal formato en rango de años</b>"
+			                                               ^):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-26 17:45:58 -0400
+
+SyntaxError (/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:241: invalid multibyte char (US-ASCII)
+/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:241: invalid multibyte char (US-ASCII)
+/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:241: syntax error, unexpected $end, expecting keyword_end
+		@notificacion = "<div class='alert alert-success'>×</a>"
+		                                                    ^):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Jul 28 10:45:59 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 10:46:04 -0400 2013
+  Processing by UsuariosController#list as HTML
+DEPRECATION WARNING: RAILS_DEFAULT_LOGGER is deprecated. Please use ::Rails.logger. (called from service at /Users/rodrigomoya/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104)
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375022688rD5FAFB2519CEA638C2" for 127.0.0.1 at Sun Jul 28 10:46:11 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375022688rD5FAFB2519CEA638C2"}
+Request contains ticket "ST-1375022688rD5FAFB2519CEA638C2".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&ticket=ST-1375022688rD5FAFB2519CEA638C2
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>rodrigomt</cas:user>
+    <mail>roromt@gmail.com</mail>
+    <nombre>Rodrigo </nombre>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1375022688rD5FAFB2519CEA638C2" for service "http://localhost:3000/personas/usuarios/list" belonging to user "rodrigomt" is VALID.
+Extra user attributes provided along with ticket "ST-1375022688rD5FAFB2519CEA638C2": {"nombre"=>"Rodrigo", "mail"=>"roromt@gmail.com"}.
+  [1m[36mUsuario Load (4.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (1.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (40.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (12.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (4.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (11.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (390.9ms)
+Completed 200 OK in 1319ms (Views: 102.6ms | ActiveRecord: 302.1ms)
+
+
+Started GET "/personas/usuarios/favicon.ico" for 127.0.0.1 at Sun Jul 28 10:46:13 -0400 2013
+
+ActionController::RoutingError (No route matches "/personas/usuarios/favicon.ico"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/usuarios/logout" for 127.0.0.1 at Sun Jul 28 10:52:25 -0400 2013
+  Processing by UsuariosController#logout as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from logout at /Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:282)
+Redirected to http://190.208.31.82:443/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 1ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023155rjp6Zdr-qfgb82uOnSV" for 127.0.0.1 at Sun Jul 28 10:52:35 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023155rjp6Zdr-qfgb82uOnSV"}
+DEPRECATION WARNING: RAILS_DEFAULT_LOGGER is deprecated. Please use ::Rails.logger. (called from service at /Users/rodrigomoya/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104)
+Request contains ticket "ST-1375023155rjp6Zdr-qfgb82uOnSV".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.31.82:443/cas/proxyValidate?ticket=ST-1375023155rjp6Zdr-qfgb82uOnSV&service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+<?xml version="1.0" encoding="UTF-8"?>
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>rodrigomt</cas:user>
+    <cas:attributes>
+      <cas:mail>roromt@gmail.com</cas:mail>
+      <cas:nombre>Rodrigo </cas:nombre>
+    </cas:attributes>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1375023155rjp6Zdr-qfgb82uOnSV" for service "http://localhost:3000/personas/usuarios/list" belonging to user "rodrigomt" is VALID.
+Extra user attributes provided along with ticket "ST-1375023155rjp6Zdr-qfgb82uOnSV": {}.
+  [1m[36mUsuario Load (2.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (1.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (12.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (4.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (12.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (298.5ms)
+Completed 200 OK in 842ms (Views: 34.4ms | ActiveRecord: 273.3ms)
+
+TypeError (singleton can't be dumped):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (130.9ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (137.9ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023155rjp6Zdr-qfgb82uOnSV" for 127.0.0.1 at Sun Jul 28 11:00:37 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023155rjp6Zdr-qfgb82uOnSV"}
+Completed   in 0ms
+
+RuntimeError (Cannot use the CASClient filter because it has not yet been configured.):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
+
+
+Started GET "/personas/usuarios" for 127.0.0.1 at Sun Jul 28 11:00:43 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/favicon.ico" for 127.0.0.1 at Sun Jul 28 11:00:43 -0400 2013
+
+ActionController::RoutingError (No route matches "/personas/favicon.ico"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:00:45 -0400 2013
+  Processing by UsuariosController#list as HTML
+Completed   in 0ms
+
+RuntimeError (Cannot use the CASClient filter because it has not yet been configured.):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.7ms)
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:02:41 -0400 2013
+  Processing by UsuariosController#list as HTML
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023762rSdPOMW1GXexkxMBzNI" for 127.0.0.1 at Sun Jul 28 11:02:42 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023762rSdPOMW1GXexkxMBzNI"}
+Request contains ticket "ST-1375023762rSdPOMW1GXexkxMBzNI".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.31.82:443/cas/proxyValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&ticket=ST-1375023762rSdPOMW1GXexkxMBzNI
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+<?xml version="1.0" encoding="UTF-8"?>
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>rodrigomt</cas:user>
+    <cas:attributes>
+      <cas:mail>roromt@gmail.com</cas:mail>
+      <cas:nombre>Rodrigo </cas:nombre>
+    </cas:attributes>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Completed   in 161ms
+
+NoMethodError (undefined method `response' for #<CASClient::ServiceTicket:0x10dc20548>):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.5ms)
+
+
+Started GET "/personas/usuarios" for 127.0.0.1 at Sun Jul 28 11:03:13 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios" for 127.0.0.1 at Sun Jul 28 11:03:33 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:03:35 -0400 2013
+  Processing by UsuariosController#list as HTML
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023822rInxAawe8M7-eky5PTe" for 127.0.0.1 at Sun Jul 28 11:03:42 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023822rInxAawe8M7-eky5PTe"}
+Request contains ticket "ST-1375023822rInxAawe8M7-eky5PTe".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.31.82:443/cas/proxyValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&ticket=ST-1375023822rInxAawe8M7-eky5PTe
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+<?xml version="1.0" encoding="UTF-8"?>
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>rodrigomt</cas:user>
+    <cas:attributes>
+      <cas:mail>roromt@gmail.com</cas:mail>
+      <cas:nombre>Rodrigo </cas:nombre>
+    </cas:attributes>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Completed   in 232ms
+
+NoMethodError (undefined method `response' for #<CASClient::ServiceTicket:0x10df5cd10>):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023822rInxAawe8M7-eky5PTe" for 127.0.0.1 at Sun Jul 28 11:07:26 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023822rInxAawe8M7-eky5PTe"}
+DEPRECATION WARNING: RAILS_DEFAULT_LOGGER is deprecated. Please use ::Rails.logger. (called from service at /Users/rodrigomoya/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104)
+Request contains ticket "ST-1375023822rInxAawe8M7-eky5PTe".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1375023822rInxAawe8M7-eky5PTe&service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPClientError 422  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationFailure code="INVALID_TICKET">Ticket 'ST-1375023822rInxAawe8M7-eky5PTe' not recognized.</cas:authenticationFailure>
+</cas:serviceResponse>
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 838ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023969r50235CAF123273303D" for 127.0.0.1 at Sun Jul 28 11:07:33 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023969r50235CAF123273303D"}
+Request contains ticket "ST-1375023969r50235CAF123273303D".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1375023969r50235CAF123273303D&service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPOK 200 OK  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>rodrigomt</cas:user>
+    <mail>roromt@gmail.com</mail>
+    <nombre>Rodrigo </nombre>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1375023969r50235CAF123273303D" for service "http://localhost:3000/personas/usuarios/list" belonging to user "rodrigomt" is VALID.
+Extra user attributes provided along with ticket "ST-1375023969r50235CAF123273303D": {"nombre"=>"Rodrigo", "mail"=>"roromt@gmail.com"}.
+  [1m[36mUsuario Load (2.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (1.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (9.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (11.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (11.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (3.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (12.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (289.6ms)
+Completed 200 OK in 778ms (Views: 37.8ms | ActiveRecord: 261.4ms)
+
+
+Started GET "/usuarios/logout" for 127.0.0.1 at Sun Jul 28 11:07:38 -0400 2013
+  Processing by UsuariosController#logout as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from logout at /Users/rodrigomoya/Trabajo/ead_persons/app/controllers/usuarios_controller.rb:282)
+Redirected to http://190.208.62.202:443/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 1ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375023969r50235CAF123273303D" for 127.0.0.1 at Sun Jul 28 11:07:55 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375023969r50235CAF123273303D"}
+Request contains ticket "ST-1375023969r50235CAF123273303D".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1375023969r50235CAF123273303D&service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPClientError 422  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationFailure code="INVALID_TICKET">Ticket 'ST-1375023969r50235CAF123273303D' not recognized.</cas:authenticationFailure>
+</cas:serviceResponse>
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 412ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375024079r9FToTYTqvhtQkauSs9" for 127.0.0.1 at Sun Jul 28 11:07:58 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375024079r9FToTYTqvhtQkauSs9"}
+Request contains ticket "ST-1375024079r9FToTYTqvhtQkauSs9".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.62.202:443/cas/proxyValidate?ticket=ST-1375024079r9FToTYTqvhtQkauSs9&service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+CAS server responded with #<Net::HTTPClientError 422  readbody=true>:
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationFailure code="INVALID_TICKET">Ticket 'ST-1375024079r9FToTYTqvhtQkauSs9' not recognized.</cas:authenticationFailure>
+</cas:serviceResponse>
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 385ms
+
+
+Started GET "/" for 127.0.0.1 at Sun Jul 28 11:08:38 -0400 2013
+  Processing by UsuariosController#index as HTML
+Rendered usuarios/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:08:40 -0400 2013
+  Processing by UsuariosController#list as HTML
+DEPRECATION WARNING: RAILS_DEFAULT_LOGGER is deprecated. Please use ::Rails.logger. (called from service at /Users/rodrigomoya/.rvm/rubies/ruby-1.8.7-p374/lib/ruby/1.8/webrick/httpserver.rb:104)
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Generated login url: http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Redirecting to "http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist"
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375024121rySGi-U-4PRc6-lr-fl" for 127.0.0.1 at Sun Jul 28 11:08:41 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375024121rySGi-U-4PRc6-lr-fl"}
+Request contains ticket "ST-1375024121rySGi-U-4PRc6-lr-fl".
+Guessed service url: "http://localhost:3000/personas/usuarios/list"
+Requesting CAS response for URI http://190.208.31.82:443/cas/proxyValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&ticket=ST-1375024121rySGi-U-4PRc6-lr-fl
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+<?xml version="1.0" encoding="UTF-8"?>
+<cas:serviceResponse xmlns:cas="http://www.yale.edu/tp/cas">
+  <cas:authenticationSuccess>
+    <cas:user>rodrigomt</cas:user>
+    <cas:attributes>
+      <cas:mail>roromt@gmail.com</cas:mail>
+      <cas:nombre>Rodrigo </cas:nombre>
+    </cas:attributes>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>
+Ticket "ST-1375024121rySGi-U-4PRc6-lr-fl" for service "http://localhost:3000/personas/usuarios/list" belonging to user "rodrigomt" is VALID.
+Extra user attributes provided along with ticket "ST-1375024121rySGi-U-4PRc6-lr-fl": {}.
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (8.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (5.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (348.5ms)
+Completed 200 OK in 1282ms (Views: 102.9ms | ActiveRecord: 252.7ms)
+
+TypeError (singleton can't be dumped):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (63.6ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (134.6ms)
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375024121rySGi-U-4PRc6-lr-fl" for 127.0.0.1 at Sun Jul 28 11:21:16 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375024121rySGi-U-4PRc6-lr-fl"}
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 501ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375024877rZaSDGpvX5dCwFDhKC-" for 127.0.0.1 at Sun Jul 28 11:21:17 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375024877rZaSDGpvX5dCwFDhKC-"}
+  [1m[36mUsuario Load (2.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (8.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (12.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (14.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (12.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (6.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (12.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (12.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (13.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (11.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (333.5ms)
+Completed 200 OK in 879ms (Views: 40.8ms | ActiveRecord: 302.4ms)
+
+
+Started GET "/usuarios/logout" for 127.0.0.1 at Sun Jul 28 11:21:23 -0400 2013
+  Processing by UsuariosController#logout as HTML
+Redirected to http://190.208.31.82:443/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&gateway=true
+Completed 302 Found in 1ms
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:21:23 -0400 2013
+  Processing by UsuariosController#list as HTML
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375024889rRzaraaAZepZvXVglgi" for 127.0.0.1 at Sun Jul 28 11:21:29 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375024889rRzaraaAZepZvXVglgi"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (8.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.3ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (4.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.6ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (11.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (11.0ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (292.3ms)
+Completed 200 OK in 924ms (Views: 37.0ms | ActiveRecord: 262.2ms)
+
+
+Started GET "/usuarios/logout" for 127.0.0.1 at Sun Jul 28 11:21:37 -0400 2013
+  Processing by UsuariosController#logout as HTML
+Redirected to http://190.208.31.82:443/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&gateway=true
+Completed 302 Found in 1ms
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:21:37 -0400 2013
+  Processing by UsuariosController#list as HTML
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/personas/usuarios/list?ticket=ST-1375024903rIlHpefF-eWeU8t5K1-" for 127.0.0.1 at Sun Jul 28 11:21:43 -0400 2013
+  Processing by UsuariosController#list as HTML
+  Parameters: {"ticket"=>"ST-1375024903rIlHpefF-eWeU8t5K1-"}
+  [1m[36mUsuario Load (2.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mUsuario Load (8.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'aalfarop') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'calmarzat') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'daniela655321') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'paguirrel') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.6ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jaguilara') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'manguloa') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.7ms)[0m  SELECT * FROM casserver_st WHERE (username = 'pantillancam') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.9ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'sarancibiac') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'jarayag') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (4.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'varayaj') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.1ms)[0m  SELECT * FROM casserver_st WHERE (username = 'Vanesa Arenas') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.0ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'casenjog') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.3ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ibarríal') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'bbarriosm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'ebaumanno') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.5ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'pbaumanns') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (10.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbeckers') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'lbehnkeg') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mboppi') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (7.8ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbordap') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.9ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mborquezj') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ebravoc') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (9.4ms)[0m  SELECT * FROM casserver_st WHERE (username = 'mbravod') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.1ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'abriceñom') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (7.8ms)[0m  SELECT * FROM casserver_st WHERE (username = 'fbrionesm') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (8.2ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'fbustamantej') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.2ms)[0m  SELECT * FROM casserver_st WHERE (username = 'nbustosl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (10.7ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'jbuvinich') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mUsuario Load (8.5ms)[0m  SELECT * FROM casserver_st WHERE (username = 'kcabezasl') ORDER BY id DESC LIMIT 1 
+  [1m[36mUsuario Load (9.4ms)[0m  [1mSELECT * FROM casserver_st WHERE (username = 'ccabezasm') ORDER BY id DESC LIMIT 1 [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered usuarios/list.html.erb within layouts/application (284.8ms)
+Completed 200 OK in 674ms (Views: 35.8ms | ActiveRecord: 257.9ms)
+
+
+Started GET "/usuarios/logout" for 127.0.0.1 at Sun Jul 28 11:21:47 -0400 2013
+  Processing by UsuariosController#logout as HTML
+Redirected to http://190.208.31.82:443/cas/logout?destination=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist&gateway=true
+Completed 302 Found in 1ms
+
+
+Started GET "/personas/usuarios/list" for 127.0.0.1 at Sun Jul 28 11:21:47 -0400 2013
+  Processing by UsuariosController#list as HTML
+Redirected to http://190.208.31.82:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fpersonas%2Fusuarios%2Flist
+Completed 302 Found in 2ms

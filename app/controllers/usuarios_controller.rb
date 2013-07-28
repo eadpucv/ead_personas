@@ -71,7 +71,7 @@ require 'media_wiki'
 		@it		= 1
 
 		if @anodesde.to_i > @anohasta.to_i
-			@mails = "<b>Error, Mal formato en rango de años</b>"
+			@mails = "<b>Error, Mal formato</b>"
 		else
 			@sql = "SELECT usuarios.usuario, usuarios.carrera, usuarios.anoingreso,usuarios.nombre,usuarios.apellido,usuarios.mail FROM usuarios WHERE usuarios.anoingreso <= #{@anohasta} AND usuarios.anoingreso >= #{@anodesde} "
 		

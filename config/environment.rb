@@ -5,7 +5,7 @@ require 'casclient/frameworks/rails/filter'
 
 
 CASClient::Frameworks::Rails::Filter.configure(
-  :cas_base_url => "http://190.208.31.82:443/cas")
+  :cas_base_url => "http://190.208.62.202:443/cas/")
 
 # Initialize the rails application
 Persons::Application.initialize!

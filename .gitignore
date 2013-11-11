@@ -1,2 +1,5 @@
 config/database.yml
 config/initializers/recaptcha.rb
+*.log
+
+*.pid

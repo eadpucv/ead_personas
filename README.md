@@ -1,4 +1,4 @@
-ead_persons
-===========
+##Personas EAD
 
-Repositorio de personas E[ad]
+Sistema de acceso único para todos los servicios de la e[ad] Escuela de Arquitectura y Diseño PUCV
+http://personas.ead.pucv.cl

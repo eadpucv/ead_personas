@@ -13,7 +13,7 @@
 			<div class="control-group">
 				<label class="control-label" for="input01">Usuario</label>
 				<div class="controls">
-					<%= f.text_field :usuario,:size => 20, :onchange => "checkUser(this.value)" %> <span id="check_user" ></span>
+					<%= f.text_field :usuario,:size => 20, :id=>"username_field" %> <span id="check_user" ></span>
 					<p class="help-block">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</p>
 				</div>
 			</div>	
@@ -35,7 +35,12 @@
 				<div class="controls">
 					<select name="usuario[carrera]">
 						<option value="Arquitectura">Arquitectura</option>
-						<option value="Diseño">Diseño</option>
+						<option value="Diseño">Diseño Gráfico</option>
+						<option value="Diseño">Diseño Industrial</option>
+						<option value="Diseño">Naútico y Marítimo</option>
+						<option value="Diseño">Formación y Oficio</option>
+						<option value="Diseño">Interaccion</option>												
+						<option value="Diseño">Doctorado en A&D</option>												
 					</select>
 				</div>
 			</div>
@@ -67,7 +72,7 @@
 			<div class="control-group">
 				<label class="control-label" for="input01">Mail</label>
 				<div class="controls">
-					<%= f.text_field :mail,:size => 20, :onchange => "checkMail(this.value)" %> <span class="required">*</span> <span id="check_mail" class="label label-important"></span>
+					<%= f.text_field :mail, :size=>20, :id=>"email_field" %> <span class="required">*</span> <span id="check_mail"></span>
 					
 				</div>
 			</div>

@@ -10,7 +10,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 		if isAdmin?
 			@loged = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
 		else
-			redirect_to  :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -77,7 +77,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			end
 			render(:text => @mails)
 		else
-			redirect_to  :action => 'index'
+			redirect_to  root_path
 		end		
 	end
 
@@ -92,7 +92,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			@notificacion << "</div>"
 			render(:text => @notificacion)
 		else
-			redirect_to  :action => 'index'
+			redirect_to  root_path
 		end
 	end	
 
@@ -110,7 +110,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			end
 			@usuario.update_attributes(@datos)
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -119,7 +119,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 		if isAdmin?
 			@usuarios = Usuariosbloqueados.find(:all)
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -139,7 +139,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			end
 			render(:text => @ids.to_json)
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -165,7 +165,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			end
 			render(:text => @ids.to_json)
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -184,7 +184,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			@usuario = Usuario.find(params[:id])
 			@usuario.destroy
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -208,7 +208,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 				@usuarioBlock.destroy
 			end
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -240,7 +240,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 			end	
 			render(:text => @notificacion.to_json)
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 
@@ -256,7 +256,7 @@ before_filter CASClient::Frameworks::Rails::Filter
 				@usuarios = Usuario.paginate(:page => params[:page], :per_page => 30)
 			end
 		else
-			redirect_to :action => 'index'
+			redirect_to  root_path
 		end
 	end
 

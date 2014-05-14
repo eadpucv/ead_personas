@@ -44,7 +44,7 @@
 								</li>
 						
 								<li <% if action_name=="signup" %> class="active" <% end %>>
-									<a class="add" href="/user/new">Nuevo Usuario</a>
+									<a class="add" href="/user/signup">Nuevo Usuario</a>
 								</li>
 						
 								<li <% if action_name=="blockedUsers" %> class="active" <% end %>>
@@ -64,17 +64,17 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Cuenta</a>
 						<b class="caret"></b>
 						<ul class="dropdown-menu">
-							<li><a class="edit" href="/usuarios/edit/<%= @u.id %>">Editar Datos</a></li>
-							<li><a class="logout" href="/usuarios/logout">LogOut</a></li>
+							<li><a class="edit" href="/user/edit/<%= @u.id %>">Editar Datos</a></li>
+							<li><a class="logout" href="/sessions/logout">LogOut</a></li>
 						</ul>
 					</li>
 					
 					<% else %>
 						<ul class="nav pull-right">
 							<% if session[:cas_user].blank? %>
-								<li><%= link_to "Registrarse", :controller => "usuarios", :action => "signup" %></li>
-								<li><%= link_to "Ingresar", :controller => "usuarios", :action => "list" %></li>
-								<li><%= link_to "Recuperar Contraseña", :controller => "usuarios", :action => "recuperacionDatos" %></li>
+								<li><%= link_to "Registrarse", :controller => "user", :action => "signup" %></li>
+								<li><%= link_to "Ingresar", :controller => "admin", :action => "list" %></li>
+								<li><%= link_to "Recuperar Contraseña", :controller => "user", :action => "recuperacionDatos" %></li>
 							<% end %>
 						</ul>
 					<% end %>

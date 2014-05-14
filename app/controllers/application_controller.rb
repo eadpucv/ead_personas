@@ -24,17 +24,25 @@ class ApplicationController < ActionController::Base
 	end
 
 	def isAdmin?()
-		@user = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
-		if @user.admin == "si"
-			true
+		if session[:cas_user]
+			@user = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
+			if @user.admin == "si"
+				true
+			else
+				false
+			end
 		else
 			false
 		end
 	end
 
 	def editMyOwnUser?(idUsuarioEditado)
-		if Usuario.exists?(['usuario = ? AND id = ?',session[:cas_user], idUsuarioEditado])
-			true
+		if session[:cas_user]
+			if Usuario.exists?(['usuario = ? AND id = ?',session[:cas_user], idUsuarioEditado])
+				true
+			else
+				false
+			end
 		else
 			false
 		end

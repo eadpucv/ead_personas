@@ -1,62 +1,49 @@
 class UserController < ApplicationController
-before_filter CASClient::Frameworks::Rails::Filter
+before_filter CASClient::Frameworks::Rails::Filter, :except => [ :signup, :editPublico, :update, :create, :checkUser, :checkMail ]
 require 'media_wiki'
 
 ###########
 # USUARIO
 
-	def show
-		@usuario = Usuario.find(params[:id])	
-	end
-
 	def signup
 		@usuario = Usuario.new
-		@captcha = generateUniqueHexCode(6)
-		cookies[:capt] = @captcha
 	end
 
 	def editPublico
 		@id = params[:id]
 		@t = params[:t]
 		@usuario = Usuario.find(:first, :conditions => ["id = ? AND token = ?",@id,@t])
+
+		if @usuario.nil?
+			redirect_to  root_path
+		end
 	end
 
 	def edit
-		@id = params[:id]
-		@usuario = Usuario.find(params[:id])
-
-		# hago la consulta solo para comparar usuario logeado vs usuario a editar
-		@loged = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
+		if isAdmin? || editMyOwnUser?(params[:id])
+			@usuario = Usuario.find(params[:id])
+		else
+			redirect_to  root_path
+		end
 	end
 
 	def update
-		@t = params[:t]
-		if Usuario.exists?(['usuario = ? AND admin= ?',session[:cas_user], 'si'])  || @t != nil || verificaUsuario(params[:id]) == TRUE
-			@usuario = Usuario.find(params[:id])
-			if @usuario.update_attributes(params[:usuario])
-				if params[:usuario][:password]
-  			        @contrasena = Digest::SHA1.hexdigest("#{@usuario.password}")
-					@usuario.password = @contrasena
+		@usuario = Usuario.find(params[:id])
+		if isAdmin? || params[:t] == @usuario.token || editMyOwnUser?(params[:id])
+			if params[:usuario][:password]
+				if params[:usuario][:password] == params[:contrasena_rep]
+					@usuario.password = Digest::SHA1.hexdigest("#{params[:usuario][:password]}")
 					@usuario.save!
-				end
-				flash[:notice] = "Se han actualizado los datos de <strong>#{@usuario.nombre}</strong> correctamente"
-					if @usuario.tipo == "a"
-						@tipo = "|Relación con la Escuela=Alumno  \n"
-					end
-					unless @usuario.carrera.blank?
-						@carrera = "|Carreras Relacionadas=#{@usuario.carrera.capitalize} \n"
-					end
-				if @t != nil
-					redirect_to :action => 'notificaPrimerUpdate', :id =>params[:id]
+					flash[:notice] = "Contraseña Actualizada"		
 				else
-					redirect_to :action => 'notificaPrimerUpdate', :id =>params[:id]
+					flash[:notice] = "Las contraseñas no coinciden"		
 				end
-
-					
 			else
-				redirect_to :action => 'edit', :id =>params[:id]    
+				@usuario.update_attributes(params[:usuario])
+				flash[:notice] = "Los datos se han actualizado correctamente."		
 			end
 		end
+		redirect_to  root_path
 	end
 
 	def create
@@ -86,13 +73,13 @@ require 'media_wiki'
 
 			if (@flag==0)
 				if @usuario.save
-	  			    @contrasena = Digest::SHA1.hexdigest("#{@usuario.password}")
+	  			   @contrasena = Digest::SHA1.hexdigest("#{@usuario.password}")
 					@usuario.password = @contrasena
 					@usuario.token = generateUniqueHexCode(10)
 					@usuario.save
 
 					if @usuario.wikipage.blank? || @usuario.wikipage == "" || @usuario.wikipage.nil?
-						@wikipage = "#{params[:usuario][:nombre]}#{params[:usuario][:apellido]}"
+						@wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
 					else
 						@wikipage = @usuario.wikipage
 					end
@@ -100,7 +87,16 @@ require 'media_wiki'
 					begin
 						if @usuario.tipo == "a"
 							@tipo = "|Relación con la Escuela=Alumno  \n"
+						elsif @usuario.tipo == "p"
+							@tipo = "|Relación con la Escuela=Profesor  \n"
+						elsif @usuario.tipo == "e"							
+							@tipo = "|Relación con la Escuela=Ex-Alumno  \n"
+						elsif @usuario.tipo == "f"
+							@tipo = "|Relación con la Escuela=Amigo  \n"
+						elsif @usuario.tipo == "o"
+							@tipo = "|Relación con la Escuela=Otro  \n"
 						end
+
 						unless @usuario.carrera.blank?
 							@carrera = "|Carreras Relacionadas=#{@usuario.carrera.capitalize} \n"
 						end
@@ -110,13 +106,15 @@ require 'media_wiki'
 							#{@tipo}
 							#{@carrera}
 							}}"
-						@usuario.wikipage = create_wikipage(@wikipage,@data,params[:usuario][:bio])
+						casiopea_page = create_wikipage(@wikipage,@data,params[:usuario][:bio])
+						@usuario.wikipage = "http://wiki.ead.pucv.cl/index.php?title="+casiopea_page.to_s
 						@usuario.save!
+
 					rescue MediaWiki::APIError
-						flash[:notice] = "La pagina de la wiki ya existe < #{@wikipage} >, actualiza tus datos"		
+						flash[:notice] = "La pagina de la wiki ya existe < #{@wikipage} >, Tu cuenta se creo de igual manera, pero debes actualizar tus datos"		
 					end
-					
-					redirect_to :action => 'email_send', :id => @usuario.id
+					flash[:notice] = "Usuario Creado"
+					redirect_to root_path
 				else
 					flash[:notice] = "No se ha podido crear el usuario | revise los campos en rojo"
 					redirect_to :action => 'signup'
@@ -129,16 +127,6 @@ require 'media_wiki'
   		  redirect_to :action => 'signup'
 		end
 	end
-
-	def confirmacion	    
-		render :layout => 'publico'	
-	end
-
-	def destroy
-		@usuario = Usuario.find(params[:id])
-		@usuario.destroy
-	end
-
 
 ############
 # CHECKS
@@ -156,20 +144,11 @@ require 'media_wiki'
 	def checkMail
 		@usuario = Usuario.find(:all, :conditions => ["mail = ? ", params[:mail]])
 		if @usuario.blank?
-			@notificacion = "Ok!"
+			@notificacion = '<span class="label label-success">disponible</span>'
 		else
-			@notificacion = "Ocupado!"
+			@notificacion = '<span class="label label-important">no disponible</span>'
 		end
 		render(:text => @notificacion)
 	end
-
-
-	##################################################################################################################
-	# acerca : Info del sitio
-	###
-	    def acerca
-
-	    end
-
 
 end

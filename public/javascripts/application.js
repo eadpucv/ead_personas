@@ -1,13 +1,3 @@
-function checkUser(u) 
-{
-	//var r = new Ajax.Updater("check_user", "/usuarios/checkUser?user="+u, {asynchronous:true, evalScripts:true});
-}
-
-function checkMail(u) 
-{
-	//var r = new Ajax.Updater("check_mail", "/usuarios/checkMail?mail="+u, {asynchronous:true, evalScripts:true});
-}
-
 function carrera(tipo)
 {
 	if (tipo == "a" || tipo == "e") { $('#carrera').show(); } else { $('#carrera').hide();}
@@ -114,7 +104,32 @@ $(document).ready(function() {
          	$("#lc").html(msg);
 			}
 		});
-	});		
+	});
+
+	// checkUser
+	$( "#username_field" ).keyup(function() {
+	   $.ajax({
+      	type: 'POST',
+      	cache: false,
+      	url: '/user/checkUser?user='+$( "#username_field" ).val(), 
+      	success: function(msg) {
+         	$("#check_user").html(msg);
+			}
+		});
+	});
+
+	// checkMail
+	$( "#email_field" ).keyup(function() {
+	   $.ajax({
+      	type: 'POST',
+      	cache: false,
+      	url: '/user/checkMail?mail='+$( "#email_field" ).val(), 
+      	success: function(msg) {
+         	$("#check_mail").html(msg);
+			}
+		});
+	});	
+
 });
 
 function checkPass() 

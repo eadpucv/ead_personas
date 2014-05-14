@@ -173,5 +173,4 @@ require 'media_wiki'
 
 	end
 
-
 end

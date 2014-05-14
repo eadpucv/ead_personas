@@ -19331,3 +19331,130 @@ AbstractController::ActionNotFound (The action 'new' could not be found for User
   
 
 Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Tue May 13 21:00:34 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.8ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `usuarios`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/list.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 50ms (Views: 22.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/block/76" for 127.0.0.1 at Tue May 13 21:00:49 -0300 2014
+  Processing by AdminController#block as JS
+  Parameters: {"id"=>"76"}
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO usuariosbloqueados( id, rut, nombre, apellido, mail, mail_2, mail_3, telefono_fijo, telefono_cel, direccion, tipo, anoingreso, carrera, web, twitter, flickr, usuario, password, token, bio )
+				 SELECT id, rut, nombre, apellido, mail, mail_2, mail_3, telefono_fijo, telefono_cel, direccion, tipo, anoingreso, carrera, web, twitter, flickr, usuario, password, token, bio FROM usuarios WHERE id =76[0m
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 76) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM `usuarios` WHERE (`usuarios`.`id` = 76)
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+Rendered admin/block.js.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 13.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/userIsAdmin/75?accion=y" for 127.0.0.1 at Tue May 13 21:00:54 -0300 2014
+  Processing by AdminController#userIsAdmin as JS
+  Parameters: {"id"=>"75", "accion"=>"y"}
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (2.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 75) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (3.3ms)[0m  [1mUPDATE `usuarios` SET `admin` = 'si' WHERE (`usuarios`.`id` = 75)[0m
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Completed   in 187ms
+
+ActionView::MissingTemplate (Missing template admin/userIsAdmin with {:formats=>[:js, :"application/ecmascript", :"application/x-ecmascript", :"*/*"], :handlers=>[:builder, :erb, :rjs, :rhtml, :rxml], :locale=>[:en, :en]} in view paths "/Users/rodrigomoya/Trabajo/ead_persons/app/views", "/Users/rodrigomoya/Trabajo/ead_persons/vendor/plugins/prototype_legacy_helper/app/views"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/list?txt=mota" for 127.0.0.1 at Tue May 13 21:06:25 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"mota"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (2.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%mota%' OR apellido LIKE '%mota%' OR mail LIKE '%mota%' OR usuario LIKE '%mota%') LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/list.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 35ms (Views: 10.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin/list?txt=moya" for 127.0.0.1 at Tue May 13 21:06:28 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"moya"}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (3.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%moya%' OR apellido LIKE '%moya%' OR mail LIKE '%moya%' OR usuario LIKE '%moya%') LIMIT 30 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/list.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 37ms (Views: 10.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/admin/list?txt=moya" for 127.0.0.1 at Tue May 13 21:08:46 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"moya"}
+  [1m[36mUsuario Load (0.8ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (2.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%moya%' OR apellido LIKE '%moya%' OR mail LIKE '%moya%' OR usuario LIKE '%moya%') LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/list.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 39ms (Views: 13.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/userIsAdmin/1243?accion=y" for 127.0.0.1 at Tue May 13 21:08:54 -0300 2014
+  Processing by AdminController#userIsAdmin as JS
+  Parameters: {"id"=>"1243", "accion"=>"y"}
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 1243) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `usuarios` SET `admin` = 'si' WHERE (`usuarios`.`id` = 1243)[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Rendered admin/userIsAdmin.js.erb (0.4ms)
+Completed 200 OK in 45ms (Views: 12.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/userIsAdmin/1243?accion=y" for 127.0.0.1 at Tue May 13 21:08:59 -0300 2014
+  Processing by AdminController#userIsAdmin as JS
+  Parameters: {"id"=>"1243", "accion"=>"y"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 1243) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+Rendered admin/userIsAdmin.js.erb (0.5ms)
+Completed 200 OK in 44ms (Views: 14.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/list?txt=moya" for 127.0.0.1 at Tue May 13 21:10:58 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"moya"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (3.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%moya%' OR apellido LIKE '%moya%' OR mail LIKE '%moya%' OR usuario LIKE '%moya%') LIMIT 30 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/list.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 49ms (Views: 15.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/admin/userIsAdmin/1243?accion=n" for 127.0.0.1 at Tue May 13 21:11:02 -0300 2014
+  Processing by AdminController#userIsAdmin as JS
+  Parameters: {"id"=>"1243", "accion"=>"n"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 1243) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE `usuarios` SET `admin` = 'no' WHERE (`usuarios`.`id` = 1243)[0m
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Rendered admin/userIsAdmin.js.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 13.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/userIsAdmin/1243?accion=y" for 127.0.0.1 at Tue May 13 21:11:05 -0300 2014
+  Processing by AdminController#userIsAdmin as JS
+  Parameters: {"id"=>"1243", "accion"=>"y"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 1243) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `usuarios` SET `admin` = 'si' WHERE (`usuarios`.`id` = 1243)
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+Rendered admin/userIsAdmin.js.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 13.2ms | ActiveRecord: 1.6ms)

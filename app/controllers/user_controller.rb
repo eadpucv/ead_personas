@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-before_filter CASClient::Frameworks::Rails::Filter, :except => [ :signup, :editPublico, :update, :create, :checkUser, :checkMail ]
+before_filter CASClient::Frameworks::Rails::Filter, :except => [ :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos]
 require 'media_wiki'
 
 ###########
@@ -113,6 +113,8 @@ require 'media_wiki'
 					rescue MediaWiki::APIError
 						flash[:notice] = "La pagina de la wiki ya existe < #{@wikipage} >, Tu cuenta se creo de igual manera, pero debes actualizar tus datos"		
 					end
+
+					UserMailer.registration_confirmation(@usuario).deliver
 					flash[:notice] = "Usuario Creado"
 					redirect_to root_path
 				else
@@ -150,5 +152,26 @@ require 'media_wiki'
 		end
 		render(:text => @notificacion)
 	end
+
+#############
+# Recupera Correo
+
+	def enviaRecuperaMail
+		@tipo ="recupera"
+		@usuario = Usuario.find(:first, :conditions => ["mail = ?", params[:mail]])
+		if @usuario.nil?
+			flash[:notice] = "Este correo no figura en nuestro registro. Tal vez te registraste con un correo antiguo que ya no usas."
+			redirect_to :action => 'recuperacionDatos'
+		else
+			UserMailer.recuperacion_datos(@usuario).deliver
+			flash[:notice] = "Los datos del usuario #{@usuario.nombre}  #{@usuario.apellido} [#{@usuario.usuario}] han sido enviados a la direccion de mail."
+			redirect_to root_path
+		end
+	end
+
+	def recuperacionDatos
+
+	end
+
 
 end

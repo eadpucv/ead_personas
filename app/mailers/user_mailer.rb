@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def update_primer(user)
-	@usuario = user
-	mail(:to => user.mail, :subject => "Actualización de Datos [personas e[ad]]")
+    @usuario = user
+    mail(:to => user.mail, :subject => "Actualización de Datos [personas e[ad]]")
   end
 end

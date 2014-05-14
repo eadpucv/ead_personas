@@ -1,27 +1,121 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-
 function checkUser(u) 
 {
-	var r = new Ajax.Updater("check_user", "/usuarios/checkUser?user="+u, {asynchronous:true, evalScripts:true});
+	//var r = new Ajax.Updater("check_user", "/usuarios/checkUser?user="+u, {asynchronous:true, evalScripts:true});
 }
 
 function checkMail(u) 
 {
-	var r = new Ajax.Updater("check_mail", "/usuarios/checkMail?mail="+u, {asynchronous:true, evalScripts:true});
+	//var r = new Ajax.Updater("check_mail", "/usuarios/checkMail?mail="+u, {asynchronous:true, evalScripts:true});
 }
 
 function carrera(tipo)
 {
-	if (tipo == "a" || tipo == "e")
-	{
-		document.getElementById('carrera').style.display = 'inline';
-	}
-	else
-	{
-		document.getElementById('carrera').style.display = 'none';
-	}
+	if (tipo == "a" || tipo == "e") { $('#carrera').show(); } else { $('#carrera').hide();}
 }
+
+
+$(document).ready(function() {
+
+	// Cambiar tipo de persona
+	$( "#btn_change_type" ).click(function() {
+		var resp = confirm('¿Estás seguro que quieres cambiar el tipo de personas?');
+	   if (resp) {
+		   $.ajax({
+	      	type: 'POST',
+	      	cache: false,
+	      	url: '/admin/changeUserType',
+	      	data: $('#lotes').serialize(), 
+	      	success: function(msg) {
+	         	// Actualizar Dom
+	      		$.each(JSON.parse(msg), function(index, value) {
+       				$('#tipo_u_'+value[0]).html(value[1]);
+   				});
+   				$('#formChangeType').remove();
+
+				}
+			});
+	   }
+	});
+
+	// Generar Lista
+	$( "#btn_list" ).click(function() {
+	   $.ajax({
+      	type: 'POST',
+      	cache: false,
+      	url: '/admin/makeMailList',
+      	data: $('#lotes').serialize(), 
+      	success: function(msg) {
+         	// Actualizar Dom
+         	$("#someResults").html(msg);
+			}
+		});
+	});
+
+	// Bloquear usuarios
+	$( "#btn_block" ).click(function() {
+		var resp = confirm('¿Estás seguro que quieres bloquear estas personas?');
+	   if (resp) {
+		   $.ajax({
+	      	type: 'POST',
+	      	cache: false,
+	      	url: '/admin/blockXlote',
+	      	data: $('#lotes').serialize(), 
+	      	success: function(msg) {
+	      		$.each(JSON.parse(msg), function(index, value) {
+       				$('#u_'+value).remove();
+   				});
+				}
+			});
+	   }
+	});
+
+	// Eliminar usuarios bloqueados
+	$( "#delete_selected_blocked" ).click(function() {
+		var resp = confirm('¿Estás seguro que quieres eliminar a estos usuarios bloqueados?');
+	   if (resp) {
+		   $.ajax({
+	      	type: 'POST',
+	      	cache: false,
+	      	url: '/admin/deleteXlote?o=custom',
+	      	data: $('#block').serialize(), 
+	      	success: function(msg) {
+	      		$.each(JSON.parse(msg), function(index, value) {
+       				$('#u_'+value).remove();
+   				});
+				}
+			});
+	   }
+	});	
+
+	// Eliminar TODOS los usuarios bloqueados
+	$( "#delete_all_blocked" ).click(function() {
+		var resp = confirm('¿Estás seguro que quieres eliminar a TODOS los usuarios bloqueados?');
+	   if (resp) {
+		   $.ajax({
+	      	type: 'POST',
+	      	cache: false,
+	      	url: '/admin/deleteXlote?o=all',
+	      	data: $('#block').serialize(), 
+	      	success: function(msg) {
+	         	$("#fd-table-1 > tbody").html("");
+				}
+			});
+	   }
+	});
+
+	// Eliminar TODOS los usuarios bloqueados
+	$( "#btn_make_list" ).click(function() {
+	   $.ajax({
+      	type: 'POST',
+      	cache: false,
+      	url: '/admin/maillistgenerator',
+      	data: $('#listaCorreo').serialize(), 
+      	success: function(msg) {
+         	$("#lc").html(msg);
+			}
+		});
+	});		
+});
 
 function checkPass() 
 {
@@ -37,55 +131,3 @@ function checkPass()
 			document.getElementById('passwordNotify').innerHTML = '<b style="color:red;">No coinciden</strong>';
 		}
 }
-
-function blankDiv() {document.getElementById('listaCorreo').innerHTML = '';}
-
-function confirmBlock() {
-	var x = confirm('¿Estás seguro que quieres bloquear estas personas?');
-	if (x)
-	{
-		new Ajax.Updater('tmp','/usuarios/blockXlote', {asynchronous:true, evalScripts:true, parameters:Form.serialize(document.forms['lotes'])});				
-	}
-	else
-	{
-		alert('Esta persona no se bloqueara.');
-	}
-	
-}
-
-function confirmDelete() {
-	var x = confirm('¿Estás seguro que quieres ELIMINAR a estas personas(BLOQUEADAS) para siempre?');
-	
-	if (x)
-	{	
-		new Ajax.Updater('tmp','/usuarios/deleteXlote?o=custom', {asynchronous:true, evalScripts:true, parameters:Form.serialize(document.forms['block'])});				
-	}
-	else
-	{
-		alert('No se borraran los usuarios.');
-	}
-}
-
-function confirmDeleteAll() {
-	var x = confirm('¿Estás seguro que quieres ELIMINAR a TODAS estas personas(BLOQUEADAS) para siempre?');
-	if (x) 
-	{
-		new Ajax.Updater('tmp','/usuarios/deleteXlote?o=all', {asynchronous:true, evalScripts:true});
-	}
-	else
-	{
-		alert('No se borraran los usuarios.');
-	}
-}
-
-
-function formChangeType(opt){
-	if (opt=="ver")
-		document.getElementById("formChangeType").style.display = "inline";
-	else
-		document.getElementById("formChangeType").style.display = "none";
-}	
-
-
-
-

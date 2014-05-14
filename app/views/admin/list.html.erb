@@ -1,0 +1,94 @@
+<% content_for :content do %>
+	<div id="listaCorreo">
+	  
+	</div>
+	
+	<h2>Búsqueda de Personas</h2>
+	
+	<form class="form-inline text-center air"> 
+		<input type="text" id="txt" name="txt" class="input-large search-query air-right" size="30"/>
+	</form>
+
+	<form id="lotes">
+		<div id="formChangeType" style="display:none;">
+			<div style="float:left;" id="cambiaTipoConfirm"></div>			
+			<table class="table">
+				<tr>
+					<td><input type="radio" name="t" value="a" checked> Alumno</input></td>
+					<td><input type="radio" name="t" value="p"> Profesor</input></td>
+					<td><input type="radio" name="t" value="e"> Ex-Alumno</input></td>
+					<td><input type="radio" name="t" value="f"> Amigo</input></td>
+					<td><input type="radio" name="t" value="o"> Otro</input></td>
+					<td><a href="#" id="btn_change_type"> Cambiar Tipo</a></td>
+					<td><a href="#" onclick="$('#formChangeType').toggle();">[cerrar]</a></td>
+				</tr>
+			</table>		
+		</div>
+
+		<div id="tmp"></div>
+		<div id="form_buttons" class="text-right">
+			<input class="btn btn-mini" id="btn_block"  type="button" value="Bloquear" />
+			<input class="btn btn-mini" id="btn_list" onclick="" type="button" value="Lista de Correo" />
+			<input class="btn btn-mini" id="btn_change_type" onclick="$('#formChangeType').toggle();" type="button" value="Cambiar Tipo" />
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+			      <th class="sortable-text">Usuario</th>
+					<th class="sortable-text">Nombre</th>
+		      	<th class="sortable-text">Apellido</th>      			
+		      	<th class="sortable-text">Mail</th>
+					<th class="sortable-text">Tipo</th>
+					<th class="sortable-text"></th>
+					<th class="sortable-text"></th>	
+				</tr>
+			</thead>
+			<tbody id="resultado">
+				<% for user in @usuarios %>
+					<tr id="u_<%= user.id %>">
+						<td class="username" >
+							<a class="edit" href="/user/edit/<%= user.id %>"><%= user.usuario %></a> 
+							<div id="not<%= user.id %>"></div>
+						</td>
+						<td class="nombre"><%= user.nombre %></td>
+						<td class="apellido"><%= user.apellido %></td>
+						<td class="mail"><%= user.mail %></td>
+						<td class="tipo"> 
+							<div id="tipo_u_<%= user.id %>">
+								<% if user.tipo == 'a'%> Alumno <% end %>
+								<% if user.tipo == 'e'%> Exalumno <% end %> 
+								<% if user.tipo == 'p'%> Profesor <% end %> 
+								<% if user.tipo == 'n'%> NULL <% end %> 
+								<% if user.tipo == 'f'%> Amigo <% end %>
+								<% if user.tipo == 'o'%> Otro <% end %>
+							</div>
+						</td>
+					
+						<td class="options">
+							<%= link_to "/admin/block/"+user.id.to_s, :remote=> true, :confirm=> "¿Realmente deseas bloquear a este usuario?" do %>					
+								<i class="icon-minus-sign"></i>
+							<% end %>
+						</td>
+					
+						<td class="options">
+							<b id='llave_<%= user.id %>'>
+							<% if user.admin == "si" %>		
+								<%= link_to "/admin/userIsAdmin/"+user.id.to_s+"?accion=n", :remote=> true, :class=>"active", :confirm=> "¿Realmente deseas que el usuario #{user.nombre} #{user.apellido} ya no sea Administrador?" do %>	
+									<i class="icon-key"></i>
+								<% end %>						
+							<% else %>
+								<%= link_to "/admin/userIsAdmin/"+user.id.to_s+"?accion=y", :remote=> true, :confirm=> "¿Realmente deseas que el usuario #{user.nombre} #{user.apellido} sea Administrador?" do %>	
+									<i class="icon-key"></i>
+								<% end %>							
+							<% end %>
+						</td>
+						<td>
+							<input type="checkbox" name="por_lote[]" id="checkbox_<%= user.id %>" value="<%= user.id %>">
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</form>
+	</table>
+<% end %>

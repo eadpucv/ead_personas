@@ -4,6 +4,9 @@ require 'media_wiki'
 
 ###########
 # USUARIO
+	def home_user
+
+	end
 
 	def signup
 		@usuario = Usuario.new
@@ -35,15 +38,21 @@ require 'media_wiki'
 					@usuario.password = Digest::SHA1.hexdigest("#{params[:usuario][:password]}")
 					@usuario.save!
 					flash[:notice] = "Contraseña Actualizada"		
+					redirect_to  root_path
 				else
 					flash[:notice] = "Las contraseñas no coinciden"		
+					redirect_to :action => 'edit', :id=> params[:id]
 				end
 			else
-				@usuario.update_attributes(params[:usuario])
-				flash[:notice] = "Los datos se han actualizado correctamente."		
+				if @usuario.update_attributes(params[:usuario])
+					flash[:notice] = "Los datos se han actualizado correctamente."		
+					redirect_to  root_path
+				else
+					flash[:notice] = "Tienes problemas con tu formulario, Completa todos los datos"		
+					redirect_to :action => 'edit', :id=> params[:id]					
+				end
 			end
 		end
-		redirect_to  root_path
 	end
 
 	def create

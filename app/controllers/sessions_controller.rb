@@ -10,5 +10,6 @@ class SessionsController < ApplicationController
 
 	def login
 		redirect_to CASClient::Frameworks::Rails::Filter.login_url(self)
-	end	
+	end
+	
 end

@@ -1,7 +1,0 @@
-{
-  "name": "personas",
-  "version": "2.0.0",
-  "dependencies": {
-    "ego": "git@github.com:eadpucv/pyxis.git"
-  }
-}

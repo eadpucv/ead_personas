@@ -22,20 +22,32 @@
 	   
 	</div>
 	<div class="container">
-	  	<div class="row"><div class="span12" id="someResults"></div></div>
+	  	<div class="row">
+	  		<% if session[:cas_user] %>
+	  			<% if isAdmin? %>
+					<div class="span2 dropdown">
+					  <a data-toggle="dropdown" href="#">Administrador</a>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li><a class="search" href="/admin/list">Buscar</a></li>
+							<li><a class="block" href="/admin/blockedUsers">Bloqueados</a></li>
+							<li><a class="filter" href="/admin/maillist">Filtrar</a></li>
+							<li><a class="add" href="/user/signup">Nuevo Usuario</a></li>				
+					  </ul>
+					</div>
+					<div class="span10" id="someResults"></div>
+				<% end %>
+			<% else %>
+				<div class="span12" id="someResults"></div>
+			<% end %>
+	  	</div>
 		<div class="row">
 		   <div class="span12">
+				<% if flash[:notice] %><div class="alert alert-error"><%=flash[:notice] %></div><% end %>			
 				<div class="content">	
-					<% if flash[:notice] %>
-						<div class="alert alert-error">
-							<%=flash[:notice] %>
-						</div>
-					<% end %>			
 					<%= yield :content %>
 				</div>
 		    </div>
 		</div>
-		<div class="row"></div>
 	</div>	
 
 	<footer>
@@ -46,6 +58,7 @@
 </body>
 
 <script type="text/javascript">
+
 	$(document).ready(function(){ $( "body" ).load_ead_bar({
 		id: "<%= session[:cas_extra_attributes][:id] if session[:cas_extra_attributes]%>",
 		mail: "<%= session[:cas_extra_attributes][:mail] if session[:cas_extra_attributes]%>",

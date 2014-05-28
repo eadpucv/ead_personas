@@ -9,4 +9,16 @@ module ApplicationHelper
 		end
 	end
 
+	def isAdmin?()
+		if session[:cas_user]
+			@user = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
+			if @user.admin == "si"
+				true
+			else
+				false
+			end
+		else
+			false
+		end
+	end
 end

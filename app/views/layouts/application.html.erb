@@ -18,11 +18,13 @@
 </head>
 
 <body>
-
+	<div class="navbar">
+	   
+	</div>
 	<div class="container">
-	  	<div class="row">
-		    <div class="span12" id="someResults"></div>
-		    <div class="span12">
+	  	<div class="row"><div class="span12" id="someResults"></div></div>
+		<div class="row">
+		   <div class="span12">
 				<div class="content">	
 					<% if flash[:notice] %>
 						<div class="alert alert-error">
@@ -33,10 +35,13 @@
 				</div>
 		    </div>
 		</div>
+		<div class="row"></div>
 	</div>	
 
 	<footer>
+		<div class="container">
 		<p class="text-center"><strong>Personas</strong> es un sistema de registro único (SSO) desarrollado por el <a href="http://www.ead.pucv.cl/mundo/investigacion/tig/">.:TIG:.</a> para todos los servicios de la <a href="http://www.ead.pucv.cl/">e[ad] Escuela de Arquitectura y Diseño PUCV</a>.</p>
+		</div>
 	</footer>
 </body>
 

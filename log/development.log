@@ -24192,3 +24192,422 @@ DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use 
 DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_html_erb__538372416_2184375600_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/edit.html.erb:81)
 Rendered user/edit.html.erb within layouts/application (7.5ms)
 Completed 200 OK in 43ms (Views: 13.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/list?txt=hspencer" for 127.0.0.1 at Wed May 28 18:28:37 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"hspencer"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (7.1ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%hspencer%' OR apellido LIKE '%hspencer%' OR mail LIKE '%hspencer%' OR usuario LIKE '%hspencer%') LIMIT 30 OFFSET 0
+Rendered admin/list.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 45ms (Views: 13.2ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/admin/list?txt=rodrigo" for 127.0.0.1 at Wed May 28 18:29:29 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"rodrigo"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (3.1ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%rodrigo%' OR apellido LIKE '%rodrigo%' OR mail LIKE '%rodrigo%' OR usuario LIKE '%rodrigo%') LIMIT 30 OFFSET 0
+  [1m[36mSQL (2.6ms)[0m  [1mSELECT COUNT(*) FROM `usuarios` WHERE (nombre LIKE '%rodrigo%' OR apellido LIKE '%rodrigo%' OR mail LIKE '%rodrigo%' OR usuario LIKE '%rodrigo%')[0m
+Rendered admin/list.html.erb within layouts/application (104.0ms)
+Completed 200 OK in 143ms (Views: 111.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/admin/blockedUsers" for 127.0.0.1 at Wed May 28 18:29:58 -0300 2014
+  Processing by AdminController#blockedUsers as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuariosbloqueados Load (3.2ms)[0m  [1mSELECT `usuariosbloqueados`.* FROM `usuariosbloqueados`[0m
+Rendered admin/blockedUsers.erb within layouts/application (14.5ms)
+Completed 200 OK in 48ms (Views: 20.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 18:30:06 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/maillist.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 113ms (Views: 10.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/admin/maillistgenerator" for 127.0.0.1 at Wed May 28 18:30:14 -0300 2014
+  Processing by AdminController#maillistgenerator as */*
+  Parameters: {"carrera"=>["Diseño"], "tipo"=>["e"], "tipolista"=>"correo", "date"=>{"anodesde"=>"1972", "anohasta"=>"2014"}}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (2.4ms)[0m  [1mSELECT usuarios.usuario, usuarios.carrera, usuarios.anoingreso,usuarios.nombre,usuarios.apellido,usuarios.mail FROM usuarios WHERE usuarios.anoingreso <= 2014 AND usuarios.anoingreso >= 1972 AND ( usuarios.tipo = 'e')AND ( usuarios.carrera LIKE '%Diseño%')[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 26ms (Views: 1.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/list?txt=rodrigo" for 127.0.0.1 at Wed May 28 18:32:07 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"rodrigo"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (4.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%rodrigo%' OR apellido LIKE '%rodrigo%' OR mail LIKE '%rodrigo%' OR usuario LIKE '%rodrigo%') LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (2.6ms)[0m  SELECT COUNT(*) FROM `usuarios` WHERE (nombre LIKE '%rodrigo%' OR apellido LIKE '%rodrigo%' OR mail LIKE '%rodrigo%' OR usuario LIKE '%rodrigo%')
+Rendered admin/list.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 142ms (Views: 18.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/admin/list?txt=hspencer" for 127.0.0.1 at Wed May 28 18:32:19 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"hspencer"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (2.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%hspencer%' OR apellido LIKE '%hspencer%' OR mail LIKE '%hspencer%' OR usuario LIKE '%hspencer%') LIMIT 30 OFFSET 0
+Rendered admin/list.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 36ms (Views: 9.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin/list?txt=hspencer" for 127.0.0.1 at Wed May 28 18:33:43 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"hspencer"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (3.2ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%hspencer%' OR apellido LIKE '%hspencer%' OR mail LIKE '%hspencer%' OR usuario LIKE '%hspencer%') LIMIT 30 OFFSET 0
+Rendered admin/list.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 41ms (Views: 12.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/list?txt=hspencer" for 127.0.0.1 at Wed May 28 18:34:16 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"hspencer"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (2.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%hspencer%' OR apellido LIKE '%hspencer%' OR mail LIKE '%hspencer%' OR usuario LIKE '%hspencer%') LIMIT 30 OFFSET 0
+Rendered admin/list.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 41ms (Views: 10.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin/list?txt=hspencer" for 127.0.0.1 at Wed May 28 18:34:26 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"hspencer"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (3.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%hspencer%' OR apellido LIKE '%hspencer%' OR mail LIKE '%hspencer%' OR usuario LIKE '%hspencer%') LIMIT 30 OFFSET 0
+Rendered admin/list.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 38ms (Views: 9.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/list?txt=hspencer" for 127.0.0.1 at Wed May 28 18:34:54 -0300 2014
+  Processing by AdminController#list as HTML
+  Parameters: {"txt"=>"hspencer"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (2.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (nombre LIKE '%hspencer%' OR apellido LIKE '%hspencer%' OR mail LIKE '%hspencer%' OR usuario LIKE '%hspencer%') LIMIT 30 OFFSET 0
+Rendered admin/list.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 40ms (Views: 12.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:43:19 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.9ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+Rendered admin/list.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 52ms (Views: 22.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stylesheets/personas.css" for 127.0.0.1 at Wed May 28 18:43:20 -0300 2014
+
+ActionController::RoutingError (No route matches "/stylesheets/personas.css"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:43:23 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.8ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 114ms (Views: 19.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/stylesheets/personas.css" for 127.0.0.1 at Wed May 28 18:43:23 -0300 2014
+
+ActionController::RoutingError (No route matches "/stylesheets/personas.css"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:45:00 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+Rendered admin/list.html.erb within layouts/application (84.5ms)
+Completed 200 OK in 121ms (Views: 91.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stylesheets/personas.css" for 127.0.0.1 at Wed May 28 18:45:00 -0300 2014
+
+ActionController::RoutingError (No route matches "/stylesheets/personas.css"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:45:44 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 52ms (Views: 22.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:46:25 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+Rendered admin/list.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 51ms (Views: 22.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:46:52 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.9ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 47ms (Views: 21.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:47:07 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+Rendered admin/list.html.erb within layouts/application (83.3ms)
+Completed 200 OK in 119ms (Views: 88.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:48:32 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 56ms (Views: 22.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:50:14 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+Rendered admin/list.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 52ms (Views: 25.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:51:21 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 53ms (Views: 23.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/user/edit/2162" for 127.0.0.1 at Wed May 28 18:51:52 -0300 2014
+  Processing by UserController#edit as HTML
+  Parameters: {"id"=>"2162"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1[0m
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_html_erb___120161914_2284295400_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/edit.html.erb:4)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_html_erb___120161914_2284295400_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/edit.html.erb:81)
+Rendered user/edit.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 42ms (Views: 14.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:52:57 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (86.1ms)
+Completed 200 OK in 121ms (Views: 92.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:53:44 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 28ms (Views: 1.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:54:09 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 125ms (Views: 17.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:54:13 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 29ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:54:39 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (1.2ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 144ms (Views: 21.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:54:42 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:55:04 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 129ms (Views: 21.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:55:07 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.2ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:55:28 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 46ms (Views: 20.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:55:38 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 34ms (Views: 1.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:56:36 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.8ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 46ms (Views: 20.1ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:56:39 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.3ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 30ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:57:45 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.8ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM `usuarios`
+Rendered admin/list.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 56ms (Views: 22.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:57:50 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 112ms (Views: 1.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:57:53 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1
+Rendered text template (0.0ms)
+Completed 200 OK in 29ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 18:58:23 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+Rendered admin/list.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 50ms (Views: 21.7ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:58:28 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163"]}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1[0m
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1
+Rendered text template (0.0ms)
+Completed 200 OK in 33ms (Views: 1.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/admin/makeMailList" for 127.0.0.1 at Wed May 28 18:58:35 -0300 2014
+  Processing by AdminController#makeMailList as */*
+  Parameters: {"t"=>"a", "por_lote"=>["2162", "2163", "92", "93", "94"]}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2162) LIMIT 1
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 92) LIMIT 1
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 93) LIMIT 1[0m
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 94) LIMIT 1
+Rendered text template (0.0ms)
+Completed 200 OK in 30ms (Views: 0.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 18:58:45 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/maillist.html.erb within layouts/application (94.3ms)
+Completed 200 OK in 123ms (Views: 100.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/edit/2163" for 127.0.0.1 at Wed May 28 19:00:10 -0300 2014
+  Processing by UserController#edit as HTML
+  Parameters: {"id"=>"2163"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 2163) LIMIT 1
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_html_erb___120161914_2297512360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/edit.html.erb:4)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_html_erb___120161914_2297512360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/edit.html.erb:81)
+Rendered user/edit.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 39ms (Views: 14.2ms | ActiveRecord: 1.0ms)

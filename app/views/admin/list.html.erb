@@ -1,22 +1,20 @@
 <% content_for :content do %>
-	<div id="listaCorreo"></div>
 	
 	<h2>Búsqueda de Personas</h2>
-	
 	<div class="row">
 		<div class"span8">
-		<ul style="list-style: none; ">
-			<li <% if action_name=="list" %> class="active" <% end %> style="display: inline">
-				<a class="search" href="/admin/list">Buscar</a> | 
-			</li>
-			<li <% if action_name=="blockedUsers" %> class="active" <% end %> style="display: inline">
-				<a class="block" href="/admin/blockedUsers">Bloqueados</a> | 
-			</li>
-	
-			<li <% if action_name=="maillist" %> class="active" <% end %> style="display: inline">
-				<a class="filter" href="/admin/maillist">Filtrar</a>
-			</li>
-		</ul>
+			<ul style="list-style: none; ">
+				<li <% if action_name=="list" %> class="active" <% end %> style="display: inline">
+					<a class="search" href="/admin/list">Buscar</a> | 
+				</li>
+				<li <% if action_name=="blockedUsers" %> class="active" <% end %> style="display: inline">
+					<a class="block" href="/admin/blockedUsers">Bloqueados</a> | 
+				</li>
+		
+				<li <% if action_name=="maillist" %> class="active" <% end %> style="display: inline">
+					<a class="filter" href="/admin/maillist">Filtrar</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 
@@ -31,6 +29,7 @@
 			<a class="add" href="/user/signup">Nuevo Usuario</a>
 		</div>
 	</div>
+	
 	<form id="lotes">
 		<div id="formChangeType" style="display:none;">
 			<div style="float:left;" id="cambiaTipoConfirm"></div>			

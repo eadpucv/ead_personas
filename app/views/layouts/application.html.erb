@@ -18,27 +18,33 @@
 </head>
 
 <body>
-	<div class="navbar">
-	   
-	</div>
-	<div class="container">
-	  	<div class="row">
 	  		<% if session[:cas_user] %>
 	  			<% if isAdmin? %>
-					<div class="span2 dropdown">
-					  <a data-toggle="dropdown" href="#">Administrador</a>
-					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<li><a class="search" href="/admin/list">Buscar</a></li>
-							<li><a class="block" href="/admin/blockedUsers">Bloqueados</a></li>
-							<li><a class="filter" href="/admin/maillist">Filtrar</a></li>
-							<li><a class="add" href="/user/signup">Nuevo Usuario</a></li>				
-					  </ul>
+					<div class="navbar">
+					    <div class="navbar-inner">
+					    	<div class="container">
+								<div class="nav-collapse collapse">
+									<ul class="nav">
+										<li class="dropdown">
+											<a data-toggle="dropdown" class="dropdown-toggle" href="#">Administración</a>
+											<b class="caret"></b>
+											<ul class="dropdown-menu">
+												<li><a class="search" href="/admin/list">Buscar</a></li>
+												<li><a class="block" href="/admin/blockedUsers">Bloqueados</a></li>
+												<li><a class="filter" href="/admin/maillist">Filtrar</a></li>
+												<li><a class="add" href="/user/signup">Nuevo Usuario</a></li>		
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="span10" id="someResults"></div>
-				<% end %>
-			<% else %>
-				<div class="span12" id="someResults"></div>
+				<% end %>	
 			<% end %>
+		<div class="container">
+	  	<div class="row">
+			<div class="span12" id="someResults"></div>
 	  	</div>
 		<div class="row">
 		   <div class="span12">

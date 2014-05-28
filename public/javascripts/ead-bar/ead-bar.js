@@ -68,6 +68,7 @@
 						$("#ead_bar_dropdown_sub_ul").show();
 						e.stopPropagation();
 					}
+					$( "#ead-bar-dropdown_li" ).blur();
 				});
 
 				// Usuario, Menu movil
@@ -77,6 +78,7 @@
 					} else {
 						$("#ead_bar_user_menu-movil").show();
 					}
+					$( "#ead-bar-dropdown_li-movil" ).blur();
 				});				
 
 				// Salir del menu cuando se hace click en otro punto y el menu esta abierto
@@ -90,8 +92,8 @@
 
 			} else {
 				// Habilitar boton y link para iniciar session
-				$("#ead-bar-dropdown_li").prepend("<a href='"+options.site_login_url+"' id='ead_bar_dropdown-session' class='iniciarsesion'><img class='usuario_inactive' src='https://s3.amazonaws.com/Ead/ead_bar_images/icon-usuario.gif'>Iniciar sesión</a>")
-				$("#ead-bar-dropdown_li-movil").prepend("<a href='"+options.site_login_url+"' id='ead_bar_dropdown-session' class='iniciarsesion'><img class='usuario_active' src='https://s3.amazonaws.com/Ead/ead_bar_images/icon-usuario.gif'>Iniciar sesión</a>")				
+				$("#ead-bar-dropdown_li").prepend("<a href='"+options.site_login_url+"' id='ead_bar_dropdown-session' class='iniciarsesion'>Iniciar sesión</a>")
+				$("#ead-bar-dropdown_li-movil").prepend("<a href='"+options.site_login_url+"' id='ead_bar_dropdown-session' class='iniciarsesion'>Iniciar sesión</a>")				
 			}
 
 			// Identificar Sitio

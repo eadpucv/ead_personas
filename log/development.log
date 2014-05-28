@@ -25239,3 +25239,358 @@ Started POST "/admin/maillistgenerator" for 127.0.0.1 at Wed May 28 20:00:19 -03
   [1m[35mUsuario Load (3.2ms)[0m  SELECT usuarios.usuario, usuarios.carrera, usuarios.anoingreso,usuarios.nombre,usuarios.apellido,usuarios.mail FROM usuarios WHERE usuarios.anoingreso <= 2014 AND usuarios.anoingreso >= 1988 AND ( usuarios.tipo = 'a')AND ( usuarios.carrera LIKE '%Diseño%')
 Rendered text template (0.0ms)
 Completed 200 OK in 33ms (Views: 1.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:00:56 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/maillist.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 208ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/admin/maillistgenerator" for 127.0.0.1 at Wed May 28 20:01:00 -0300 2014
+  Processing by AdminController#maillistgenerator as */*
+  Parameters: {"date"=>{"anodesde"=>"1988", "anohasta"=>"2014"}, "tipo"=>["a"], "tipolista"=>"sm", "carrera"=>["Diseño"]}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (3.6ms)[0m  [1mSELECT usuarios.usuario, usuarios.carrera, usuarios.anoingreso,usuarios.nombre,usuarios.apellido,usuarios.mail FROM usuarios WHERE usuarios.anoingreso <= 2014 AND usuarios.anoingreso >= 1988 AND ( usuarios.tipo = 'a')AND ( usuarios.carrera LIKE '%Diseño%')[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 35ms (Views: 1.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/admin/blockedUsers" for 127.0.0.1 at Wed May 28 20:01:19 -0300 2014
+  Processing by AdminController#blockedUsers as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuariosbloqueados Load (0.5ms)[0m  [1mSELECT `usuariosbloqueados`.* FROM `usuariosbloqueados`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/blockedUsers.erb within layouts/application (17.1ms)
+Completed 200 OK in 218ms (Views: 21.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:01:24 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/maillist.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 41ms (Views: 14.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed May 28 20:01:28 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315707380_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___1084025483_2315707380_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315707380_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered user/signup.html.erb within layouts/application (191.4ms)
+Completed 200 OK in 209ms (Views: 196.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user/checkUser?user=r" for 127.0.0.1 at Wed May 28 20:01:53 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"r"}
+  [1m[36mUsuario Load (2.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'r' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/user/checkUser?user=ro" for 127.0.0.1 at Wed May 28 20:01:53 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"ro"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'ro' )
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user/checkUser?user=rod" for 127.0.0.1 at Wed May 28 20:01:53 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rod"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rod' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user/checkUser?user=rodr" for 127.0.0.1 at Wed May 28 20:01:54 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodr"}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodr' )
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user/checkUser?user=rodri" for 127.0.0.1 at Wed May 28 20:01:54 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodri"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodri' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user/checkUser?user=rodrig" for 127.0.0.1 at Wed May 28 20:01:55 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodrig"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrig' )
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user/checkUser?user=rodrigo" for 127.0.0.1 at Wed May 28 20:01:55 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodrigo"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigo' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/user/checkUser?user=rodrigo" for 127.0.0.1 at Wed May 28 20:01:55 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodrigo"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigo' )
+Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user/checkUser?user=rodrigom" for 127.0.0.1 at Wed May 28 20:01:57 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodrigom"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigom' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user/checkUser?user=rodrigomt" for 127.0.0.1 at Wed May 28 20:01:57 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt' )
+Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user/checkUser?user=rodrigomte" for 127.0.0.1 at Wed May 28 20:01:59 -0300 2014
+  Processing by UserController#checkUser as */*
+  Parameters: {"user"=>"rodrigomte"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomte' )[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:02:15 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/maillist.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 35ms (Views: 11.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/blockedUsers" for 127.0.0.1 at Wed May 28 20:02:20 -0300 2014
+  Processing by AdminController#blockedUsers as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuariosbloqueados Load (0.4ms)[0m  SELECT `usuariosbloqueados`.* FROM `usuariosbloqueados`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/blockedUsers.erb within layouts/application (17.3ms)
+Completed 200 OK in 50ms (Views: 23.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:02:23 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/maillist.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 40ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed May 28 20:02:25 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315115360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___1084025483_2315115360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315115360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/signup.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 33ms (Views: 23.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed May 28 20:05:34 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315202460_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___1084025483_2315202460_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315202460_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered user/signup.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 40ms (Views: 27.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed May 28 20:05:41 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2314040460_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___1084025483_2314040460_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2314040460_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[36mUsuario Load (0.8ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/signup.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 43ms (Views: 32.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed May 28 20:06:16 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315768960_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___1084025483_2315768960_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2315768960_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered user/signup.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 42ms (Views: 31.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/blockedUsers" for 127.0.0.1 at Wed May 28 20:06:26 -0300 2014
+  Processing by AdminController#blockedUsers as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuariosbloqueados Load (0.4ms)[0m  SELECT `usuariosbloqueados`.* FROM `usuariosbloqueados`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/blockedUsers.erb within layouts/application (219.0ms)
+Completed 200 OK in 254ms (Views: 226.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:06:30 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/maillist.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 38ms (Views: 12.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed May 28 20:06:33 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2313804440_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___1084025483_2313804440_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___1084025483_2313804440_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/signup.html.erb within layouts/application (220.2ms)
+Completed 200 OK in 241ms (Views: 227.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:06:42 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/maillist.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 35ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:06:45 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/list.html.erb within layouts/application (210.4ms)
+Completed 200 OK in 243ms (Views: 215.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed May 28 20:09:01 -0300 2014
+  Processing by SessionsController#logout as HTML
+Redirected to http://190.208.62.202:443/cas/logout?gateway=true&destination=http%3A%2F%2Flocalhost%3A3000%2Fadmin%2Flist
+Completed 302 Found in 1ms
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:09:02 -0300 2014
+  Processing by AdminController#list as HTML
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fadmin%2Flist
+Completed 302 Found in 2ms
+
+
+Started GET "/" for 127.0.0.1 at Wed May 28 20:09:08 -0300 2014
+  Processing by OthersController#index as HTML
+Rendered others/index.html.erb within layouts/application (225.7ms)
+Completed 200 OK in 234ms (Views: 233.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home_user" for 127.0.0.1 at Wed May 28 20:09:15 -0300 2014
+  Processing by UserController#home_user as HTML
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fhome_user
+Completed 302 Found in 2ms
+
+
+Started GET "/" for 127.0.0.1 at Wed May 28 20:10:36 -0300 2014
+  Processing by OthersController#index as HTML
+Rendered others/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed May 28 20:12:28 -0300 2014
+  Processing by OthersController#index as HTML
+Rendered others/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 206ms (Views: 205.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home_user" for 127.0.0.1 at Wed May 28 20:12:32 -0300 2014
+  Processing by UserController#home_user as HTML
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fhome_user
+Completed 302 Found in 1ms
+
+
+Started GET "/home_user?ticket=ST-1401318761rIAL-IS91utfEHxxuaU" for 127.0.0.1 at Wed May 28 20:12:41 -0300 2014
+  Processing by UserController#home_user as HTML
+  Parameters: {"ticket"=>"ST-1401318761rIAL-IS91utfEHxxuaU"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/home_user.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 1859ms (Views: 31.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home_user?ticket=ST-1401318761rIAL-IS91utfEHxxuaU" for 127.0.0.1 at Wed May 28 20:19:50 -0300 2014
+  Processing by UserController#home_user as HTML
+  Parameters: {"ticket"=>"ST-1401318761rIAL-IS91utfEHxxuaU"}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered user/home_user.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 39ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:19:57 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (1.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/list.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 246ms (Views: 20.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:25:38 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.8ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/list.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 261ms (Views: 21.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:25:49 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `usuarios`[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered admin/list.html.erb within layouts/application (223.6ms)
+Completed 200 OK in 265ms (Views: 229.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/maillist" for 127.0.0.1 at Wed May 28 20:29:16 -0300 2014
+  Processing by AdminController#maillist as HTML
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/maillist.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 37ms (Views: 13.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:29:25 -0300 2014
+  Processing by AdminController#list as HTML
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `usuarios`
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered admin/list.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 263ms (Views: 22.4ms | ActiveRecord: 1.5ms)

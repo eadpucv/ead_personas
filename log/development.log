@@ -25594,3 +25594,39 @@ Started GET "/admin/list" for 127.0.0.1 at Wed May 28 20:29:25 -0300 2014
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
 Rendered admin/list.html.erb within layouts/application (17.0ms)
 Completed 200 OK in 263ms (Views: 22.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun Jun 08 13:03:15 -0300 2014
+  Processing by OthersController#index as HTML
+Rendered others/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home_user" for 127.0.0.1 at Sun Jun 08 13:03:20 -0300 2014
+  Processing by UserController#home_user as HTML
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fhome_user
+Completed 302 Found in 1ms
+
+
+Started GET "/home_user?ticket=ST-1402243400r4i6r2nbV6QxHMdJkl2" for 127.0.0.1 at Sun Jun 08 13:03:20 -0300 2014
+  Processing by UserController#home_user as HTML
+  Parameters: {"ticket"=>"ST-1402243400r4i6r2nbV6QxHMdJkl2"}
+  [1m[36mUsuario Load (10.4ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/home_user.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 1218ms (Views: 35.9ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/home_user?ticket=ST-1402243400r4i6r2nbV6QxHMdJkl2" for 127.0.0.1 at Sun Jun 08 13:15:02 -0300 2014
+  Processing by UserController#home_user as HTML
+  Parameters: {"ticket"=>"ST-1402243400r4i6r2nbV6QxHMdJkl2"}
+  [1m[35mUsuario Load (1.2ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered user/home_user.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/home_user?ticket=ST-1402243400r4i6r2nbV6QxHMdJkl2" for 127.0.0.1 at Sun Jun 08 13:51:00 -0300 2014
+  Processing by UserController#home_user as HTML
+  Parameters: {"ticket"=>"ST-1402243400r4i6r2nbV6QxHMdJkl2"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/home_user.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.6ms)

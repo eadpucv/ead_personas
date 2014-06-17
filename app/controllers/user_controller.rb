@@ -1,9 +1,18 @@
 class UserController < ApplicationController
-before_filter CASClient::Frameworks::Rails::Filter, :except => [ :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos]
+before_filter CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos]
 require 'media_wiki'
 
 ###########
 # USUARIO
+	def data_for_wp
+		if params[:key].to_s == "d0c0e3d43f100c138b2142fd48eaac32"
+			@usuario = Usuario.find(:first, :conditions => ["usuario = ?",params[:u]])
+			render(:json => @usuario)
+		else
+			render(:json => {"error"=>"key_error"})
+		end
+	end
+
 	def home_user
 
 	end

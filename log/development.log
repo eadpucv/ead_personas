@@ -25630,3 +25630,157 @@ Started GET "/home_user?ticket=ST-1402243400r4i6r2nbV6QxHMdJkl2" for 127.0.0.1 a
   [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
 Rendered user/home_user.html.erb within layouts/application (27.7ms)
 Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Jun 16 22:16:18 -0300 2014
+  Processing by OthersController#index as HTML
+Rendered others/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:48:12 -0300 2014
+
+SyntaxError (/Users/rodrigomoya/Trabajo/ead_persons/app/controllers/user_controller.rb:10: syntax error, unexpected ':', expecting kEND
+			render json: @usuario
+			            ^):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:50:56 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (3.9ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 35ms (Views: 23.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:53:19 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 28ms (Views: 19.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:53:23 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 25.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:54:14 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (1.0ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 41ms (Views: 30.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:54:30 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (1.2ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 117ms (Views: 106.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:55:00 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 32ms (Views: 25.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:55:12 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 22.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:55:28 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 28ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:55:42 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 21.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:57:38 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 29ms (Views: 21.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:57:42 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 32ms (Views: 22.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:58:26 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 32ms (Views: 23.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:58:42 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 26ms (Views: 20.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 22:59:58 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 29ms (Views: 21.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 23:12:35 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[36mUsuario Load (1.1ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 23.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/data4wp?u=rodrigomt&key=coso" for 127.0.0.1 at Mon Jun 16 23:13:48 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"coso", "u"=>"rodrigomt"}
+  [1m[35mUsuario Load (0.9ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Completed 200 OK in 33ms (Views: 23.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/data4wp?u=hspencer&key=d0c0e3d43f100c138b2142fd48eaac32" for 127.0.0.1 at Mon Jun 16 23:16:26 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"d0c0e3d43f100c138b2142fd48eaac32", "u"=>"hspencer"}
+  [1m[36mUsuario Load (1.9ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'hspencer') LIMIT 1[0m
+Completed 200 OK in 38ms (Views: 27.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/data4wp?u=hspencer&key=d0c0e3d43f100c138b21s42fd48eaac32" for 127.0.0.1 at Mon Jun 16 23:16:37 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"d0c0e3d43f100c138b21s42fd48eaac32", "u"=>"hspencer"}
+Completed   in 12ms
+
+ActionView::MissingTemplate (Missing template user/data_for_wp with {:formats=>[:html], :handlers=>[:rhtml, :rxml, :builder, :rjs, :erb], :locale=>[:en, :en]} in view paths "/Users/rodrigomoya/Trabajo/ead_persons/app/views", "/Users/rodrigomoya/Trabajo/ead_persons/vendor/plugins/prototype_legacy_helper/app/views"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started GET "/api/data4wp?u=hspencer&key=d0c0e3d43f100c138b21s42fd48eaac32" for 127.0.0.1 at Mon Jun 16 23:17:31 -0300 2014
+  Processing by UserController#data_for_wp as HTML
+  Parameters: {"key"=>"d0c0e3d43f100c138b21s42fd48eaac32", "u"=>"hspencer"}
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)

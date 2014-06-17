@@ -5,6 +5,8 @@ Persons::Application.routes.draw do
 	match 'admin/list' => 'admin#list'
 	match 'logout' => 'sessions#logout'
 
+	match 'api/data4wp' => 'user#data_for_wp'
+
   	match ':controller(/:action(/:id(.:format)))'
 end
 

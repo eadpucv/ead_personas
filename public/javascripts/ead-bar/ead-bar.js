@@ -52,7 +52,7 @@
 
 				// Editar Perfil en Personas
 				$("#ead_bar_dropdown-account-movil").attr('href',"http://personas.ead.pucv.cl/user/edit/"+options.id);
-				$("#ead_bar_dropdown-account").attr('href',"http://personas.ead.pucv.cl/usuarios/edit/"+options.id);
+				$("#ead_bar_dropdown-account").attr('href',"http://personas.ead.pucv.cl/user/edit/"+options.id);
 				
 				// Logout
 				$("#ead_bar_dropdown-end_session-movil").attr('href',options.site_logout_url);

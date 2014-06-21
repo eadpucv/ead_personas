@@ -1,0 +1,7 @@
+<% if params[:accion] == "y" %>
+	$("#llave_<%= @usuario.id %> > a").addClass("active");
+	$("#llave_<%= @usuario.id %> > a").attr("href","/admin/userIsAdmin/<%= @usuario.id %>?accion=n")
+<% else %>
+	$("#llave_<%= @usuario.id %> > a").removeClass("active");
+	$("#llave_<%= @usuario.id %> > a").attr("href","/admin/userIsAdmin/<%= @usuario.id %>?accion=y")	
+<% end %>

@@ -9,14 +9,4 @@ class UserMailer < ActionMailer::Base
   	@usuario = user
     mail(:to => user.mail, :subject => "Recuperación de datos [personas e[ad]]")  
   end
-
-  def masivo(user)
-  	@usuario = user
-    mail(:to => user.mail, :subject => "Actualiza tus datos en [personas e[ad]]")  
-  end
-
-  def update_primer(user)
-	@usuario = user
-	mail(:to => user.mail, :subject => "Actualización de Datos [personas e[ad]]")
-  end
 end

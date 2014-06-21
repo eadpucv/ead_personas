@@ -1,0 +1,101 @@
+<% content_for :content do %>
+<div class="row">
+	<div class="span8 offset2">
+		<%= form_for :usuario, @usuario, :url => { :controller=>"user", :action => "update", :id => @usuario.id },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
+			<fieldset>
+				
+				<h3>Edición de perfil</h3> 			
+				<div class="control-group">
+					<label class="control-label" for="input01">Usuario</label>
+					<div class="controls">
+						<%= f.text_field :usuario,:size => 20, :onchange => "checkUser(this.value)" %>
+						<p class="help-block">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</p>
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label" for="input01">Tipo</label>
+					<div class="controls">
+						<select name="usuario[tipo]" onchange="carrera(this.value)">
+							<option value="a">Alumno(a)</option>
+							<option value="p">Profesor(a)</option>
+							<option value="e">Ex-Alumno(a)</option>
+							<option value="f">Amigo(a)</option>
+							<option value="o">Otro(a)</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group" id="carrera">
+					<label class="control-label" for="input01">Carrera</label>
+					<div class="controls">
+						<select name="usuario[carrera]">
+							<option value="Arquitectura">Arquitectura</option>
+							<option value="Diseño">Diseño</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">Año Ingreso</label>
+					<div class="controls">
+						<%= f.text_field :anoingreso,:size => 4 %>
+						<span class="required"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">Nombre</label>
+					<div class="controls">
+						<%= f.text_field :nombre,:size => 20 %> <span class="required">*</span><br />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">Apellido</label>
+					<div class="controls">
+						<%= f.text_field :apellido,:size => 20 %> <span class="required">*</span><br />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">Rut</label>
+					<div class="controls">
+						<%= f.text_field :rut,:size => 20 %> <span class="required">*</span><br />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">Mail</label>
+					<div class="controls">
+						<%= f.text_field :mail,:size => 20, :onchange => "checkMail(this.value,'mailNotificacion')" %> <span class="required">*</span><br />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input01">Pagina en Wiki E[ad]</label>
+					<div class="controls">
+						<%= f.text_field :wikipage,:size => 20 %>
+						<p class="help-block">En caso de no especificar una pagina, se creara una pagina con tus datos en la wiki</p>
+					</div>
+				</div>
+				<div class="controls">		
+					<%= submit_tag 'Editar Información' , :class=>"btn btn-success" %>		
+				</div>	
+			</fieldset>
+		<% end %>
+
+		<h3>Editar Contraseña</h3>	
+		<%= form_for :usuario, @usuario, :url => { :action => "update", :id => @usuario.id },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
+			<div class="control-group">
+				<label class="control-label" for="input01">Contraseña Nueva</label>
+				<div class="controls">
+					<input id="usuario_contrasena" name="usuario[password]" size="20" type="password" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Verificación</label>
+				<div class="controls">
+					<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()" />
+					<p class="help-block" id="passwordNotify"></p>
+				</div>
+			</div>
+			<div class="controls">		
+				<%= submit_tag 'Editar Contraseña' , :class=>"btn btn-danger" %>		
+			</div>	
+		<% end %>	
+	</div>
+</div>
+<% end %>

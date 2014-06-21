@@ -30,9 +30,15 @@ GEM
     activesupport (3.0.3)
     arel (2.0.10)
     builder (2.1.2)
+    daemons (1.1.9)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    eventmachine (1.0.3)
     i18n (0.6.0)
+    jquery-rails (3.1.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
+    json (1.8.1)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -68,6 +74,10 @@ GEM
       mime-types (>= 1.16)
     rubycas-client (2.3.9)
       activesupport
+    thin (1.6.2)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -79,9 +89,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jquery-rails
+  json
   mediawiki-gateway
-  mysql2 (< 0.3)
+  mysql2
   rails (= 3.0.3)
   recaptcha
   rubycas-client
+  thin
   will_paginate

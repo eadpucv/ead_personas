@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'em/pure_ruby'
 
 # Set up gems listed in the Gemfile.
 gemfile = File.expand_path('../../Gemfile', __FILE__)

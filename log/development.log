@@ -25888,3 +25888,197 @@ DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use 
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
 Rendered user/edit.html.erb within layouts/application (9.7ms)
 Completed 200 OK in 45ms (Views: 16.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/signup" for 127.0.0.1 at Wed Jun 25 20:10:26 -0300 2014
+
+ActionController::RoutingError (No route matches "/users/signup"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/signup" for 127.0.0.1 at Wed Jun 25 20:10:27 -0300 2014
+
+ActionController::RoutingError (No route matches "/users/signup"):
+  
+
+Rendered vendor/bundle/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jun 25 20:10:29 -0300 2014
+  Processing by OthersController#index as HTML
+Rendered others/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home_user" for 127.0.0.1 at Wed Jun 25 20:10:33 -0300 2014
+  Processing by UserController#home_user as HTML
+Redirected to http://190.208.62.202:443/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fhome_user
+Completed 302 Found in 1ms
+
+
+Started GET "/home_user?ticket=ST-1403737841rjqHrsd2tC5nW41BTBC" for 127.0.0.1 at Wed Jun 25 20:10:40 -0300 2014
+  Processing by UserController#home_user as HTML
+  Parameters: {"ticket"=>"ST-1403737841rjqHrsd2tC5nW41BTBC"}
+  [1m[36mUsuario Load (3.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/home_user.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 1185ms (Views: 35.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed Jun 25 20:10:47 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___171234407_2270590220_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___171234407_2270590220_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___171234407_2270590220_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[35mUsuario Load (0.6ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered user/signup.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 45ms (Views: 33.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user/recuperacionDatos" for 127.0.0.1 at Wed Jun 25 20:11:38 -0300 2014
+  Processing by UserController#recuperacionDatos as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_recuperacion_atos_html_erb__920222770_2272833980_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/recuperacionDatos.html.erb:9)
+  [1m[36mUsuario Load (0.6ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/recuperacionDatos.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user/enviaRecuperaMail" for 127.0.0.1 at Wed Jun 25 20:11:49 -0300 2014
+  Processing by UserController#enviaRecuperaMail as HTML
+  Parameters: {"authenticity_token"=>"oP6pTkX4vFIGAm5936XXqldkBrceA9TfcrI54kDXq/c=", "utf8"=>"✓", "mail"=>"roromt@gmail.com", "commit"=>"Solicitar"}
+  [1m[35mUsuario Load (1.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (mail = 'roromt@gmail.com') LIMIT 1
+Rendered user_mailer/recuperacion_datos.text.erb (0.4ms)
+
+Sent mail to roromt@gmail.com (7160ms)
+Date: Wed, 25 Jun 2014 20:11:49 -0300
+From: personas.ead@ead.cl
+To: roromt@gmail.com
+Message-ID: <53ab573565a83_28e8868561b01921d@MacBook-Pro-de-Rodrigo.local.mail>
+Subject: =?UTF-8?Q?Recuperaci=C3=B3n_de_datos_[personas_e[ad]]?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hola Rodrigo ,
+
+Alguien (probablemente t=C3=BA), pidi=C3=B3 recuperar los datos de tu cue=
+nta e[ad]; de no ser as=C3=AD, por favor omite este mensaje.
+
+Para modificar tus datos (y crear una nueva contrase=C3=B1a), entra al si=
+guiente link:
+http://personas.ead.pucv.cl/usuarios/editPublico/685?t=3Da35b78fe9865ad4e=
+2f52
+
+Tu pagina el la wiki de la escuela es : Rodrigo_Moya_Toro_4
+
+Guarda estos datos en un lugar seguro, ya que permiten acceder con tu ide=
+ntidad a todos los servicios online de la e[ad] Escuela de Arquitectura y=
+ Dise=C3=B1o PUCV. Recuerda de mantener tus datos actualizados.
+
+
+Saludos!
+Atte.
+
+.:TIG:. Taller de Investigaciones Gr=C3=A1ficas e[ad] | http://personas.e=
+ad.pucv.cl=
+Redirected to http://localhost:3000/
+Completed 302 Found in 7300ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Jun 25 20:11:56 -0300 2014
+  Processing by OthersController#index as HTML
+  [1m[36mUsuario Load (0.7ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered others/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/user/enviaRecuperaMail" for 127.0.0.1 at Wed Jun 25 20:13:27 -0300 2014
+  Processing by UserController#enviaRecuperaMail as HTML
+  Parameters: {"authenticity_token"=>"oP6pTkX4vFIGAm5936XXqldkBrceA9TfcrI54kDXq/c=", "utf8"=>"✓", "mail"=>"roromt@gmail.com", "commit"=>"Solicitar"}
+  [1m[35mUsuario Load (2.5ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (mail = 'roromt@gmail.com') LIMIT 1
+Rendered user_mailer/recuperacion_datos.text.erb (0.4ms)
+
+Sent mail to roromt@gmail.com (5695ms)
+Date: Wed, 25 Jun 2014 20:13:27 -0300
+From: personas.ead@ead.cl
+To: roromt@gmail.com
+Message-ID: <53ab5797516a4_28e8868561b0193fa@MacBook-Pro-de-Rodrigo.local.mail>
+Subject: =?UTF-8?Q?Recuperaci=C3=B3n_de_datos_[personas_e[ad]]?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hola Rodrigo ,
+
+Alguien (probablemente t=C3=BA), pidi=C3=B3 recuperar los datos de tu cue=
+nta e[ad]; de no ser as=C3=AD, por favor omite este mensaje.
+
+Para modificar tus datos (y crear una nueva contrase=C3=B1a), entra al si=
+guiente link:
+http://personas.ead.pucv.cl/user/editPublico/685?t=3Da35b78fe9865ad4e2f52=
+
+
+Guarda estos datos en un lugar seguro, ya que permiten acceder con tu ide=
+ntidad a todos los servicios online de la e[ad] Escuela de Arquitectura y=
+ Dise=C3=B1o PUCV. Recuerda de mantener tus datos actualizados.
+
+
+Saludos!
+Atte.
+
+.:TIG:. Taller de Investigaciones Gr=C3=A1ficas e[ad] | http://personas.e=
+ad.pucv.cl=
+Redirected to http://localhost:3000/
+Completed 302 Found in 5740ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Jun 25 20:13:33 -0300 2014
+  Processing by OthersController#index as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered others/index.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/user/editPublico/685?t=a35b78fe9865ad4e2f52" for 127.0.0.1 at Wed Jun 25 20:13:57 -0300 2014
+  Processing by UserController#editPublico as HTML
+  Parameters: {"t"=>"a35b78fe9865ad4e2f52", "id"=>"685"}
+  [1m[35mUsuario Load (2.4ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (id = '685' AND token = 'a35b78fe9865ad4e2f52') LIMIT 1
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_ublico_html_erb___879716892_2273725360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/editPublico.html.erb:2)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_edit_ublico_html_erb___879716892_2273725360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/editPublico.html.erb:2)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_edit_ublico_html_erb___879716892_2273725360_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/editPublico.html.erb:76)
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/editPublico.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 48ms (Views: 34.8ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/user/update/685?t=a35b78fe9865ad4e2f52" for 127.0.0.1 at Wed Jun 25 20:14:10 -0300 2014
+  Processing by UserController#update as HTML
+  Parameters: {"t"=>"a35b78fe9865ad4e2f52", "id"=>"685", "authenticity_token"=>"oP6pTkX4vFIGAm5936XXqldkBrceA9TfcrI54kDXq/c=", "utf8"=>"✓", "commit"=>"Editar Password", "contrasena_rep"=>"1dvuvvdu", "usuario"=>{"password"=>"[FILTERED]"}}
+  [1m[35mSQL (2.3ms)[0m  SHOW TABLES
+  [1m[36mUsuario Load (0.5ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (`usuarios`.`id` = 685) LIMIT 1[0m
+  [1m[35mUsuario Load (0.3ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE `usuarios` SET `password` = '55dcff4d8986ed98305b0be9789a10032e5bcf53' WHERE (`usuarios`.`id` = 685)
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Jun 25 20:14:10 -0300 2014
+  Processing by OthersController#index as HTML
+  [1m[35mUsuario Load (0.7ms)[0m  SELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1
+Rendered others/index.html.erb within layouts/application (100.2ms)
+Completed 200 OK in 108ms (Views: 106.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/user/signup" for 127.0.0.1 at Wed Jun 25 20:15:58 -0300 2014
+  Processing by UserController#signup as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___171234407_2269520980_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:1)
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_user_signup_html_erb___171234407_2269520980_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_user_signup_html_erb___171234407_2269520980_0 at /Users/rodrigomoya/Trabajo/ead_persons/app/views/user/signup.html.erb:8)
+  [1m[36mUsuario Load (1.1ms)[0m  [1mSELECT `usuarios`.* FROM `usuarios` WHERE (usuario = 'rodrigomt') LIMIT 1[0m
+Rendered user/signup.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 36ms (Views: 26.3ms | ActiveRecord: 1.1ms)

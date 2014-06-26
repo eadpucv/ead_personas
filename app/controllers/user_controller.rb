@@ -136,7 +136,7 @@ require 'media_wiki'
 					flash[:notice] = "Usuario Creado"
 					redirect_to root_path
 				else
-					flash[:notice] = "No se ha podido crear el usuario | revise los campos en rojo"
+					flash[:notice] = "No se ha podido crear el usuario | verifica que el email o el usuario este disponible"
 					redirect_to :action => 'signup'
 				end
 			else

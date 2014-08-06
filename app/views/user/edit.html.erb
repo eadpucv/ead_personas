@@ -16,11 +16,11 @@
 					<label class="control-label" for="input01">Tipo</label>
 					<div class="controls">
 						<select name="usuario[tipo]" onchange="carrera(this.value)">
-							<option value="a">Alumno(a)</option>
-							<option value="p">Profesor(a)</option>
-							<option value="e">Ex-Alumno(a)</option>
-							<option value="f">Amigo(a)</option>
-							<option value="o">Otro(a)</option>
+							<option value="a" <% if @usuario.tipo === "a" %> selected <% end %>> Alumno(a)</option>
+							<option value="p" <% if @usuario.tipo === "p" %> selected <% end %>> Profesor(a)</option>
+							<option value="e" <% if @usuario.tipo === "e" %> selected <% end %>> Ex-Alumno(a)</option>
+							<option value="f" <% if @usuario.tipo === "f" %> selected <% end %>> Amigo(a)</option>
+							<option value="o" <% if @usuario.tipo === "o" %> selected <% end %>> Otro(a)</option>
 						</select>
 					</div>
 				</div>
@@ -28,8 +28,14 @@
 					<label class="control-label" for="input01">Carrera</label>
 					<div class="controls">
 						<select name="usuario[carrera]">
-							<option value="Arquitectura">Arquitectura</option>
-							<option value="Diseño">Diseño</option>
+							<option></option>
+							<option value="Arquitectura" <% if @usuario.carrera === "Arquitectura" %> selected <% end %>>Arquitectura</option>
+							<option value="Diseño Grafico" <% if @usuario.carrera === "Diseño Grafico" %> selected <% end %>>Diseño Gráfico</option>
+							<option value="Diseño Industrial" <% if @usuario.carrera === "Diseño Industrial" %> selected <% end %>>Diseño Industrial</option>
+							<option value="Nautico Maritimo" <% if @usuario.carrera === "Nautico Maritimo" %> selected <% end %>>Naútico y Marítimo</option>
+							<option value="Formacion y Oficio" <% if @usuario.carrera === "Formacion y Oficio" %> selected <% end %>>Formación y Oficio</option>
+							<option value="Interaccion" <% if @usuario.carrera === "Interaccion" %> selected <% end %>>Interaccion</option>												
+							<option value="Doctorado en AD" <% if @usuario.carrera === "Doctorado en AD" %> selected <% end %>>Doctorado en A&D</option>												
 						</select>
 					</div>
 				</div>

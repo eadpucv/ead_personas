@@ -3,3 +3,5 @@ config/initializers/recaptcha.rb
 *.log
 
 *.pid
+
+.DS_Store

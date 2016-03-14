@@ -1,0 +1,14 @@
+<% content_for :sidebar do %>
+
+<% end %>
+
+<% content_for :content do %>
+	<h2>Recuperación de Datos</h2>
+
+	<p class="tip">Ingresa el correo que ya tienes asociado a tu cuenta</p>
+	<% form_for :usuario, :url => { :action => "enviaRecuperaMail" } do |f| %>
+			<span class="form-label">Email </span><input name="mail" type="text">
+		<%= submit_tag 'Solicitar' %>
+	<% end %>
+	<br />
+<% end %>

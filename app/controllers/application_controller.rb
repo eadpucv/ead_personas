@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 	# include all helpers, all the time
 	helper :all
 	# include prototype_legacy_helper
-	require 'prototype_legacy_helper'
+	# require 'prototype_legacy_helper'
 
 	def create_wikipage(wikipage,data,bio)
 		mw = MediaWiki::Gateway.new('http://wiki.ead.pucv.cl/api.php')

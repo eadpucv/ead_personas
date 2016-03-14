@@ -3,9 +3,11 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-# Add additional assets to the asset load path
-# Rails.application.config.assets.paths << Emoji.images_path
-
-# Precompile additional assets.
-# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+# Verificando identidd.
+Rails.application.config.assets.precompile += %w( personas.css )
+Rails.application.config.assets.precompile += %w( transition.js )
+Rails.application.config.assets.precompile += %w( modal.js )
+Rails.application.config.assets.precompile += %w( tab.js )
+Rails.application.config.assets.precompile += %w( dropdown.js )
+Rails.application.config.assets.precompile += %w( collapse.js )
+Rails.application.config.assets.precompile += %w( tooltip.js )

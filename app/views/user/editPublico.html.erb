@@ -1,0 +1,95 @@
+<% content_for :content do %>
+	<% form_for :usuario, @usuario, :url => { :action => "update", :id => @id, :t=> @t },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>		
+		<fieldset>
+			<h3>Edición de perfil</h3> 			
+			<div class="control-group">
+				<label class="control-label" for="input01">Usuario</label>
+				<div class="controls">
+					<%= f.text_field :usuario,:size => 20, :onchange => "checkUser(this.value)" %>
+					<p class="help-block">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</p>
+				</div>
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="input01">Tipo</label>
+				<div class="controls">
+					<select name="usuario[tipo]" onchange="carrera(this.value)">
+						<option value="a">Alumno(a)</option>
+						<option value="p">Profesor(a)</option>
+						<option value="e">Ex-Alumno(a)</option>
+						<option value="f">Amigo(a)</option>
+						<option value="o">Otro(a)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="control-group" id="carrera">
+				<label class="control-label" for="input01">Carrera</label>
+				<div class="controls">
+					<select name="usuario[carrera]">
+						<option value="Arquitectura">Arquitectura</option>
+						<option value="Diseño">Diseño Gráfico</option>
+						<option value="Diseño">Diseño Industrial</option>
+						<option value="Diseño">Naútico y Marítimo</option>
+						<option value="Diseño">Formación y Oficio</option>
+						<option value="Diseño">Interaccion</option>												
+						<option value="Diseño">Doctorado en A&D</option>												
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Año Ingreso</label>
+				<div class="controls">
+					<%= f.text_field :anoingreso,:size => 4 %>
+					<span class="required"></span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Nombre</label>
+				<div class="controls">
+					<%= f.text_field :nombre,:size => 20 %> <span class="required">*</span><br />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Apellido</label>
+				<div class="controls">
+					<%= f.text_field :apellido,:size => 20 %> <span class="required">*</span><br />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Rut</label>
+				<div class="controls">
+					<%= f.text_field :rut,:size => 20 %> <span class="required">*</span><br />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Mail</label>
+				<div class="controls">
+					<%= f.text_field :mail,:size => 20, :onchange => "checkMail(this.value,'mailNotificacion')" %> <span class="required">*</span><br />
+				</div>
+			</div>
+			<%= submit_tag 'Editar Información' %>			
+		</fieldset>
+	<% end %>
+	
+	<br /><br />
+	<h3>Editar Contraseña</h3>	
+	<%= form_for :usuario, @usuario, :url => { :action => "update", :id=> @id,:t=> @t},:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
+		
+		<div class="control-group">
+			<label class="control-label" for="input01">Contraseña Nueva</label>
+			<div class="controls">
+				<input id="usuario_contrasena" name="usuario[password]" size="20" type="password" />
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<label class="control-label" for="input01">Verificación</label>
+			<div class="controls">
+				<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()" />
+				<p class="help-block" id="passwordNotify"></p>
+			</div>
+		</div>
+		
+		<%= submit_tag 'Editar Password' %>
+	<% end %>	
+<% end %>

@@ -1,0 +1,51 @@
+<% content_for :sidebar do %>
+
+<% end %>
+
+<% content_for :content do %>
+	<div style="float:right"><%= image_tag 'bloqueado.png' %></div> 
+	<h2>Personas Bloqueadas</h2>
+
+	<br /><div id="notify"></div><br />
+	<div id="form_buttons" style="float:right;">
+		<strong><a href="#" id="delete_selected_blocked">Borrar Seleccionados</a></strong> | 
+		<strong><a href="#" id="delete_all_blocked">Borrar Todos</a></strong>
+	</div>
+	<div id="tmp"></div><br /><br />
+	<div id="list">
+	<form class="form-horizontal" id="block" >
+		<table class="table"> 
+			<thead>
+				<tr>
+			      <th class="sortable-text">Usuario</th>
+					<th class="sortable-text">Nombre</th>
+		      	<th class="sortable-text">Apellido</th>      			
+		      	<th class="sortable-text">Mail</th>
+					<th class="sortable-text">Tipo</th>
+					<th class="sortable-text"></th>
+		    	</tr>
+			</thead>
+			<% for user in @usuarios %>
+				<tr id="u_<%= user.id %>">
+					<td class="username" ><%= user.usuario %><span id="not<%= user.id %>"></span></td>
+					<td class="nombre"><%= user.nombre %></td>
+					<td class="apellido"><%= user.apellido %></td>
+					<td class="mail"><%= user.mail %></td>
+					<td class="tipo"> 
+						<div id="tipo_u_<%= user.id %>">
+							<% if user.tipo == 'a'%> Alumno <% end %>
+							<% if user.tipo == 'e'%> Exalumno <% end %>
+							<% if user.tipo == 'p'%> Profesor <% end %>
+							<% if user.tipo == 'n'%> NULL <% end %>
+							<% if user.tipo == 'f'%> Amigo <% end %>
+							<% if user.tipo == 'o'%> Otro <% end %>
+						</div>
+					</td>
+					<td><%=  link_to "[activar]", "/admin/desblock/"+user.id.to_s, :remote=>true, :confirm=>"¿estas seguro? "%></td>
+					<td><input type="checkbox" name="por_lote[]" id="checkbox_<%= user.id %>" value="<%= user.id %>"></td>
+				</tr>
+			<% end %>
+		</table>
+	</form>
+	</div>
+<% end %>

@@ -13,9 +13,6 @@
 	<%= javascript_include_tag 'dropdown' %>
 	<%= javascript_include_tag 'collapse' %>
 	<%= javascript_include_tag 'tooltip' %>
-	<!-- Default -->
-	<%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -45,17 +42,16 @@
 		<p class="centrado xs"><b>Personas</b> es un sistema de registro único (SSO) desarrollado por el <a href="#">.:TIG:.</a> para todos los servicios de la <a href="#">e[ad] Escuela de Arquitectura y Diseño PUCV</a>. </p>
 	</footer>
 	<script>
-	// Abre tab según href anterior
+		// Abre tab según href anterior
 		$(function(){
-	  		var hash = window.location.hash;
-	  		hash && $('ul.nav a[href="' + hash + '"]').tab('show');
-
-		  $('.nav-tabs a').click(function (e) {
-		    $(this).tab('show');
-		    var scrollmem = $('body').scrollTop();
-		    window.location.hash = this.hash;
-		    $('html,body').scrollTop(scrollmem);
-		  });
+			var hash = window.location.hash;
+			hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+			$('.nav-tabs a').click(function (e) {
+				$(this).tab('show');
+				var scrollmem = $('body').scrollTop();
+				window.location.hash = this.hash;
+				$('html,body').scrollTop(scrollmem);
+			});
 		});
 		$('.tooltip-demo').tooltip({selector: "a[data-toggle=tooltip]"});
 	</script>

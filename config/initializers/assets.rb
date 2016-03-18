@@ -5,6 +5,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Verificando identidd.
 Rails.application.config.assets.precompile += %w( personas.css )
+Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( transition.js )
 Rails.application.config.assets.precompile += %w( modal.js )
 Rails.application.config.assets.precompile += %w( tab.js )

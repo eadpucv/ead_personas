@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Personas e[ad]</title>
+	<%= stylesheet_link_tag 'personas' %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<%#= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'transition' %>
+	<%= javascript_include_tag 'modal' %>
+	<%= javascript_include_tag 'tab' %>
+	<%= javascript_include_tag 'dropdown' %>
+	<%= javascript_include_tag 'collapse' %>
+	<%= javascript_include_tag 'tooltip' %>
+
+<!-- 	<script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/transition.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/tab.js"></script>
+    <script src="../assets/js/dropdown.js"></script>
+    <script src="../assets/js/collapse.js"></script>
+    <script src="../assets/js/tooltip.js"></script> -->
+</head>
+<body>
+	<div class="fondo-header-pyxis">
+		<div class="pag sin-relleno menu">
+			<nav class='menu-nav'>
+				<a href='personas-normal.html'>
+			    	<div class='logo-pyxis'>
+			        	<h6 class='gruesa sans rojo no-responsivo'>
+			          		Personas<span class='fino gris-oscuro sans'>e[ad]</span>
+			        	</h6>
+			    	</div>
+			  	</a>
+			  	<a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+		        	<i class="icn icn-menu"></i>
+		      	</a>
+			  	<ul class="nav-rotulos nav nav-pills collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+				    <li><a href='mi-perfil.html'><i class="icn icn-usuario"></i> Mi perfil</a></li>
+				    <li><a href='editar.html'><i class="icn icn-lapiz"></i> Editar cuenta</a></li>
+			    	<li><a href='ingresar.html'><i class="icn icn-salir"></i> Cerrar sesión</a></li>
+			  	</ul>
+			</nav> 	
+		</div>
+	</div>
+	<section class="modulo">
+		<div class="modulo-cuerpo">
+			<div class="margen-inf-sm">
+				<div class="contenedor-modulo">
+					<i class="icn icn-engranaje rojo margen-der-sm nav-icn"></i> 
+					<ul class="nav nav-tabs" role="tablist" id="tabla-contenido">
+	                    <li class="active"><a id='subiendo-1' href="#buscar-usuarios" role="tab" data-toggle="tab"><h5 class="rojo sin-margen">Directorio de Usuarios e[ad]</h5></a></li>
+	                </ul>
+				</div>
+			</div>
+			<div class="contenedor-modulo">
+				<div class="tab-content margen-sup">
+		            	<div class="fila">
+		            		<form action="">
+		            			<div class="col-md-12">
+			            			<div class="grupo-inputs">
+								        <div class="input"><i class="icn icn-light icn-lupa"></i></div>
+								        <input type="text" class="control" placeholder="Buscar por nombre o correo electrónico"> 
+								    </div>
+
+		            			</div>
+		            		</form>
+						</div>
+						<div class="fila">
+							<table class="tabla-personas">
+								<thead>
+									<tr>
+										<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Tipo</th><th>Contactar</th>		
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">hspencer</a></td><td>Herbert</td><td>Spencer</td><td>Profesor</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="#">aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>Alumno</td>
+										<td>
+											<ul class="tooltip-demo margen-vertical-md">
+												<li class="sin-margen-izq">
+													<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+												</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<nav>
+							  <ul class="paginacion">
+							    <li class="disabled">
+							    	<a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+							    </li>
+							    <li class="activo"><a href="#">1</a></li>
+							    <li><a href="#">2</a></li>
+							    <li><a href="#">3</a></li>
+							    <li><a href="#">4</a></li>
+							    <li><a href="#">5</a></li>
+							    <li>
+							    	<a href="#" aria-label="Siguiente">
+							        	<span aria-hidden="true">&raquo;</span>
+							      	</a>
+							    </li>
+							  </ul>
+							</nav>
+						</div>
+		        </div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<p class="centrado xs"><b>Personas</b> es un sistema de registro único (SSO) desarrollado por el <a href="#">.:TIG:.</a> para todos los servicios de la <a href="#">e[ad] Escuela de Arquitectura y Diseño PUCV</a>. </p>
+	</footer>
+	<script>
+	// Abre tab según href anterior
+		$(function(){
+	  		var hash = window.location.hash;
+	  		hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+		  $('.nav-tabs a').click(function (e) {
+		    $(this).tab('show');
+		    var scrollmem = $('body').scrollTop();
+		    window.location.hash = this.hash;
+		    $('html,body').scrollTop(scrollmem);
+		  });
+		});
+		$('.tooltip-demo').tooltip({selector: "a[data-toggle=tooltip]"});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EadPersonas</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8">
+	<meta name="description" content="Personas - Single Sign On e[ad]" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+	<title>Personas e[ad]</title>
+	<%= stylesheet_link_tag "personas"  %>
+	<%= stylesheet_link_tag "meta"  %>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	<%= javascript_include_tag(:defaults) %>
+	<%= javascript_include_tag "tablesort" %>	
+	<%= javascript_include_tag "bootstrap-dropdown" %>
+	<%= javascript_include_tag "bootstrap-collapse" %>
+	<%= javascript_include_tag "ead-bar/ead-bar.js" %>	
+</head>
+
+<body>
+	  		<% if session[:cas_user] %>
+	  			<% if isAdmin? %>
+					<div class="navbar">
+					    <div class="navbar-inner">
+					    	<div class="container">
+								<div class="nav-collapse collapse">
+									<ul class="nav">
+										<li class="dropdown">
+											<a data-toggle="dropdown" class="dropdown-toggle" href="#">Administración</a>
+											<b class="caret"></b>
+											<ul class="dropdown-menu">
+												<li><a class="search" href="/admin/list">Buscar</a></li>
+												<li><a class="block" href="/admin/blockedUsers">Bloqueados</a></li>
+												<li><a class="filter" href="/admin/maillist">Filtrar</a></li>
+												<li><a class="add" href="/user/signup">Nuevo Usuario</a></li>		
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>	
+			<% end %>
+		<div class="container">
+	  	<div class="row">
+			<div class="span12" id="someResults"></div>
+	  	</div>
+		<div class="row">
+		   <div class="span12">
+				<% if flash[:notice] %><div class="alert alert-error"><%=flash[:notice] %></div><% end %>			
+				<div class="content">	
+					<%= yield :content %>
+				</div>
+		    </div>
+		</div>
+	</div>	
+
+	<footer>
+		<div class="container">
+		<p class="text-center"><strong>Personas</strong> es un sistema de registro único (SSO) desarrollado por el <a href="http://www.ead.pucv.cl/mundo/investigacion/tig/">.:TIG:.</a> para todos los servicios de la <a href="http://www.ead.pucv.cl/">e[ad] Escuela de Arquitectura y Diseño PUCV</a>.</p>
+		</div>
+	</footer>
+</body>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){ $( "body" ).load_ead_bar({
+		id: "<%= session[:cas_extra_attributes][:id] if session[:cas_extra_attributes]%>",
+		mail: "<%= session[:cas_extra_attributes][:mail] if session[:cas_extra_attributes]%>",
+		name: "<%= session[:cas_extra_attributes][:nombre] if session[:cas_extra_attributes]%>",
+		lastname: "<%= session[:cas_extra_attributes][:apellido] if session[:cas_extra_attributes]%>",
+		wikipage: "<%= session[:cas_extra_attributes][:wikipage] if session[:cas_extra_attributes]%>",			
+		admin: "<%= session[:cas_extra_attributes][:admin] if session[:cas_extra_attributes]%>",							
+		path_js: "/javascripts/ead-bar/",
+		site_name: "personas", // ead, wiki, metasearch, estorninos, archivo, travesias
+		site_login_url: "<%= set_url_for_bar(:query=>params[:query]) %>",
+		site_logout_url: "<%= logout_path %>"
+		})
+	});
+</script>
+
+</html>
+

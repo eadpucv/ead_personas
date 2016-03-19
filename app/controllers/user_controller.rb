@@ -4,7 +4,12 @@ class UserController < ApplicationController
 
 	# Carga el buscador y el resultado paginado segun corresponda.
 	def index
-		@users = User.paginate(:page => params[:page], :per_page => 15)
+		if !params[:user_search].nil?
+			search = params[:user_search]
+			@users = User.where("nombre LIKE ? OR apellido LIKE ? OR mail LIKE ?", "%#{search}%","%#{search}%","%#{search}%").paginate(:page => params[:page], :per_page => 15)
+		else
+			@users = User.paginate(:page => params[:page], :per_page => 15)
+		end
 	end
 
 

@@ -40,6 +40,19 @@
 	</div>
 </section>
 <script type="text/javascript">
-	$(function() {
+	$(function(){
+		// Bind para capturar el click en el boton search.
+		$('#btnsearch').one('click', function(e){
+			e.preventDefault();
+			$('#formsearch').submit();
+		});
+		// Bind para capturar el enter en el campo texto busqueda.
+		$('#user_search').keypress(function (e){
+			var key = e.which;
+			if(key == 13){
+				$('#btnsearch').click();
+				return false;
+			}
+		});
 	});
 </script>

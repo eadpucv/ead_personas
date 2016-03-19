@@ -2,28 +2,30 @@
 	<div class="modulo-cuerpo">
 		<div class="margen-inf-sm">
 			<div class="contenedor-modulo">
-				<i class="icn icn-engranaje rojo margen-der-sm nav-icn"></i> 
-				<ul class="nav nav-tabs" role="tablist" id="tabla-contenido">
-					<li class="active"><a id='subiendo-1' href="#buscar-usuarios" role="tab" data-toggle="tab"><h5 class="rojo sin-margen">Directorio de Usuarios e[ad]</h5></a></li>
-				</ul>
+				<i class="icn icn-engranaje rojo margen-der-sm nav-icn"></i>
+				<% if isAdmin %>
+					<%= render 'admin_menu' %>
+				<% else %>
+					<%= render 'menu' %>
+				<% end %>
 			</div>
 		</div>
 		<div class="contenedor-modulo">
 			<div class="tab-content margen-sup">
 				<div class="fila">
-					<form action="">
-						<div class="col-md-12">
-							<div class="grupo-inputs">
-								<div class="input"><i class="icn icn-light icn-lupa"></i></div>
-								<input type="text" class="control" placeholder="Buscar por nombre o correo electrónico"> 
-							</div>
-						</div>
-					</form>
+					<% if isAdmin %>
+						<%= render 'admin_userssearch' %>
+					<% else %>
+						<%= render 'userssearch' %>
+					<% end %>
 				</div>
 				<% if @users %>
 				<div class="fila">
-					<%= render 'userslist' %>
-					<%#= render 'admin_userslist' %>
+					<% if isAdmin %>
+						<%= render 'admin_userslist' %>
+					<% else %>
+						<%= render 'userslist' %>
+					<% end %>
 					<nav>
 						<%= will_paginate @users,
 							:class => 'paginacion',

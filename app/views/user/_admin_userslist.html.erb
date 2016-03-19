@@ -1,16 +1,25 @@
 					<table class="tabla-personas">
 						<thead>
 							<tr>
-								<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Tipo</th><th>Contactar</th>		
+								<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Tipo</th><th>Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
 							<% @users.each do |user| %>
 							<tr>
-								<td><a href="#"><%=user.usuario%></a></td><td><%=user.nombre%></td><td><%=user.apellido%></td><td>Alumno</td>
+								<td><a href="#"><%=user.usuario%></a></td>
+								<td><%=user.nombre%></td>
+								<td><%=user.apellido%></td>
+								<td><%=userKind(user.tipo)%></td>
 								<td>
 									<ul class="tooltip-demo margen-vertical-md">
-										<li class="sin-margen-izq">
+										<li>
+											<a class='sans btn btn-xs btn-alerta-hover' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Bloquear"><i class="icn icn-prohibir" ></i></a>
+										</li>
+										<li>
+											<a class='sans btn btn-xs btn-accion' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Permiso de Administrador"><i data-toggle="modal" data-target="#modalExito" class="icn icn-acto"></i></a>
+										</li>
+										<li>
 											<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
 										</li>
 									</ul>

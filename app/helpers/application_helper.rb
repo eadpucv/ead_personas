@@ -8,10 +8,10 @@ module ApplicationHelper
 		end
 	end
 
-	def isAdmin?()
+	# retorna true en caso de que el usuario sea administrador, en el caso contrario retorna false.
+	def isAdmin
 		if session[:cas_user]
-			@user = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
-			if @user.admin == "si"
+			if User.where(["usuario = ?", session[:cas_user]]).first.admin == "si"
 				true
 			else
 				false
@@ -19,6 +19,25 @@ module ApplicationHelper
 		else
 			false
 		end
+	end
+
+	# retorna el tipo de usuario.
+	def userKind(tag)
+		kind = ""
+		case tag
+			when 'a'
+				kind = "Alumno"
+			when 'e'
+				kind = "Ex-Alumno"
+			when 'p'
+				kind = "Profesor"
+			when 'f'
+				kind = "Amigo"
+			when 'o'
+				kind = "Otro"
+		end
+		# Retornamos el que corresponde o el string vacio.
+		return kind
 	end
 
 end

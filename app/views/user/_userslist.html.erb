@@ -7,7 +7,10 @@
 						<tbody>
 							<% @users.each do |user| %>
 							<tr>
-								<td><a href="#"><%=user.usuario%></a></td><td><%=user.nombre%></td><td><%=user.apellido%></td><td>Alumno</td>
+								<td><a href="#"><%=user.usuario%></a></td>
+								<td><%=user.nombre%></td>
+								<td><%=user.apellido%></td>
+								<td><%=userKind(user.tipo)%></td>
 								<td>
 									<ul class="tooltip-demo margen-vertical-md">
 										<li class="sin-margen-izq">

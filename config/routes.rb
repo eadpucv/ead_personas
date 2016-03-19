@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get 'admin/mailing'
 
   # Legacy
-  root :to => "home#index"
+  root :to => "user#index"
   get 'home_user' => 'user#home_user'
   get 'admin/list' => 'admin#list'
   get 'logout' => 'sessions#logout'

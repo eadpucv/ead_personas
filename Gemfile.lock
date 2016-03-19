@@ -121,7 +121,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    will_paginate (3.1.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -135,7 +135,7 @@ DEPENDENCIES
   recaptcha
   rubycas-client
   thin
-  will_paginate
+  will_paginate (~> 3.0.6)
 
 BUNDLED WITH
    1.11.2

@@ -54,5 +54,5 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'rubycas-client'
 
 # others
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0.6'
 gem 'mediawiki-gateway'

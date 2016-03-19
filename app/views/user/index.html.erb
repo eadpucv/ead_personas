@@ -17,11 +17,45 @@
 								<div class="input"><i class="icn icn-light icn-lupa"></i></div>
 								<input type="text" class="control" placeholder="Buscar por nombre o correo electrónico"> 
 							</div>
-
 						</div>
 					</form>
 				</div>
+				<% if @users %>
+				<div class="fila">
+					<table class="tabla-personas">
+						<thead>
+							<tr>
+								<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Tipo</th><th>Contactar</th>		
+							</tr>
+						</thead>
+						<tbody>
+							<% @users.each do |user| %>
+							<tr>
+								<td><a href="#"><%=user.usuario%></a></td><td><%=user.nombre%></td><td><%=user.apellido%></td><td>Alumno</td>
+								<td>
+									<ul class="tooltip-demo margen-vertical-md">
+										<li class="sin-margen-izq">
+											<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+										</li>
+									</ul>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<nav>
+						<%= will_paginate @users,
+							:class => 'paginacion',
+							:previous_label => '<span aria-hidden="true">&laquo;</span>',
+							:next_label => '<span aria-hidden="true">&raquo;</span>' %>
+					</nav>
+				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
 </section>
+<script type="text/javascript">
+	$(function() {
+	});
+</script>

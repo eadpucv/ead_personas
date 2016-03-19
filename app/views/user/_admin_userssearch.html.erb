@@ -2,7 +2,7 @@
 						<div class="col-md-8">
 							<div class="grupo-inputs">
 								<div id="btnsearch" class="input" style="cursor:pointer;"><i class="icn icn-light icn-lupa"></i></div>
-								<input id="user_search" name="user_search" type="text" class="control" placeholder="Buscar por nombre o correo electrónico"> 
+								<input id="user_search" name="user_search" type="text" class="control" placeholder="Buscar por nombre o correo electrónico" value="<%= (params[:user_search]) ? params[:user_search] : '' %>"> 
 							</div>
 						</div>
 						<div class="col-md-4">

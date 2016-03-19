@@ -1,9 +1,10 @@
+<% admin = !isAdmin %>
 <section class="modulo">
 	<div class="modulo-cuerpo">
 		<div class="margen-inf-sm">
 			<div class="contenedor-modulo">
 				<i class="icn icn-engranaje rojo margen-der-sm nav-icn"></i>
-				<% if isAdmin %>
+				<% if admin %>
 					<%= render 'admin_menu' %>
 				<% else %>
 					<%= render 'menu' %>
@@ -13,7 +14,7 @@
 		<div class="contenedor-modulo">
 			<div class="tab-content margen-sup">
 				<div class="fila">
-					<% if isAdmin %>
+					<% if admin %>
 						<%= render 'admin_userssearch' %>
 					<% else %>
 						<%= render 'userssearch' %>
@@ -21,7 +22,7 @@
 				</div>
 				<% if @users %>
 				<div class="fila">
-					<% if isAdmin %>
+					<% if admin %>
 						<%= render 'admin_userslist' %>
 					<% else %>
 						<%= render 'userslist' %>

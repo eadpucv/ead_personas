@@ -23,10 +23,9 @@ class ApplicationController < ActionController::Base
 		return @remotewikipage
 	end
 
-	def isAdmin?()
+	def isAdmin
 		if session[:cas_user]
-			@user = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
-			if @user.admin == "si"
+			if User.where(["usuario = ?", session[:cas_user]]).first.admin == "si"
 				true
 			else
 				false

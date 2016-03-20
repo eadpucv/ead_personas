@@ -51,7 +51,7 @@ gem 'json'
 
 # auth
 gem 'recaptcha', :require => 'recaptcha/rails'
-gem 'rubycas-client'
+gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 
 # others
 gem 'will_paginate', '~> 3.0.6'

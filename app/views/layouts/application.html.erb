@@ -23,20 +23,22 @@
 		<div class="pag sin-relleno menu">
 			<nav class='menu-nav'>
 				<a href='personas-normal.html'>
-			    	<div class='logo-pyxis'>
-			        	<h6 class='gruesa sans rojo no-responsivo'>
-			          		Personas<span class='fino gris-oscuro sans'>e[ad]</span>
-			        	</h6>
-			    	</div>
-			  	</a>
-			  	<a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
-		        	<i class="icn icn-menu"></i>
-		      	</a>
-			  	<ul class="nav-rotulos nav nav-pills collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-				    <li><a href='mi-perfil.html'><i class="icn icn-usuario"></i> Mi perfil</a></li>
-				    <li><a href='editar.html'><i class="icn icn-lapiz"></i> Editar cuenta</a></li>
-			    	<li><a href='ingresar.html'><i class="icn icn-salir"></i> Cerrar sesión</a></li>
-			  	</ul>
+					<div class='logo-pyxis'>
+						<h6 class='gruesa sans rojo no-responsivo'>
+							Personas<span class='fino gris-oscuro sans'>e[ad]</span>
+						</h6>
+					</div>
+				</a>
+				<a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+					<i class="icn icn-menu"></i>
+				</a>
+				<% if !session[:cas_user].nil? %>
+					<ul class="nav-rotulos nav nav-pills collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+						<li><%= link_to controller: "user", action: "profile", user_id: session[:cas_extra_attributes]["id"] do %><i class='icn icn-usuario'></i> Mi perfil<% end %></li>
+						<li><%= link_to controller: "user", action: "edit", user_id: session[:cas_extra_attributes]["id"] do %><i class="icn icn-lapiz"></i> Editar cuenta<% end %></li>
+						<li><%= link_to controller: "session", action: "logout" do %><i class="icn icn-salir"></i> Cerrar sesión<% end %></li>
+					</ul>
+				<% end %>
 			</nav> 	
 		</div>
 	</div>

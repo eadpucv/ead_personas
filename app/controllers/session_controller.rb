@@ -6,7 +6,7 @@ class SessionController < ApplicationController
 		redirect_to root_url, :notice => "Signed out!"
 	end
 
-	# Logiud
+	# Logout
 	def logout
 		CASClient::Frameworks::Rails::Filter.logout(self)
 	end

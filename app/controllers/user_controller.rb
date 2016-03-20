@@ -1,10 +1,10 @@
 class UserController < ApplicationController
-	#before_filter CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos]
+	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos]
 	require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.
 	def index
-		@admin = isAdmin
+		@admin = is_admin
 		if !params[:user_search].nil?
 			search = params[:user_search]
 			@users = User.where("nombre LIKE ? OR apellido LIKE ? OR mail LIKE ?", "%#{search}%","%#{search}%","%#{search}%").paginate(:page => params[:page], :per_page => 15)
@@ -12,6 +12,30 @@ class UserController < ApplicationController
 			@users = User.paginate(:page => params[:page], :per_page => 15)
 		end
 	end
+
+	# Perfil publico del usuario.
+	def profile
+		if is_admin || edit_my_own_user(params[:user_id])
+			@user = User.find(params[:user_id])
+		else
+			redirect_to  root_path
+		end
+	end
+
+	# Formulario de edicion de usuario.
+	def edit
+		if is_admin || edit_my_own_user(params[:user_id])
+			@user = User.find(params[:user_id])
+		else
+			redirect_to  root_path
+		end
+	end
+
+	# Cerrar session.
+	def logout
+	end
+
+
 
 
 
@@ -44,15 +68,6 @@ class UserController < ApplicationController
 		@t = params[:t]
 		@usuario = Usuario.find(:first, :conditions => ["id = ? AND token = ?",@id,@t])
 		if @usuario.nil?
-			redirect_to  root_path
-		end
-	end
-
-	# edit user attributes.
-	def edit
-		if isAdmin? || editMyOwnUser?(params[:id])
-			@usuario = Usuario.find(params[:id])
-		else
 			redirect_to  root_path
 		end
 	end

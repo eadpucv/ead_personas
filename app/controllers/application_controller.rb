@@ -23,7 +23,20 @@ class ApplicationController < ActionController::Base
 		return @remotewikipage
 	end
 
-	def isAdmin
+	def generateUniqueHexCode(codeLength)
+		validChars = ("A".."F").to_a + ("0".."9").to_a
+		length = validChars.size
+		hexCode = ""
+		1.upto(codeLength) { |i| hexCode << validChars[rand(length-1)] }
+		hexCode
+	end
+
+
+	# Metodos re-factorizados
+	
+	# A partir del usuario almacenado en la sesion, verifica si el asuario actual es admin.
+	# Retorna true o false segun sea el caso. 
+	def is_admin
 		if session[:cas_user]
 			if User.where(["usuario = ?", session[:cas_user]]).first.admin == "si"
 				true
@@ -35,9 +48,11 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-	def editMyOwnUser?(idUsuarioEditado)
+	# A partir del user_id determina si el usuario es el mismo que inicio sesion.
+	# Retorna true o false segun sea el caso.
+	def edit_my_own_user(user_id)
 		if session[:cas_user]
-			if Usuario.exists?(['usuario = ? AND id = ?',session[:cas_user], idUsuarioEditado])
+			if User.exists?(['usuario = ? AND id = ?',session[:cas_user], user_id])
 				true
 			else
 				false
@@ -45,14 +60,6 @@ class ApplicationController < ActionController::Base
 		else
 			false
 		end
-	end	
-
-	def generateUniqueHexCode(codeLength)
-		validChars = ("A".."F").to_a + ("0".."9").to_a
-		length = validChars.size
-		hexCode = ""
-		1.upto(codeLength) { |i| hexCode << validChars[rand(length-1)] }
-		hexCode
 	end
 
 end

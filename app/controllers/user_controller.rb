@@ -16,7 +16,27 @@ class UserController < ApplicationController
 	# Perfil publico del usuario.
 	def profile
 		if is_admin || edit_my_own_user(params[:user_id])
-			@user = User.find(params[:user_id])
+			if User.exists?(params[:user_id])
+				@user = User.find(params[:user_id])
+				# Verifico que tengamos el dato.
+				if @user.wikipage.to_s.strip.length != 0
+					wiki_data = get_wikipage(@user.wikipage)
+					parse_data = Nokogiri::HTML(wiki_data)
+					@profile = {
+						url_wiki: @user.wikipage,
+						profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
+						grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
+						fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
+						ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,
+						ciudad_pais: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text,
+						relacion_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text,
+						carrera_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text,
+						nombre_apellido: parse_data.css('span.given-name').text + " " + parse_data.css('span.family-name').text,
+						url_web_personal: parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text,
+						url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
+					}
+				end
+			end
 		else
 			redirect_to  root_path
 		end

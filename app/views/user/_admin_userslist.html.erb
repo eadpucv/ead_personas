@@ -7,7 +7,7 @@
 						<tbody>
 							<% @users.each do |user| %>
 							<tr>
-								<td><a href="#"><%=user.usuario%></a></td>
+								<td><a href="/profile/<%=user.id%>"><%=user.usuario%></a></td>
 								<td><%=user.nombre%></td>
 								<td><%=user.apellido%></td>
 								<td><%=userKind(user.tipo)%></td>

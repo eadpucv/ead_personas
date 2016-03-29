@@ -7,9 +7,9 @@ class UserController < ApplicationController
 		@admin = is_admin
 		if !params[:user_search].nil?
 			search = params[:user_search]
-			@users = User.where("nombre LIKE ? OR apellido LIKE ? OR mail LIKE ?", "%#{search}%","%#{search}%","%#{search}%").paginate(:page => params[:page], :per_page => 15)
+			@users = User.where("nombre LIKE ? OR apellido LIKE ? OR mail LIKE ?", "%#{search}%","%#{search}%","%#{search}%").order(id: :desc).paginate(:page => params[:page], :per_page => 15)
 		else
-			@users = User.paginate(:page => params[:page], :per_page => 15)
+			@users = User.order(id: :desc).paginate(:page => params[:page], :per_page => 15)
 		end
 	end
 
@@ -21,20 +21,28 @@ class UserController < ApplicationController
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0
 					wiki_data = get_wikipage(@user.wikipage)
-					parse_data = Nokogiri::HTML(wiki_data)
-					@profile = {
-						url_wiki: @user.wikipage,
-						profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
-						grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
-						fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
-						ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,
-						ciudad_pais: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text,
-						relacion_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text,
-						carrera_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text,
-						nombre_apellido: parse_data.css('span.given-name').text + " " + parse_data.css('span.family-name').text,
-						url_web_personal: parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text,
-						url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
-					}
+					if wiki_data.to_s.strip.length != 0
+						parse_data = Nokogiri::HTML(wiki_data)
+						puts "kaosbite"
+						puts wiki_data.inspect
+						@profile = {
+							url_wiki: @user.wikipage,
+							profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
+							grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
+							fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
+							ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,
+							ciudad_pais: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text,
+							relacion_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text,
+							carrera_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text,
+							nombre_apellido: parse_data.css('span.given-name').text + " " + parse_data.css('span.family-name').text,
+							url_web_personal: parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text,
+							url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
+						}
+					else
+						# Wiki en blanco, pero existe.
+					end
+				else
+					# Wiki no existe.
 				end
 			end
 		else

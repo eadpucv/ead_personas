@@ -1,108 +1,157 @@
-<% content_for :content do %>
-<div class="row">
-	<div class="span8 offset2">
-		<%= form_for :usuario, @usuario, :url => { :controller=>"user", :action => "update", :id => @usuario.id },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
-			<fieldset>
-				
-				<h3>Edición de perfil</h3> 			
-				<div class="control-group">
-					<label class="control-label" for="input01">Usuario</label>
-					<div class="controls">
-						<%= f.text_field :usuario,:size => 20, :onchange => "checkUser(this.value)" %>
-						<p class="help-block">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</p>
+<section class="modulo">
+	<div class="modulo-cuerpo">
+		<div class="contenedor-modulo">
+			<div class="tab-content margen-sup">
+				<form>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<h3 class="fino sans rojo"><i class="icn icn-lapiz nav-icn"></i> Editar tu cuenta</h3>
 					</div>
-				</div>	
-				<div class="control-group">
-					<label class="control-label" for="input01">Tipo</label>
-					<div class="controls">
-						<select name="usuario[tipo]" onchange="carrera(this.value)">
-							<option value="a" <% if @usuario.tipo === "a" %> selected <% end %>> Alumno(a)</option>
-							<option value="p" <% if @usuario.tipo === "p" %> selected <% end %>> Profesor(a)</option>
-							<option value="e" <% if @usuario.tipo === "e" %> selected <% end %>> Ex-Alumno(a)</option>
-							<option value="f" <% if @usuario.tipo === "f" %> selected <% end %>> Amigo(a)</option>
-							<option value="o" <% if @usuario.tipo === "o" %> selected <% end %>> Otro(a)</option>
-						</select>
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<h5 class="fino sans pizarra">Tus datos personales</h5>
+						<hr>
+						<div class="margen-inf-sm">
+							<label for="username">Nombre de usuario</label>
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-md icn-usuario"></i></div>
+								<input type="text" class="control" id="username" value="juanitoperez_original" />		
+							</div>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="name">Nombre y apellidos</label>
+							<div class="grupo-inputs">		
+								<div class="input"><i class="icn icn-md icn-perfil"></i></div>
+								<input type="text" class="control" id="name" value="Juan Pérez" />	
+							</div>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="rut">Rut</label>
+							<div class="grupo-inputs">		
+								<div class="input"><i class="icn icn-md icn-acto"></i></div>
+								<input type="text" class="control" id="rut" value="17.472.473-3" />	
+							</div>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="usertype">Relación con la e[ad]</label>
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-md icn-caronabajo "></i></div>
+								<select name="usertype">
+									<option></option>
+									<option selected>Alumno(a)</option>
+									<option>Profesor(a)</option>
+									<option>Ex-alumno(a)</option>
+									<option>Amigo(a)</option>
+									<option>Otro(a)</option>
+								</select>
+							</div>	
+						</div>
+						<div class="margen-inf-sm">
+							<label for="course">Carrera</label>
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-md icn-caronabajo "></i></div>
+								<select name="course">
+									<option></option>
+									<option selected>Arquitectura</option>
+									<option>Diseño</option>
+									<option>Diseño Gráfico</option>
+									<option>Diseño Industrial</option>
+									<option>Magister en Arquitectura y Diseño</option>
+								</select>
+							</div>	
+						</div>
+						<div class="margen-inf-sm">
+							<label for="year">Año ingreso a la e[ad]</label>
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-md icn-ingresar"></i></div>
+								<input type="text" class="control" id="year" value="2014" />	
+							</div>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="telephone">Teléfono</label>
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-md icn-movil"></i></div>
+								<input type="tel" class="control" id="telephone" value="59585558" />	
+							</div>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="adress">Dirección</label>
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-md icn-mapa"></i></div>
+								<input type="text" class="control" id="adress" value="Av alemania 273, Valparaíso" />	
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="control-group" id="carrera">
-					<label class="control-label" for="input01">Carrera</label>
-					<div class="controls">
-						<select name="usuario[carrera]">
-							<option></option>
-							<option value="Arquitectura" <% if @usuario.carrera === "Arquitectura" %> selected <% end %>>Arquitectura</option>
-							<option value="Diseño Grafico" <% if @usuario.carrera === "Diseño Grafico" %> selected <% end %>>Diseño Gráfico</option>
-							<option value="Diseño Industrial" <% if @usuario.carrera === "Diseño Industrial" %> selected <% end %>>Diseño Industrial</option>
-							<option value="Nautico y Maritimo" <% if @usuario.carrera === "Nautico y Maritimo" %> selected <% end %>>Naútico y Marítimo</option>
-							<option value="Ciudad y Territorio" <% if @usuario.carrera === "Ciudad y Territorio" %> selected <% end %>>Ciudad y Territorio</option>
-							<option value="Formacion y Oficio" <% if @usuario.carrera === "Formacion y Oficio" %> selected <% end %>>Formación y Oficio</option>
-							<option value="Interaccion" <% if @usuario.carrera === "Interaccion" %> selected <% end %>>Interacción y Servicios</option>
-							<option value="Doctorado en AD" <% if @usuario.carrera === "Doctorado en AD" %> selected <% end %>>Doctorado en A&D</option>
-						</select>
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<h5 class="fino sans pizarra">Contacto y seguridad</h5>
+						<hr>
+						<div class="margen-inf-sm">
+							<label for="lastname">Vinculación con redes sociales</label>
+							<div class="bloque">
+								<button type="button" class="btn btn-facebook btn-conectado btn-bloque">Conectado con Facebook</button>
+								<button type="button" class="btn btn-google btn-conectado btn-bloque">Conectado con Google</button>
+							</div>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="email">Correo</label>
+							<div class="grupo-inputs">
+								<p>juan_perez@hotmail.com</p>
+							</div>
+						</div>
+						<div class="margen-inf-xs">
+							<button type="button" class="btn btn-bloque btn-md btn-change-email">Cambiar email</button>	
+						</div>
+						<div class="change-email">
+							<div class="margen-inf-sm">
+								<label for="email">Ingrese su contraseña</label>
+								<div class="grupo-inputs">
+									<div class="input"><i class="icn icn-md icn-cerrado"></i></div>
+									<input type="email" class="control" id="password"/>		
+								</div>	
+							</div>
+							<div class="margen-inf-sm">
+								<label for="new-email">Nuevo email</label>
+								<div class="grupo-inputs">
+									<div class="input"><i class="icn icn-md icn-email"></i></div>
+									<input type="email" class="control" id="new-email"/>		
+								</div>	
+							</div>
+							<button type="button" class="btn btn-bloque btn-alerta btn-md btn-dont-change-email">Cancelar</button>	
+						</div>
+						<div class="margen-inf-xs">
+							<button type="button" class="btn btn-bloque btn-md btn-change-password">Cambiar contraseña</button>	
+						</div>
+						<div class="change-password">
+							<div class="margen-inf-sm">
+								<label for="password">Ingrese su contraseña actual</label>
+								<div class="grupo-inputs">
+									<div class="input"><i class="icn icn-md icn-cerrado"></i></div>
+									<input type="password" class="control" id="password"/>		
+								</div>	
+							</div>
+							<div class="margen-inf-sm">
+								<label for="password">Nueva contraseña</label>
+								<div class="grupo-inputs">
+									<div class="input"><i class="icn icn-md icn-abierto"></i></div>
+									<input type="password" class="control" id="password"/>		
+								</div>	
+							</div>
+							<div class="margen-inf-sm">
+								<label for="password_confirm">Confirmar nueva contraseña</label>
+								<div class="grupo-inputs">
+									<div class="input"><i class="icn icn-md icn-abierto"></i></div>
+									<input type="password" class="control" id="password_confirm" />	
+								</div>
+							</div>
+							<button type="button" class="btn btn-bloque btn-alerta btn-md btn-dont-change-pass">Cancelar</button>	
+						</div>
+						<div class="margen-inf-sm">
+							<div class="g-recaptcha" data-sitekey="6Ld9OBMTAAAAAIawZF7PkJeGGvGAr0VLzCFKoHi0"></div>
+						</div>
+						<div class="margen-inf-sm">
+							<button type="button" class="btn btn-accion btn-lg btn-bloque">Actualizar</button>
+						</div>
 					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Año Ingreso</label>
-					<div class="controls">
-						<%= f.text_field :anoingreso,:size => 4 %>
-						<span class="required"></span>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Nombre</label>
-					<div class="controls">
-						<%= f.text_field :nombre,:size => 20 %> <span class="required">*</span><br />
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Apellido</label>
-					<div class="controls">
-						<%= f.text_field :apellido,:size => 20 %> <span class="required">*</span><br />
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Rut</label>
-					<div class="controls">
-						<%= f.text_field :rut,:size => 20 %> <span class="required">*</span><br />
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Mail</label>
-					<div class="controls">
-						<%= f.text_field :mail,:size => 20, :onchange => "checkMail(this.value,'mailNotificacion')" %> <span class="required">*</span><br />
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Pagina en Wiki E[ad]</label>
-					<div class="controls">
-						<%= f.text_field :wikipage,:size => 20 %>
-						<p class="help-block">En caso de no especificar una pagina, se creara una pagina con tus datos en la wiki</p>
-					</div>
-				</div>
-				<div class="controls">		
-					<%= submit_tag 'Editar Información' , :class=>"btn btn-success" %>		
-				</div>	
-			</fieldset>
-		<% end %>
-
-		<h3>Editar Contraseña</h3>	
-		<%= form_for :usuario, @usuario, :url => { :action => "update", :id => @usuario.id },:html => {:name => 'form', :class=>'form-horizontal'} do |f| %>
-			<div class="control-group">
-				<label class="control-label" for="input01">Contraseña Nueva</label>
-				<div class="controls">
-					<input id="usuario_contrasena" name="usuario[password]" size="20" type="password" />
-				</div>
+				</form>
 			</div>
-			<div class="control-group">
-				<label class="control-label" for="input01">Verificación</label>
-				<div class="controls">
-					<input id="contrasena_rep" name="contrasena_rep" size="20" type="password" onchange="checkPass()" />
-					<p class="help-block" id="passwordNotify"></p>
-				</div>
-			</div>
-			<div class="controls">		
-				<%= submit_tag 'Editar Contraseña' , :class=>"btn btn-danger" %>		
-			</div>	
-		<% end %>	
+		</div>
 	</div>
-</div>
-<% end %>
+</section>

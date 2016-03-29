@@ -40,14 +40,19 @@ class UserController < ApplicationController
 						}
 					else
 						# Wiki en blanco, pero existe.
+						flash[:notice] = "La Wiki '#{@user.wikipage}' no tiene contenido, o la referencia esta corrupta."
 					end
 				else
 					# Wiki no existe.
+					flash[:notice] = "Este usuario no tiene Wiki."
 				end
 			end
 		else
 			redirect_to  root_path
 		end
+	end
+
+	def new
 	end
 
 	# Formulario de edicion de usuario.

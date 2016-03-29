@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'profile/:user_id' => 'user#profile'
   # Gestion de cuentas
   scope '/user' do
+    get '/new' => 'user#new'
     post '/' => 'user#create'
     get '/:user_id' => 'user#edit'
     patch '/' => 'user#update'

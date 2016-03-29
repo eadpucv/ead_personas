@@ -54,6 +54,10 @@
 						</div>
 					</div>
 				</form>
+			<% elsif flash[:notice] %>
+				<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert" style="display:block;">
+					<%= flash[:notice] %>
+				</div>
 			<% end %>
 			</div>
 		</div>

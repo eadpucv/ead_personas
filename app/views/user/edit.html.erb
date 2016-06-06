@@ -13,70 +13,73 @@
 							<label for="username">Nombre de usuario</label>
 							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-usuario"></i></div>
-								<input type="text" class="control" id="username" value="juanitoperez_original" />		
+								<input type="text" class="control" id="username" value="<%= (!@user['usuario'].nil?) ? @user['usuario'] : "" %>" />
 							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="name">Nombre y apellidos</label>
-							<div class="grupo-inputs">		
+							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-perfil"></i></div>
-								<input type="text" class="control" id="name" value="Juan Pérez" />	
+								<input type="text" class="control" id="name" value="<%= (!@user['nombre'].nil?) ? @user['nombre'] : "" %> <%= (!@user['apellido'].nil?) ? @user['apellido'] : "" %>" />
 							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="rut">Rut</label>
-							<div class="grupo-inputs">		
+							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-acto"></i></div>
-								<input type="text" class="control" id="rut" value="17.472.473-3" />	
+								<input type="text" class="control" id="rut" value="<%= (!@user['rut'].nil?) ? @user['rut'] : "" %>" />
 							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="usertype">Relación con la e[ad]</label>
 							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-caronabajo "></i></div>
-								<select name="usertype">
+								<select name="user[tipo]">
 									<option></option>
-									<option selected>Alumno(a)</option>
-									<option>Profesor(a)</option>
-									<option>Ex-alumno(a)</option>
-									<option>Amigo(a)</option>
-									<option>Otro(a)</option>
+									<option value="a" <% if @user['tipo'] === "a" %> selected <% end %>> Alumno(a)</option>
+									<option value="p" <% if @user['tipo'] === "p" %> selected <% end %>> Profesor(a)</option>
+									<option value="e" <% if @user['tipo'] === "e" %> selected <% end %>> Ex-Alumno(a)</option>
+									<option value="f" <% if @user['tipo'] === "f" %> selected <% end %>> Amigo(a)</option>
+									<option value="o" <% if @user['tipo'] === "o" %> selected <% end %>> Otro(a)</option>
 								</select>
-							</div>	
+							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="course">Carrera</label>
 							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-caronabajo "></i></div>
-								<select name="course">
+								<select name="user[carrera]">
 									<option></option>
-									<option selected>Arquitectura</option>
-									<option>Diseño</option>
-									<option>Diseño Gráfico</option>
-									<option>Diseño Industrial</option>
-									<option>Magister en Arquitectura y Diseño</option>
+									<option value="Arquitectura" <% if @user['carrera'] === "Arquitectura" %> selected <% end %>>Arquitectura</option>
+									<option value="Diseño Grafico" <% if @user['carrera'] === "Diseño Grafico" %> selected <% end %>>Diseño Gráfico</option>
+									<option value="Diseño Industrial" <% if @user['carrera'] === "Diseño Industrial" %> selected <% end %>>Diseño Industrial</option>
+									<option value="Nautico y Maritimo" <% if @user['carrera'] === "Nautico y Maritimo" %> selected <% end %>>Naútico y Marítimo</option>
+									<option value="Ciudad y Territorio" <% if @user['carrera'] === "Ciudad y Territorio" %> selected <% end %>>Ciudad y Territorio</option>
+									<option value="Formacion y Oficio" <% if @user['carrera'] === "Formacion y Oficio" %> selected <% end %>>Formación y Oficio</option>
+									<option value="Interaccion" <% if @user['carrera'] === "Interaccion" %> selected <% end %>>Interacción y Servicios</option>
+									<option value="Doctorado en AD" <% if @user['carrera'] === "Doctorado en AD" %> selected <% end %>>Doctorado en A&D</option>
 								</select>
-							</div>	
+							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="year">Año ingreso a la e[ad]</label>
 							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-ingresar"></i></div>
-								<input type="text" class="control" id="year" value="2014" />	
+								<input type="text" class="control" id="year" value="<%= (!@user['anoingreso'].nil?) ? @user['anoingreso'] : "" %>" />
 							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="telephone">Teléfono</label>
 							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-movil"></i></div>
-								<input type="tel" class="control" id="telephone" value="59585558" />	
+								<input type="tel" class="control" id="telephone" value="<%= (!@user['telefono_cel'].nil?) ? @user['telefono_cel'] : "" %>" />
 							</div>
 						</div>
 						<div class="margen-inf-sm">
 							<label for="adress">Dirección</label>
 							<div class="grupo-inputs">
 								<div class="input"><i class="icn icn-md icn-mapa"></i></div>
-								<input type="text" class="control" id="adress" value="Av alemania 273, Valparaíso" />	
+								<input type="text" class="control" id="adress" value="<%= (!@user['direccion'].nil?) ? @user['direccion'] : "" %>" />
 							</div>
 						</div>
 					</div>
@@ -97,51 +100,51 @@
 							</div>
 						</div>
 						<div class="margen-inf-xs">
-							<button type="button" class="btn btn-bloque btn-md btn-change-email">Cambiar email</button>	
+							<button type="button" class="btn btn-bloque btn-md btn-change-email">Cambiar email</button>
 						</div>
 						<div class="change-email">
 							<div class="margen-inf-sm">
 								<label for="email">Ingrese su contraseña</label>
 								<div class="grupo-inputs">
 									<div class="input"><i class="icn icn-md icn-cerrado"></i></div>
-									<input type="email" class="control" id="password"/>		
-								</div>	
+									<input type="email" class="control" id="password"/>
+								</div>
 							</div>
 							<div class="margen-inf-sm">
 								<label for="new-email">Nuevo email</label>
 								<div class="grupo-inputs">
 									<div class="input"><i class="icn icn-md icn-email"></i></div>
-									<input type="email" class="control" id="new-email"/>		
-								</div>	
+									<input type="email" class="control" id="new-email"/>
+								</div>
 							</div>
-							<button type="button" class="btn btn-bloque btn-alerta btn-md btn-dont-change-email">Cancelar</button>	
+							<button type="button" class="btn btn-bloque btn-alerta btn-md btn-dont-change-email">Cancelar</button>
 						</div>
 						<div class="margen-inf-xs">
-							<button type="button" class="btn btn-bloque btn-md btn-change-password">Cambiar contraseña</button>	
+							<button type="button" class="btn btn-bloque btn-md btn-change-password">Cambiar contraseña</button>
 						</div>
 						<div class="change-password">
 							<div class="margen-inf-sm">
 								<label for="password">Ingrese su contraseña actual</label>
 								<div class="grupo-inputs">
 									<div class="input"><i class="icn icn-md icn-cerrado"></i></div>
-									<input type="password" class="control" id="password"/>		
-								</div>	
+									<input type="password" class="control" id="password"/>
+								</div>
 							</div>
 							<div class="margen-inf-sm">
 								<label for="password">Nueva contraseña</label>
 								<div class="grupo-inputs">
 									<div class="input"><i class="icn icn-md icn-abierto"></i></div>
-									<input type="password" class="control" id="password"/>		
-								</div>	
+									<input type="password" class="control" id="password"/>
+								</div>
 							</div>
 							<div class="margen-inf-sm">
 								<label for="password_confirm">Confirmar nueva contraseña</label>
 								<div class="grupo-inputs">
 									<div class="input"><i class="icn icn-md icn-abierto"></i></div>
-									<input type="password" class="control" id="password_confirm" />	
+									<input type="password" class="control" id="password_confirm" />
 								</div>
 							</div>
-							<button type="button" class="btn btn-bloque btn-alerta btn-md btn-dont-change-pass">Cancelar</button>	
+							<button type="button" class="btn btn-bloque btn-alerta btn-md btn-dont-change-pass">Cancelar</button>
 						</div>
 						<div class="margen-inf-sm">
 							<div class="g-recaptcha" data-sitekey="6Ld9OBMTAAAAAIawZF7PkJeGGvGAr0VLzCFKoHi0"></div>

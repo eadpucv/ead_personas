@@ -56,3 +56,9 @@ gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 # others
 gem 'will_paginate', '~> 3.0.6'
 gem 'mediawiki-gateway'
+
+# Social login
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+

@@ -59,6 +59,8 @@ class UserController < ApplicationController
 	def edit
 		if is_admin || edit_my_own_user(params[:user_id])
 			@user = User.find(params[:user_id])
+			puts @user.inspect
+			puts "kaosbite"
 		else
 			redirect_to  root_path
 		end

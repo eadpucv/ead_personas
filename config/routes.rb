@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   end
   # Helpers
   get 'login' => 'session#login'
-  get 'logout' => 'session#logout'  
+  get 'logout' => 'session#logout'
+
+  resources :users
 
   # Legacy
   # root :to => "user#index"

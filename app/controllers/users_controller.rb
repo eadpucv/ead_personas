@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new]
 	require 'media_wiki'
 
@@ -52,8 +52,105 @@ class UserController < ApplicationController
 		end
 	end
 
+	# Init new user creation flow.
 	def new
 		@user = User.new
+		@opciones_tipo = [
+			['', ''],
+			['Alumno(a)', 'a'],
+			['Profesor(a)', 'p'],
+			['Ex-alumno(a)', 'a'],
+			['Ex-profesor(a', 'a'],
+			['Amigo(a)', 'a'],
+			['Otro(a)', 'a']
+		]
+		@opciones_carrera = [
+			['', ''],
+			['Arquitectura', 'arquitectura'],
+			['Diseño', 'diseño'],
+			['Diseño Gráfico', 'diseño_grafico'],
+			['Diseño Industrial', 'diseño:industrial'],
+			['Magister en Arquitectura y Diseño', 'magister_en_arquitectura_y_diseño'],
+		]
+	end
+
+	# Create new user.
+	def create
+
+		render :json => { :status => true, :message => "Se recibieron los datos", :params => params[:user] }, :callback => params[:callback], :status => 200
+
+		# @usuario = Usuario.new(params[:usuario])
+		# @mail = params[:usuario][:mail]
+		# @username = params[:usuario][:usuario]
+		# @wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
+		# @capt = params[:capt]
+		# @flag = 0	
+		# @capt_cookie = cookies[:capt]
+		# if verify_recaptcha == true
+		# 	if Usuario.exists?(:usuario=>@username) 
+		# 		flash[:notice] = "El usuario #{@username} ya existe!!"
+		# 		@flag=1
+		# 		if Usuario.exists?(:mail=>@mail)
+		# 			flash[:notice] = "El email #{@mail} ya existe!!"
+		# 			@flag=1
+		# 			if @usuario.apellido.blank?
+		# 				flash[:notice] = "El campo Apellido esta vacio"
+		# 				@flag=1
+		# 			end	
+		# 		end
+		# 	end 
+		# 	if (@flag==0)
+		# 		if @usuario.save
+		# 			@contrasena = Digest::SHA1.hexdigest("#{@usuario.password}")
+		# 			@usuario.password = @contrasena
+		# 			@usuario.token = generateUniqueHexCode(10)
+		# 			@usuario.save
+		# 			if @usuario.wikipage.blank? || @usuario.wikipage == "" || @usuario.wikipage.nil?
+		# 				@wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
+		# 			else
+		# 				@wikipage = @usuario.wikipage
+		# 			end
+		# 			begin
+		# 				if @usuario.tipo == "a"
+		# 					@tipo = "|Relación con la Escuela=Alumno  \n"
+		# 				elsif @usuario.tipo == "p"
+		# 					@tipo = "|Relación con la Escuela=Profesor  \n"
+		# 				elsif @usuario.tipo == "e"							
+		# 					@tipo = "|Relación con la Escuela=Ex-Alumno  \n"
+		# 				elsif @usuario.tipo == "f"
+		# 					@tipo = "|Relación con la Escuela=Amigo  \n"
+		# 				elsif @usuario.tipo == "o"
+		# 					@tipo = "|Relación con la Escuela=Otro  \n"
+		# 				end
+		# 				unless @usuario.carrera.blank?
+		# 					@carrera = "|Carreras Relacionadas=#{@usuario.carrera.capitalize} \n"
+		# 				end
+		# 				@data = "{{Persona
+		# 				|Nombre=#{@usuario.nombre}
+		# 				|Apellido=#{@usuario.apellido}
+		# 				#{@tipo}
+		# 				#{@carrera}
+		# 				}}"
+		# 				casiopea_page = create_wikipage(@wikipage,@data,params[:usuario][:bio])
+		# 				@usuario.wikipage = "http://wiki.ead.pucv.cl/index.php?title="+casiopea_page.to_s
+		# 				@usuario.save!
+		# 			rescue MediaWiki::APIError
+		# 				flash[:notice] = "La pagina de la wiki ya existe < #{@wikipage} >, Tu cuenta se creo de igual manera, pero debes actualizar tus datos"		
+		# 			end
+		# 			UserMailer.registration_confirmation(@usuario).deliver
+		# 			flash[:notice] = "Usuario Creado"
+		# 			redirect_to root_path
+		# 		else
+		# 			flash[:notice] = "No se ha podido crear el usuario | verifica que el email o el usuario este disponible"
+		# 			redirect_to :action => 'signup'
+		# 		end
+		# 	else
+		# 		redirect_to :action => 'signup'
+		# 	end
+		# else
+		# 	flash[:notice] = "El Captcha no coincide"
+		# 	redirect_to :action => 'signup'
+		# end
 	end
 
 	# Formulario de edicion de usuario.
@@ -70,6 +167,13 @@ class UserController < ApplicationController
 	# Cerrar session.
 	def logout
 	end
+
+
+
+
+
+
+
 
 
 
@@ -131,82 +235,6 @@ class UserController < ApplicationController
 					redirect_to :action => 'edit', :id=> params[:id]					
 				end
 			end
-		end
-	end
-
-	# Create new user.
-	def create
-		@usuario = Usuario.new(params[:usuario])
-		@mail = params[:usuario][:mail]
-		@username = params[:usuario][:usuario]
-		@wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
-		@capt = params[:capt]
-		@flag = 0	
-		@capt_cookie = cookies[:capt]
-		if verify_recaptcha == true
-			if Usuario.exists?(:usuario=>@username) 
-				flash[:notice] = "El usuario #{@username} ya existe!!"
-				@flag=1
-				if Usuario.exists?(:mail=>@mail)
-					flash[:notice] = "El email #{@mail} ya existe!!"
-					@flag=1
-					if @usuario.apellido.blank?
-						flash[:notice] = "El campo Apellido esta vacio"
-						@flag=1
-					end	
-				end
-			end 
-			if (@flag==0)
-				if @usuario.save
-					@contrasena = Digest::SHA1.hexdigest("#{@usuario.password}")
-					@usuario.password = @contrasena
-					@usuario.token = generateUniqueHexCode(10)
-					@usuario.save
-					if @usuario.wikipage.blank? || @usuario.wikipage == "" || @usuario.wikipage.nil?
-						@wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
-					else
-						@wikipage = @usuario.wikipage
-					end
-					begin
-						if @usuario.tipo == "a"
-							@tipo = "|Relación con la Escuela=Alumno  \n"
-						elsif @usuario.tipo == "p"
-							@tipo = "|Relación con la Escuela=Profesor  \n"
-						elsif @usuario.tipo == "e"							
-							@tipo = "|Relación con la Escuela=Ex-Alumno  \n"
-						elsif @usuario.tipo == "f"
-							@tipo = "|Relación con la Escuela=Amigo  \n"
-						elsif @usuario.tipo == "o"
-							@tipo = "|Relación con la Escuela=Otro  \n"
-						end
-						unless @usuario.carrera.blank?
-							@carrera = "|Carreras Relacionadas=#{@usuario.carrera.capitalize} \n"
-						end
-						@data = "{{Persona
-						|Nombre=#{@usuario.nombre}
-						|Apellido=#{@usuario.apellido}
-						#{@tipo}
-						#{@carrera}
-						}}"
-						casiopea_page = create_wikipage(@wikipage,@data,params[:usuario][:bio])
-						@usuario.wikipage = "http://wiki.ead.pucv.cl/index.php?title="+casiopea_page.to_s
-						@usuario.save!
-					rescue MediaWiki::APIError
-						flash[:notice] = "La pagina de la wiki ya existe < #{@wikipage} >, Tu cuenta se creo de igual manera, pero debes actualizar tus datos"		
-					end
-					UserMailer.registration_confirmation(@usuario).deliver
-					flash[:notice] = "Usuario Creado"
-					redirect_to root_path
-				else
-					flash[:notice] = "No se ha podido crear el usuario | verifica que el email o el usuario este disponible"
-					redirect_to :action => 'signup'
-				end
-			else
-				redirect_to :action => 'signup'
-			end
-		else
-			flash[:notice] = "El Captcha no coincide"
-			redirect_to :action => 'signup'
 		end
 	end
 

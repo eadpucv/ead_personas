@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos]
+	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new]
 	require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.

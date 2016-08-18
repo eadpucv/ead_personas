@@ -137,3 +137,25 @@
 		</div>
 	</div>
 </section>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// Paso 1
+		$('.btn-registro1').click(function () {
+			if (confirm("Verificando...") == true) {
+				alert("Verificación OK!");
+				$('#tabsRegistro a[href = "#registro-2"]').tab('show');
+			} else {
+				alert("Verificación errónea!");
+			}
+		});
+		// Paso 2
+		$('.btn-registro2').click(function () {
+			if (confirm("Registrando...") == true) {
+				alert("Registro OK!");
+				$('#tabsRegistro a[href = "#registro-3"]').tab('show');
+			} else {
+				alert("Registro errónea!");
+			}
+		})
+	});
+</script>

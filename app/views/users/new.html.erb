@@ -61,22 +61,6 @@
 									</div>	
 								</div>
 								<div class="margen-inf-sm">
-									<a class="btn btn-accion btn-lg btn-bloque btn-registro1" href="#registro-2">Siguiente</a>
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="registro-2">
-							<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
-								<h5 class="fino sans pizarra">Contacto y seguridad</h5>
-								<hr>
-								<div class="margen-inf-sm">
-									<label for="lastname">Vinculación con redes sociales</label>
-									<div class="bloque">
-										<button type="button" class="btn btn-facebook btn-deshabilitado btn-bloque">Conectar Facebook</button>
-										<button type="button" class="btn btn-google btn-deshabilitado btn-bloque">Conectar con Google</button>
-									</div>
-								</div>
-								<div class="margen-inf-sm">
 									<%= f.label :mail, 'Correo' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-email"></i></div>
@@ -98,16 +82,15 @@
 									</div>
 								</div>
 								<div class="margen-inf-sm">
-									<div class="g-recaptcha" data-sitekey="6Ld9OBMTAAAAAIawZF7PkJeGGvGAr0VLzCFKoHi0"></div>
+									<%= recaptcha_tags %>
 								</div>
 								<div class="margen-inf-sm">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> <span class="xs"> <a href="http://personas.ead.pucv.cl/others/terminos" target="_blank">Acepto los términos y condiciones e[ad]</a></span>
+											<input type="checkbox"> <span class="xs"> <a href="http://personas.ead.pucv.cl/others/terminos" target="_blank"><span> </span>Acepto los términos y condiciones e[ad]</a></span>
 										</label>
 									</div>
 									<%= f.submit "Crear nuevo usuario", class: "btn btn-accion btn-lg btn-bloque btn-registro2" %>
-									<!-- <a class="btn btn-accion btn-lg btn-bloque btn-registro2" href="#registro-3">Crear nuevo usuario</a> -->
 								</div>
 							</div>
 						</div>
@@ -125,24 +108,27 @@
 </section>
 <script type="text/javascript">
 	$(document).ready(function(){
-		// Paso 1
-		$('.btn-registro1').click(function () {
-			if (confirm("Verificando...") == true) {
-				alert("Verificación OK!");
-				$('#tabsRegistro a[href = "#registro-2"]').tab('show');
-			} else {
-				alert("Verificación errónea!");
-			}
+		// // Paso 1
+		// $('.btn-registro1').click(function () {
+		// 	if (confirm("Verificando...") == true) {
+		// 		alert("Verificación OK!");
+		// 		$('#tabsRegistro a[href = "#registro-2"]').tab('show');
+		// 	} else {
+		// 		alert("Verificación errónea!");
+		// 	}
+		// });
+		// // Paso 2
+		// $('.btn-registro2').click(function () {
+		// 	if (confirm("Registrando...") == true) {
+		// 		alert("Registro OK!");
+		// 		$('#tabsRegistro a[href = "#registro-3"]').tab('show');
+		// 	} else {
+		// 		alert("Registro errónea!");
+		// 	}
+		// })
+		$('#new_user').submit(function(event){
+			alert( "Handler for .submit() called." );
+			event.preventDefault();
 		});
-		// Paso 2
-		$('.btn-registro2').click(function () {
-			if (confirm("Registrando...") == true) {
-				alert("Registro OK!");
-				$('#tabsRegistro a[href = "#registro-3"]').tab('show');
-			} else {
-				alert("Registro errónea!");
-			}
-		})
-
 	});
 </script>

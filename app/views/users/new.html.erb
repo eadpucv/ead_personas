@@ -19,7 +19,12 @@
 								<hr>
 								<% if flash[:notice]  %>
 								<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert" style="display: block;">
-									<strong><%=flash[:notice]%></strong> 
+									<strong><%=flash[:notice]%></strong>
+									<% if flash[:error].any? %>
+										<% flash[:error].each do |message| %>
+											<br /><%=message%>
+										<% end %>
+									<% end %>
 								</div>
 								<br />
 								<% end %>

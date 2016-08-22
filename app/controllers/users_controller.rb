@@ -58,6 +58,8 @@ class UsersController < ApplicationController
 				# No se pudo crear el nuevo registro.
 				# render :json => { :status => false }
 				flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."
+				puts @user.errors.inspect
+				flash[:error] = @user.errors.full_messages
 				redirect_to new_user_path
 			end
 		else

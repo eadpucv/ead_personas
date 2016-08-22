@@ -42,13 +42,21 @@ class UsersController < ApplicationController
 
 	# Culmina el flujo de creacion de nuevos usuarios.
 	def create
-		# render :json => { :status => true, :message => "Se recibieron los datos", :params => params[:user] }, :callback => params[:callback], :status => 200
-		@user = User.new(user_params)
-		if verify_recaptcha(model: @user) && @user.save
-			redirect_to @user
+
+		# Verifico el recaptcha.
+		if verify_recaptcha()
+			# Creo el nuevo registro, con la informacion aportada.
+			if User.create(user_params)
+				redirect_to user_path
+			else
+				# No se pudo crear el nuevo registro.
+				render :json => { :status => false }
+			end
 		else
-			render 'new'
+			# El recaptcha no paso la verificacion.
+			render :json => { :status => false }
 		end
+
 
 		# @usuario = Usuario.new(params[:usuario])
 		# @mail = params[:usuario][:mail]

@@ -42,94 +42,30 @@ class UsersController < ApplicationController
 
 	# Culmina el flujo de creacion de nuevos usuarios.
 	def create
-
+		# Creo el nuevo registro, con la informacion aportada.
+		@user = User.new(user_params)
 		# Verifico el recaptcha.
 		if verify_recaptcha()
-			# Creo el nuevo registro, con la informacion aportada.
-			if User.create(user_params)
-				redirect_to user_path
+			# Aseguro la password y creo un token para el usuario.
+			@user.password = Digest::SHA1.hexdigest("#{params[:user][:password]}")
+			@user.token = generateUniqueHexCode(10)
+			# Verifico si se creo el nuevo registro.
+			if @user.save
+				# Envio el mensaje de bienvenida.
+				# UserMailer.registration_confirmation(@usuario).deliver
+				redirect_to login_path
 			else
 				# No se pudo crear el nuevo registro.
-				render :json => { :status => false }
+				# render :json => { :status => false }
+				flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."
+				redirect_to new_user_path
 			end
 		else
 			# El recaptcha no paso la verificacion.
 			render :json => { :status => false }
+			flash[:notice] = "No fue posible crear el usuario, ya que la verificacion captcha no fue superada."
+			redirect_to new_user_path
 		end
-
-
-		# @usuario = Usuario.new(params[:usuario])
-		# @mail = params[:usuario][:mail]
-		# @username = params[:usuario][:usuario]
-		# @wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
-		# @capt = params[:capt]
-		# @flag = 0	
-		# @capt_cookie = cookies[:capt]
-		# if verify_recaptcha == true
-		# 	if Usuario.exists?(:usuario=>@username) 
-		# 		flash[:notice] = "El usuario #{@username} ya existe!!"
-		# 		@flag=1
-		# 		if Usuario.exists?(:mail=>@mail)
-		# 			flash[:notice] = "El email #{@mail} ya existe!!"
-		# 			@flag=1
-		# 			if @usuario.apellido.blank?
-		# 				flash[:notice] = "El campo Apellido esta vacio"
-		# 				@flag=1
-		# 			end	
-		# 		end
-		# 	end 
-		# 	if (@flag==0)
-		# 		if @usuario.save
-		# 			@contrasena = Digest::SHA1.hexdigest("#{@usuario.password}")
-		# 			@usuario.password = @contrasena
-		# 			@usuario.token = generateUniqueHexCode(10)
-		# 			@usuario.save
-		# 			if @usuario.wikipage.blank? || @usuario.wikipage == "" || @usuario.wikipage.nil?
-		# 				@wikipage = "#{params[:usuario][:nombre]} #{params[:usuario][:apellido]}"
-		# 			else
-		# 				@wikipage = @usuario.wikipage
-		# 			end
-		# 			begin
-		# 				if @usuario.tipo == "a"
-		# 					@tipo = "|Relación con la Escuela=Alumno  \n"
-		# 				elsif @usuario.tipo == "p"
-		# 					@tipo = "|Relación con la Escuela=Profesor  \n"
-		# 				elsif @usuario.tipo == "e"							
-		# 					@tipo = "|Relación con la Escuela=Ex-Alumno  \n"
-		# 				elsif @usuario.tipo == "f"
-		# 					@tipo = "|Relación con la Escuela=Amigo  \n"
-		# 				elsif @usuario.tipo == "o"
-		# 					@tipo = "|Relación con la Escuela=Otro  \n"
-		# 				end
-		# 				unless @usuario.carrera.blank?
-		# 					@carrera = "|Carreras Relacionadas=#{@usuario.carrera.capitalize} \n"
-		# 				end
-		# 				@data = "{{Persona
-		# 				|Nombre=#{@usuario.nombre}
-		# 				|Apellido=#{@usuario.apellido}
-		# 				#{@tipo}
-		# 				#{@carrera}
-		# 				}}"
-		# 				casiopea_page = create_wikipage(@wikipage,@data,params[:usuario][:bio])
-		# 				@usuario.wikipage = "http://wiki.ead.pucv.cl/index.php?title="+casiopea_page.to_s
-		# 				@usuario.save!
-		# 			rescue MediaWiki::APIError
-		# 				flash[:notice] = "La pagina de la wiki ya existe < #{@wikipage} >, Tu cuenta se creo de igual manera, pero debes actualizar tus datos"		
-		# 			end
-		# 			UserMailer.registration_confirmation(@usuario).deliver
-		# 			flash[:notice] = "Usuario Creado"
-		# 			redirect_to root_path
-		# 		else
-		# 			flash[:notice] = "No se ha podido crear el usuario | verifica que el email o el usuario este disponible"
-		# 			redirect_to :action => 'signup'
-		# 		end
-		# 	else
-		# 		redirect_to :action => 'signup'
-		# 	end
-		# else
-		# 	flash[:notice] = "El Captcha no coincide"
-		# 	redirect_to :action => 'signup'
-		# end
 	end
 
 	# Inicia el flujo de edicion para usuarios.

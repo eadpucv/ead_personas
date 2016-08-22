@@ -17,6 +17,12 @@
 							<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
 								<h5 class="fino sans pizarra">Tus datos personales</h5>
 								<hr>
+								<% if flash[:notice]  %>
+								<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert" style="display: block;">
+									<strong><%=flash[:notice]%></strong> 
+								</div>
+								<br />
+								<% end %>
 								<div class="margen-inf-sm">
 									<%= f.label :usuario, 'Nombre de usuario' %>
 									<div class="grupo-inputs">

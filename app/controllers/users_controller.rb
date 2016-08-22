@@ -13,50 +13,16 @@ class UsersController < ApplicationController
 		end
 	end
 
-	# Perfil publico del usuario.
-	def profile
-		if is_admin || edit_my_own_user(params[:user_id])
-			if User.exists?(params[:user_id])
-				@user = User.find(params[:user_id])
-				# Verifico que tengamos el dato.
-				if @user.wikipage.to_s.strip.length != 0
-					wiki_data = get_wikipage(@user.wikipage)
-					if wiki_data.to_s.strip.length != 0
-						parse_data = Nokogiri::HTML(wiki_data)
-						puts "kaosbite"
-						puts wiki_data.inspect
-						@profile = {
-							url_wiki: @user.wikipage,
-							profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
-							grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
-							fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
-							ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,
-							ciudad_pais: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text,
-							relacion_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text,
-							carrera_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text,
-							nombre_apellido: parse_data.css('span.given-name').text + " " + parse_data.css('span.family-name').text,
-							url_web_personal: parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text,
-							url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
-						}
-					else
-						# Wiki en blanco, pero existe.
-						flash[:notice] = "La Wiki '#{@user.wikipage}' no tiene contenido, o la referencia esta corrupta."
-					end
-				else
-					# Wiki no existe.
-					flash[:notice] = "Este usuario no tiene Wiki."
-				end
-			end
-		else
-			redirect_to  root_path
-		end
+	# Muestra el perfil de un usuario.
+	def show
+		@user = User.find(params[:user_id])
 	end
 
-	# Init new user creation flow.
+	# Inicia el flujo de creacion para nuevos usuarios.
 	def new
 		@user = User.new
 		@opciones_tipo = [
-			['', ''],
+			['Selecciona', ''],
 			['Alumno(a)', 'a'],
 			['Profesor(a)', 'p'],
 			['Ex-alumno(a)', 'a'],
@@ -65,7 +31,7 @@ class UsersController < ApplicationController
 			['Otro(a)', 'a']
 		]
 		@opciones_carrera = [
-			['', ''],
+			['Selecciona', ''],
 			['Arquitectura', 'arquitectura'],
 			['Diseño', 'diseño'],
 			['Diseño Gráfico', 'diseño_grafico'],
@@ -74,10 +40,15 @@ class UsersController < ApplicationController
 		]
 	end
 
-	# Create new user.
+	# Culmina el flujo de creacion de nuevos usuarios.
 	def create
-
-		render :json => { :status => true, :message => "Se recibieron los datos", :params => params[:user] }, :callback => params[:callback], :status => 200
+		# render :json => { :status => true, :message => "Se recibieron los datos", :params => params[:user] }, :callback => params[:callback], :status => 200
+		@user = User.new(user_params)
+		if verify_recaptcha(model: @user) && @user.save
+			redirect_to @user
+		else
+			render 'new'
+		end
 
 		# @usuario = Usuario.new(params[:usuario])
 		# @mail = params[:usuario][:mail]
@@ -153,7 +124,7 @@ class UsersController < ApplicationController
 		# end
 	end
 
-	# Formulario de edicion de usuario.
+	# Inicia el flujo de edicion para usuarios.
 	def edit
 		if is_admin || edit_my_own_user(params[:user_id])
 			@user = User.find(params[:user_id])
@@ -164,118 +135,153 @@ class UsersController < ApplicationController
 		end
 	end
 
-	# Cerrar session.
-	def logout
+	# Culmina el flujo de edicion de usuarios.
+	def update
 	end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	# USUARIO
-	def data_for_wp
-		if params[:key].to_s == "d0c0e3d43f100c138b2142fd48eaac32"
-			@usuario = Usuario.find(:first, :conditions => ["usuario = ?",params[:u]])
-			render(:json => @usuario)
+	# Perfil publico del usuario.
+	def profile
+		if is_admin || edit_my_own_user(params[:user_id])
+			if User.exists?(params[:user_id])
+				@user = User.find(params[:user_id])
+				# Verifico que tengamos el dato.
+				if @user.wikipage.to_s.strip.length != 0
+					wiki_data = get_wikipage(@user.wikipage)
+					if wiki_data.to_s.strip.length != 0
+						parse_data = Nokogiri::HTML(wiki_data)
+						puts "kaosbite"
+						puts wiki_data.inspect
+						@profile = {
+							url_wiki: @user.wikipage,
+							profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
+							grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
+							fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
+							ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,
+							ciudad_pais: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text,
+							relacion_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text,
+							carrera_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text,
+							nombre_apellido: parse_data.css('span.given-name').text + " " + parse_data.css('span.family-name').text,
+							url_web_personal: parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text,
+							url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
+						}
+					else
+						# Wiki en blanco, pero existe.
+						flash[:notice] = "La Wiki '#{@user.wikipage}' no tiene contenido, o la referencia esta corrupta."
+					end
+				else
+					# Wiki no existe.
+					flash[:notice] = "Este usuario no tiene Wiki."
+				end
+			end
 		else
-			render(:json => {"error"=>"key_error"})
-		end
-	end
-
-	#
-	def home_user
-	end
-
-	#
-	def signup
-		@usuario = Usuario.new
-	end
-
-	#
-	def editPublico
-		@id = params[:id]
-		@t = params[:t]
-		@usuario = Usuario.find(:first, :conditions => ["id = ? AND token = ?",@id,@t])
-		if @usuario.nil?
 			redirect_to  root_path
 		end
 	end
 
-	# Upadate user attributes.
-	def update
-		@usuario = Usuario.find(params[:id])
-		if isAdmin? || params[:t] == @usuario.token || editMyOwnUser?(params[:id])
-			if params[:usuario][:password]
-				if params[:usuario][:password] == params[:contrasena_rep]
-					@usuario.password = Digest::SHA1.hexdigest("#{params[:usuario][:password]}")
-					@usuario.save!
-					flash[:notice] = "Contraseña Actualizada"		
-					redirect_to  root_path
-				else
-					flash[:notice] = "Las contraseñas no coinciden"		
-					redirect_to :action => 'edit', :id=> params[:id]
-				end
-			else
-				if @usuario.update_attributes(params[:usuario])
-					flash[:notice] = "Los datos se han actualizado correctamente."		
-					redirect_to  root_path
-				else
-					flash[:notice] = "Tienes problemas con tu formulario, Completa todos los datos"		
-					redirect_to :action => 'edit', :id=> params[:id]					
-				end
-			end
-		end
-	end
-
-	# CHECKS
-	def checkUser
-		@usuario = Usuario.find(:all, :conditions => ["usuario = ? ", params[:user]])
-		if @usuario.blank?
-			@notificacion = '<span class="label label-success">disponible</span>'
-		else
-			@notificacion = '<span class="label label-important">no disponible</span>'
-		end
-		render(:text => @notificacion)
-	end
-
-	# Verifica email.
-	def checkMail
-		@usuario = Usuario.find(:all, :conditions => ["mail = ? ", params[:mail]])
-		if @usuario.blank?
-			@notificacion = '<span class="label label-success">disponible</span>'
-		else
-			@notificacion = '<span class="label label-important">no disponible</span>'
-		end
-		render(:text => @notificacion)
-	end
-
-	# Recupera Correo
-	def enviaRecuperaMail
-		@tipo ="recupera"
-		@usuario = Usuario.find(:first, :conditions => ["mail = ?", params[:mail]])
-		if @usuario.nil?
-			flash[:notice] = "Este correo no figura en nuestro registro. Tal vez te registraste con un correo antiguo que ya no usas."
-			redirect_to :action => 'recuperacionDatos'
-		else
-			UserMailer.recuperacion_datos(@usuario).deliver
-			flash[:notice] = "Los datos del usuario #{@usuario.nombre}  #{@usuario.apellido} [#{@usuario.usuario}] han sido enviados a la direccion de mail."
-			redirect_to root_path
-		end
-	end
-
-	# Recupera datos
-	def recuperacionDatos
+	def user_params
+		params.require(:user).permit(
+			:rut,
+			:nombre,
+			:apellido,
+			:mail,
+			:telefono_fijo,
+			:telefono_cel,
+			:direccion,
+			:ciudad,
+			:pais,
+			:tipo,
+			:anoingreso,
+			:carrera,
+			:web,
+			:twitter,
+			:flickr,
+			:usuario,
+			:password,
+			:bio,
+			:status
+			)
 	end
 
 end
+
+	# # USUARIO
+	# def data_for_wp
+	# 	if params[:key].to_s == "d0c0e3d43f100c138b2142fd48eaac32"
+	# 		@usuario = Usuario.find(:first, :conditions => ["usuario = ?",params[:u]])
+	# 		render(:json => @usuario)
+	# 	else
+	# 		render(:json => {"error"=>"key_error"})
+	# 	end
+	# end
+
+	# #
+	# def editPublico
+	# 	@id = params[:id]
+	# 	@t = params[:t]
+	# 	@usuario = Usuario.find(:first, :conditions => ["id = ? AND token = ?",@id,@t])
+	# 	if @usuario.nil?
+	# 		redirect_to  root_path
+	# 	end
+	# end
+
+	# # Upadate user attributes.
+	# def update
+	# 	@usuario = Usuario.find(params[:id])
+	# 	if isAdmin? || params[:t] == @usuario.token || editMyOwnUser?(params[:id])
+	# 		if params[:usuario][:password]
+	# 			if params[:usuario][:password] == params[:contrasena_rep]
+	# 				@usuario.password = Digest::SHA1.hexdigest("#{params[:usuario][:password]}")
+	# 				@usuario.save!
+	# 				flash[:notice] = "Contraseña Actualizada"		
+	# 				redirect_to  root_path
+	# 			else
+	# 				flash[:notice] = "Las contraseñas no coinciden"		
+	# 				redirect_to :action => 'edit', :id=> params[:id]
+	# 			end
+	# 		else
+	# 			if @usuario.update_attributes(params[:usuario])
+	# 				flash[:notice] = "Los datos se han actualizado correctamente."		
+	# 				redirect_to  root_path
+	# 			else
+	# 				flash[:notice] = "Tienes problemas con tu formulario, Completa todos los datos"		
+	# 				redirect_to :action => 'edit', :id=> params[:id]					
+	# 			end
+	# 		end
+	# 	end
+	# end
+
+	# # CHECKS
+	# def checkUser
+	# 	@usuario = Usuario.find(:all, :conditions => ["usuario = ? ", params[:user]])
+	# 	if @usuario.blank?
+	# 		@notificacion = '<span class="label label-success">disponible</span>'
+	# 	else
+	# 		@notificacion = '<span class="label label-important">no disponible</span>'
+	# 	end
+	# 	render(:text => @notificacion)
+	# end
+
+	# # Verifica email.
+	# def checkMail
+	# 	@usuario = Usuario.find(:all, :conditions => ["mail = ? ", params[:mail]])
+	# 	if @usuario.blank?
+	# 		@notificacion = '<span class="label label-success">disponible</span>'
+	# 	else
+	# 		@notificacion = '<span class="label label-important">no disponible</span>'
+	# 	end
+	# 	render(:text => @notificacion)
+	# end
+
+	# # Recupera Correo
+	# def enviaRecuperaMail
+	# 	@tipo ="recupera"
+	# 	@usuario = Usuario.find(:first, :conditions => ["mail = ?", params[:mail]])
+	# 	if @usuario.nil?
+	# 		flash[:notice] = "Este correo no figura en nuestro registro. Tal vez te registraste con un correo antiguo que ya no usas."
+	# 		redirect_to :action => 'recuperacionDatos'
+	# 	else
+	# 		UserMailer.recuperacion_datos(@usuario).deliver
+	# 		flash[:notice] = "Los datos del usuario #{@usuario.nombre}  #{@usuario.apellido} [#{@usuario.usuario}] han sido enviados a la direccion de mail."
+	# 		redirect_to root_path
+	# 	end
+	# end

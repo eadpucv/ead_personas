@@ -8,15 +8,10 @@ Rails.application.routes.draw do
 
   # Custom
   root :to => "user#index"
+
   # Perfil
   get 'profile/:user_id' => 'user#profile'
-  # Gestion de cuentas
-  scope '/user' do
-    get '/new' => 'user#new'
-    post '/' => 'user#create'
-    get '/:user_id' => 'user#edit'
-    patch '/' => 'user#update'
-  end
+
   # Helpers
   get 'login' => 'session#login'
   get 'logout' => 'session#logout'

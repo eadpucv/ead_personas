@@ -119,27 +119,63 @@
 </section>
 <script type="text/javascript">
 	$(document).ready(function(){
-		// // Paso 1
-		// $('.btn-registro1').click(function () {
-		// 	if (confirm("Verificando...") == true) {
-		// 		alert("Verificación OK!");
-		// 		$('#tabsRegistro a[href = "#registro-2"]').tab('show');
-		// 	} else {
-		// 		alert("Verificación errónea!");
-		// 	}
-		// });
-		// // Paso 2
-		// $('.btn-registro2').click(function () {
-		// 	if (confirm("Registrando...") == true) {
-		// 		alert("Registro OK!");
-		// 		$('#tabsRegistro a[href = "#registro-3"]').tab('show');
-		// 	} else {
-		// 		alert("Registro errónea!");
-		// 	}
-		// })
+		// Validacion.
 		// $('#new_user').submit(function(event){
-		// 	alert( "Handler for .submit() called." );
-		// 	event.preventDefault();
+		// 	var flag = true
+		// 	if($('#usuario').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#usuario').css('background', 'pink');
+		// 		$('#usuario').focus();
+		// 	}else{
+		// 		$('#usuario').css('background', 'palegreen');
+		// 	}
+		// 	if($('#nombre').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#nombre').css('background', 'pink');
+		// 		$('#nombre').focus();
+		// 	}else{
+		// 		$('#nombre').css('background', 'palegreen');
+		// 	}
+		// 	if($('#apellido').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#apellido').css('background', 'pink');
+		// 		$('#apellido').focus();
+		// 	}else{
+		// 		$('#apellido').css('background', 'palegreen');
+		// 	}
+		// 	if($('#rut').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#rut').css('background', 'pink');
+		// 		$('#rut').focus();
+		// 	}else{
+		// 		$('#rut').css('background', 'palegreen');
+		// 	}
+		// 	if($('#tipo').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#tipo').css('background', 'pink');
+		// 		$('#tipo').focus();
+		// 	}else{
+		// 		$('#tipo').css('background', 'palegreen');
+		// 	}
+		// 	if($('#carrera').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#carrera').css('background', 'pink');
+		// 		$('#carrera').focus();
+		// 	}else{
+		// 		$('#carrera').css('background', 'palegreen');
+		// 	}
+		// 	if($('#mail').val().trim().length <= 0){
+		// 		flag = false;
+		// 		$('#mail').css('background', 'pink');
+		// 		$('#mail').focus();
+		// 	}else{
+		// 		$('#mail').css('background', 'palegreen');
+		// 	}
+		// 	if(flag){
+		// 		$('#new_user').submit();
+		// 	}else{
+		// 		flag = true;
+		// 	}
 		// });
 	});
 </script>

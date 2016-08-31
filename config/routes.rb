@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   # get 'admin/mailing'
 
   # Custom
-  root :to => "user#index"
+  root :to => "users#index"
 
   # Perfil
-  get 'profile/:user_id' => 'user#profile'
+  get 'profile/:user_id' => 'users#profile'
 
   # Helpers
   get 'login' => 'session#login'

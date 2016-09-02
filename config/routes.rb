@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get 'login' => 'session#login'
   get 'logout' => 'session#logout'
 
+  get 'useradmin/:userid' => 'users#user_admin'
+  get 'userlock/:userid' => 'users#user_lock'
+
   resources :users
 
   # Legacy

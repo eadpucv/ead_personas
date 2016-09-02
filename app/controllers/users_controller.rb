@@ -124,6 +124,39 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def user_admin
+		if !params[:userid].nil?
+			user = User.find_by_id(params[:userid])
+			if user.admin == 'si'
+				user.admin = 'no'
+			else
+				user.admin = 'si'
+			end
+			user.save
+			render :json => { :status => true, :message => "Se cambio el parametro admin." }, :status => 201
+		else
+			render :json => { :status => false, :message => "No fue posible ejecutar la accion faltan parametros." }, :status => 200
+		end
+	end
+
+	def user_lock
+		if !params[:userid].nil?
+			user = User.find_by_id(params[:userid])
+			if user.status
+				user.status = false
+			else
+				user.status = true
+			end
+			user.save
+			render :json => { :status => true, :message => "Se cambio el parametro status." }, :status => 201
+		else
+			render :json => { :status => false, :message => "No fue posible ejecutar la accion faltan parametros." }, :status => 200
+		end
+	end
+
+	def user_msj
+	end
+
 	def user_params
 		params.require(:user).permit(
 			:rut,

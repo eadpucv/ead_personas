@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 		if !params[:user_search].nil?
 			search = params[:user_search]
 			@users = User.where("nombre LIKE ? OR apellido LIKE ? OR mail LIKE ?", "%#{search}%","%#{search}%","%#{search}%").order(id: :desc).paginate(:page => params[:page], :per_page => 15)
+		elsif !params[:filtro].nil? && params[:filtro] == "bloqueados"
+			@users = User.where(status: false).order(id: :desc).paginate(:page => params[:page], :per_page => 15)
 		else
 			@users = User.order(id: :desc).paginate(:page => params[:page], :per_page => 15)
 		end

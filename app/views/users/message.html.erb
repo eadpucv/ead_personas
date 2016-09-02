@@ -1,0 +1,57 @@
+<section class="modulo">
+	<div class="modulo-cuerpo">
+		<div class="margen-inf-sm">
+			<div class="contenedor-modulo">
+				<i class="icn icn-email rojo margen-der-sm nav-icn"></i> 
+				<ul class="nav nav-tabs" role="tablist" id="tabla-contenido">
+					<li class="active"><a><h5 class="rojo sin-margen">Enviar email</h5></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="contenedor-modulo">
+			<div class="fila flexbox">
+				<div class="col-md-2 col-sm-2 col-xs-12">
+				<label class="" for="type">Destinatario</label>
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-12">
+					<a class="grueso" href="#"><%=@to_user.usuario%></a>
+				</div>
+			</div>
+			<div class="fila flexbox">
+				<div class="col-md-2 col-sm-2 col-xs-12">
+					<label class="" for="asunto">Asunto</label>
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-12">
+					<div class="grupo-inputs">
+						<div class="input"><i class="icn icn-md icn-lapiz"></i></div>
+						<input type="text" class="control" id="asunto">	
+					</div>
+				</div>
+			</div>
+			<!-- Resultados -->
+			<div class="fila">
+				<div class="col-md-2 col-sm-2 col-xs-12">
+					<h6 class="altas rojo">Su mensaje:</h6>
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-12">
+					<textarea rows="5"></textarea>
+				</div>
+			</div>
+			<div class="fila">
+				<div class="col-md-4 col-md-offset-5 col-sm-4 col-sm-offset-5 col-xs-12">
+					<button type="button" class="btn btn-accion btn-lg btn-bloque btn-abrir-alerta">Enviar email</button>
+				</div>
+			</div>
+			<div class="fila">
+				<div class="col-md-12">
+					<div class="margen-inf-sm">
+						<div class="alerta alerta-error alert-dismissible fade in" role="alert">
+							<button type="button" class="close btn-cerrar-alerta" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<strong>Error de enviado!</strong> No hemos podido enviar tu mensaje. Por favor intente nuevamente
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

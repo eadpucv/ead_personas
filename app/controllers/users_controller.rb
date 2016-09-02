@@ -156,7 +156,12 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def user_msj
+	def message
+		if params[:to]
+			@to_user = User.find_by_id(params[:to])
+		else
+			redirect_to  root_path
+		end
 	end
 
 	def user_params

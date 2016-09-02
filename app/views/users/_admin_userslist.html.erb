@@ -20,7 +20,7 @@
 											<a class='useradmin sans btn btn-xs btn-accion<%=(user.admin == 'si') ? '' : '-hover'%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Permiso de Administrador"><i data-toggle="modal" data-target="#modalExito" class="icn icn-acto"></i></a>
 										</li>
 										<li>
-											<a class='usermsj sans btn btn-xs' data-toggle="tooltip" userid="<%=user.id%>" data-toggle="tooltip" data-original-title="Enviar e-mail" ><i class="icn icn-email"></i></a> 
+											<a href="/message/<%=user.id%>" class='usermsj sans btn btn-xs' data-toggle="tooltip" userid="<%=user.id%>" data-toggle="tooltip" data-original-title="Enviar e-mail" ><i class="icn icn-email"></i></a> 
 										</li>
 									</ul>
 								</td>
@@ -60,9 +60,9 @@
 								});
 							});
 
-							$('.usermsj').click(function(event){
-								event.preventDefault();
-								console.log($(this).attr('userid'));
-							});
+							// $('.usermsj').click(function(event){
+							// 	event.preventDefault();
+							// 	console.log($(this).attr('userid'));
+							// });
 						});
 					</script>

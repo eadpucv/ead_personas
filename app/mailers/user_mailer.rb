@@ -9,4 +9,9 @@ class UserMailer < ActionMailer::Base
 		@usuario = user
 		mail(:to => user.mail, :subject => "Recuperación de datos [personas e[ad]]")
 	end
+
+	def test_mailer(to)
+		mail(:to => to, :subject => "Bleee")
+	end
+
 end

@@ -159,6 +159,7 @@ class UsersController < ApplicationController
 	def message
 		if params[:to]
 			@to_user = User.find_by_id(params[:to])
+			UserMailer.test_mailer("felipe.gonzalez.g@gmail.com").deliver_now
 		else
 			redirect_to  root_path
 		end

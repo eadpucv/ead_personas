@@ -40,6 +40,7 @@
 										// console.log(data);
 										// console.log(data.message);
 										// alert(data.message);
+										// $(this).removeClass('btn-accion').addClass('btn-accion-hover');
 										location.reload();
 									}
 								});
@@ -48,6 +49,7 @@
 							$('.userlock').click(function(event){
 								event.preventDefault();
 								console.log($(this).attr('userid'));
+								var button = $(this);
 								$.ajax({
 									method: "GET",
 									url: "userlock/"+$(this).attr('userid'),
@@ -55,6 +57,11 @@
 										// console.log(data);
 										// console.log(data.message);
 										// alert(data.message);
+										// console.log(button);
+										// button.toggleClass("hovered");
+										// .removeClass('btn-alerta')
+										// button.addClass('btn-alerta-hover');
+										// console.log(button);
 										location.reload();
 									}
 								});

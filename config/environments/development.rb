@@ -54,6 +54,6 @@ Rails.application.configure do
    :password => "fK6YcHa2",
    :authentication => 'plain',
    :enable_starttls_auto => true,
-   :openssl_verify_mode => 'none' 
- }  
+   :openssl_verify_mode => 'none'
+  }
 end

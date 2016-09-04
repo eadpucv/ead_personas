@@ -85,12 +85,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "arquitecturaucv.cl",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "mailer@arquitecturaucv.cl",
-    password: "cSAtNnxnV7k"
+   :address =>"smtp.gmail.com",
+   :port => 587,
+   :domain => "gmail.com",
+   :user_name => "mailer@arquitecturaucv.cl",
+   :password => "fK6YcHa2",
+   :authentication => 'plain',
+   :enable_starttls_auto => true,
+   :openssl_verify_mode => 'none'
   }
 end

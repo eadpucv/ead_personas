@@ -10,6 +10,11 @@ class UserMailer < ActionMailer::Base
 		mail(:to => user.mail, :subject => "Recuperación de datos [personas e[ad]]")
 	end
 
+	def send_message(target, subject, message)
+		@message = message
+		mail(to: target, subject: "Mensaje EAD - [" + subject + "]")
+	end
+
 	def test_mailer(to)
 		mail(:to => to, :subject => "Bleee")
 	end

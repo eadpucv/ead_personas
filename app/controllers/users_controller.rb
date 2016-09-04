@@ -159,10 +159,23 @@ class UsersController < ApplicationController
 	def message
 		if params[:to]
 			@to_user = User.find_by_id(params[:to])
-			UserMailer.test_mailer("felipe.gonzalez.g@gmail.com").deliver_now
+			# UserMailer.test_mailer("felipe.gonzalez.g@gmail.com").deliver_now
 		else
 			redirect_to  root_path
 		end
+	end
+
+	def send_message
+
+		if !params[:targetid].nil? && !params[:asunto].nil? && !params[:mensaje].nil?
+			user_target = User.find_by_id(params[:targetid])
+			puts user_target.mail
+			UserMailer.send_message("felipe.gonzalez.g@gmail.com", params[:asunto], params[:mensaje]).deliver_now
+			flash[:notice] = "El mensaje se envio de forma exitosa."
+		else
+			flash[:notice] = "El no se pudo enviar."
+		end
+		redirect_to  root_path
 	end
 
 	def user_params

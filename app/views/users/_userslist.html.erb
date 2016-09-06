@@ -1,7 +1,7 @@
 					<table class="tabla-personas">
 						<thead>
 							<tr>
-								<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Tipo</th><th>Contactar</th>		
+								<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Tipo</th><th style='text-align: center'>Contactar</th>		
 							</tr>
 						</thead>
 						<tbody>
@@ -11,12 +11,8 @@
 								<td><%=user.nombre%></td>
 								<td><%=user.apellido%></td>
 								<td><%=userKind(user.tipo)%></td>
-								<td>
-									<ul class="tooltip-demo margen-vertical-md">
-										<li class="sin-margen-izq">
-											<a class='sans btn btn-xs' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
-										</li>
-									</ul>
+								<td class='centrada'>
+								<a class='sans btn btn-xs btn-block' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
 								</td>
 							</tr>
 							<% end %>

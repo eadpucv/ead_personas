@@ -14,14 +14,23 @@
 								<td>
 									<ul class="tooltip-demo margen-vertical-md">
 										<li>
-										<a class='userlock sans btn btn-xs btn-alerta<%=(user.status) ? '-hover' : ''%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Bloquear"><i class="icn icn-prohibir" ></i></a>
+											<a class='useredit sans btn btn-xs btn-accion<%=(user.status) ? '-hover' : ''%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Editar"><i class="icn icn-lapiz" ></i>
+											</a>
 										</li>
+										
 										<li>
-											<a class='useradmin sans btn btn-xs btn-accion<%=(user.admin == 'si') ? '' : '-hover'%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Permiso de Administrador"><i data-toggle="modal" data-target="#modalExito" class="icn icn-acto"></i></a>
+											<a class='useradmin sans btn btn-xs btn-accion<%=(user.admin == 'si') ? '' : '-hover'%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Permiso de Administrador"><i data-toggle="modal" data-target="#modalExito" class="icn icn-admin"></i></a>
 										</li>
+										
 										<li>
 											<a href="/message/<%=user.id%>" class='usermsj sans btn btn-xs' data-toggle="tooltip" userid="<%=user.id%>" data-toggle="tooltip" data-original-title="Enviar e-mail" ><i class="icn icn-email"></i></a> 
 										</li>
+
+										<li>
+											<a class='userlock sans btn btn-xs btn-alerta<%=(user.status) ? '-hover' : ''%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Bloquear"><i class="icn icn-prohibir" ></i>
+											</a>
+										</li>
+										
 									</ul>
 								</td>
 							</tr>

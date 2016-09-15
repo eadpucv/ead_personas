@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 			end
 		else
 			# El recaptcha no paso la verificacion.
-			render :json => { :status => false }
+			# render :json => { :status => false }
 			flash[:notice] = "No fue posible crear el usuario, ya que la verificacion captcha no fue superada."
 			redirect_to new_user_path
 		end

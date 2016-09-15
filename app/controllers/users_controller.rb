@@ -98,7 +98,14 @@ class UsersController < ApplicationController
 	# Culmina el flujo de edicion de usuarios.
 	def update
 		@user = User.find(params[:id])
-		if @user.update_attributes(user_params)
+		if params[:user][:password] == params[:user][:password_confirmation] && params[:user][:password] != ''
+			@user.password = Digest::SHA1.hexdigest("#{params[:user][:password]}")
+			@user.token = generateUniqueHexCode(10)
+			@user.save!
+			flash[:notice] = "Contraseña Actualizada."
+			redirect_to edit_user_path
+		elsif @user.update_attributes(user_params)
+			flash[:notice] = "Los datos se han actualizado correctamente."
 			redirect_to edit_user_path
 		else
 			flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."

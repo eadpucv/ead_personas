@@ -59,7 +59,6 @@ class UsersController < ApplicationController
 			else
 				# No se pudo crear el nuevo registro.
 				flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."
-				puts @user.errors.inspect
 				flash[:error] = @user.errors.full_messages
 				redirect_to new_user_path
 			end
@@ -98,6 +97,14 @@ class UsersController < ApplicationController
 
 	# Culmina el flujo de edicion de usuarios.
 	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(user_params)
+			redirect_to edit_user_path
+		else
+			flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."
+			flash[:error] = @user.errors.full_messages
+			redirect_to edit_user_path
+		end
 	end
 
 	# Perfil publico del usuario.

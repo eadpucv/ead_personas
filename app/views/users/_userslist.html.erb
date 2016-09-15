@@ -12,7 +12,7 @@
 								<td><%=user.apellido%></td>
 								<td><%=userKind(user.tipo)%></td>
 								<td class='centrada'>
-								<a class='sans btn btn-xs btn-block' data-toggle="tooltip" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+								<a href="/message/<%=user.id%>" class='usermsj sans btn btn-xs' data-toggle="tooltip" userid="<%=user.id%>" data-toggle="tooltip" data-original-title="Enviar e-mail" ><i class="icn icn-email"></i></a>
 								</td>
 							</tr>
 							<% end %>

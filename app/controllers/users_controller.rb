@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 
 	# Muestra el perfil de un usuario.
 	def show
-		# @user = User.find(params[:user_id])
 		@user = User.find(params[:id])
 	end
 
@@ -59,7 +58,6 @@ class UsersController < ApplicationController
 				redirect_to login_path
 			else
 				# No se pudo crear el nuevo registro.
-				# render :json => { :status => false }
 				flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."
 				puts @user.errors.inspect
 				flash[:error] = @user.errors.full_messages
@@ -67,7 +65,6 @@ class UsersController < ApplicationController
 			end
 		else
 			# El recaptcha no paso la verificacion.
-			# render :json => { :status => false }
 			flash[:notice] = "No fue posible crear el usuario, ya que la verificacion captcha no fue superada."
 			redirect_to new_user_path
 		end
@@ -75,8 +72,7 @@ class UsersController < ApplicationController
 
 	# Inicia el flujo de edicion para usuarios.
 	def edit
-		if is_admin || edit_my_own_user(params[:user_id])
-			# @user = User.find(params[:user_id])
+		if is_admin || edit_my_own_user(params[:id])
 			@user = User.find(params[:id])
 			puts @user.inspect
 			puts "kaosbite"
@@ -93,15 +89,12 @@ class UsersController < ApplicationController
 	def profile
 		if is_admin || edit_my_own_user(params[:user_id])
 			if User.exists?(params[:user_id])
-				# @user = User.find(params[:user_id])
 				@user = User.find(params[:id])
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0
 					wiki_data = get_wikipage(@user.wikipage)
 					if wiki_data.to_s.strip.length != 0
 						parse_data = Nokogiri::HTML(wiki_data)
-						puts "kaosbite"
-						puts wiki_data.inspect
 						@profile = {
 							url_wiki: @user.wikipage,
 							profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
@@ -162,7 +155,6 @@ class UsersController < ApplicationController
 	def message
 		if params[:to]
 			@to_user = User.find_by_id(params[:to])
-			# UserMailer.test_mailer("felipe.gonzalez.g@gmail.com").deliver_now
 		else
 			redirect_to  root_path
 		end

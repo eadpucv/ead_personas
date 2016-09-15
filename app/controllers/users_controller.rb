@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
 	# Muestra el perfil de un usuario.
 	def show
-		@user = User.find(params[:user_id])
+		# @user = User.find(params[:user_id])
+		@user = User.find(params[:id])
 	end
 
 	# Inicia el flujo de creacion para nuevos usuarios.
@@ -75,7 +76,8 @@ class UsersController < ApplicationController
 	# Inicia el flujo de edicion para usuarios.
 	def edit
 		if is_admin || edit_my_own_user(params[:user_id])
-			@user = User.find(params[:user_id])
+			# @user = User.find(params[:user_id])
+			@user = User.find(params[:id])
 			puts @user.inspect
 			puts "kaosbite"
 		else
@@ -91,7 +93,8 @@ class UsersController < ApplicationController
 	def profile
 		if is_admin || edit_my_own_user(params[:user_id])
 			if User.exists?(params[:user_id])
-				@user = User.find(params[:user_id])
+				# @user = User.find(params[:user_id])
+				@user = User.find(params[:id])
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0
 					wiki_data = get_wikipage(@user.wikipage)

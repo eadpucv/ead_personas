@@ -14,8 +14,7 @@
 								<td>
 									<ul class="tooltip-demo margen-vertical-md">
 										<li>
-											<a class='useredit sans btn btn-xs btn-accion<%=(user.status) ? '-hover' : ''%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Editar"><i class="icn icn-lapiz" ></i>
-											</a>
+											<a href="/users/<%=user.id%>/edit" class='useredit sans btn btn-xs btn-accion' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Editar"><i class="icn icn-lapiz" ></i></a>
 										</li>
 										
 										<li>

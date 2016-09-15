@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'useradmin/:userid' => 'users#user_admin'
   get 'userlock/:userid' => 'users#user_lock'
   get 'userdel/:userid' => 'users#user_del'
+  get 'export' => 'users#export'
   get 'message/:to' => 'users#message'
   post 'send_message' => 'users#send_message'
 

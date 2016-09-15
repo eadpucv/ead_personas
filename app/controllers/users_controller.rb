@@ -211,6 +211,17 @@ class UsersController < ApplicationController
 		redirect_to  root_path
 	end
 
+	def export
+		require 'sanitize'
+		@users = User.all
+		respond_to do |format|
+			format.csv do
+				headers['Content-Disposition'] = "attachment; filename=\"ead_usuarios.csv\""
+				headers['Content-Type'] ||= 'text/csv'
+			end
+		end
+	end
+
 	def user_params
 		params.require(:user).permit(
 			:rut,

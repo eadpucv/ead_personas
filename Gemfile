@@ -62,3 +62,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
+# Export
+gem 'sanitize'
+gem 'axlsx'
+

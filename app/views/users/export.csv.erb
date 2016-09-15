@@ -1,0 +1,19 @@
+<%- headers = ['ID', 'Rut', 'Nombre', 'Apellido', 'email', 'Telefono', 'Celular', 'Direccion', 'Ciudad', 'Pais', 'Relacion con la escuela', 'Año ingreso', 'Carrera', 'wiki'] -%>
+<%= CSV.generate_line headers %>
+<%- @users.each do |user| -%>
+<%= CSV.generate_line([
+	Sanitize.clean(user.id).gsub('&quot;',''),
+	Sanitize.clean(user.rut).gsub('&quot;',''),
+	Sanitize.clean(user.nombre).gsub('&quot;',''),
+	Sanitize.clean(user.apellido).gsub('&quot;',''),
+	Sanitize.clean(user.mail).gsub('&quot;',''),
+	Sanitize.clean(user.telefono_fijo).gsub('&quot;',''),
+	Sanitize.clean(user.telefono_cel).gsub('&quot;',''),
+	Sanitize.clean(user.direccion).gsub('&quot;',''),
+	Sanitize.clean(user.ciudad).gsub('&quot;',''),
+	Sanitize.clean(user.pais).gsub('&quot;',''),
+	Sanitize.clean(user.tipo).gsub('&quot;',''),
+	Sanitize.clean(user.anoingreso).gsub('&quot;',''),
+	Sanitize.clean(user.carrera).gsub('&quot;',''),
+	Sanitize.clean(user.wikipage).gsub('&quot;','')]) -%>
+<%- end -%>

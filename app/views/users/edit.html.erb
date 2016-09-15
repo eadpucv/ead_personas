@@ -53,14 +53,14 @@
 									<%= f.label :tipo, 'Relación con la e[ad]' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-caronabajo"></i></div>
-										<%= f.select :tipo, options_for_select(@opciones_tipo), {}, id: 'tipo' %>
+										<%= f.select :tipo, options_for_select(@opciones_tipo, @user.tipo), {}, id: 'tipo' %>
 									</div>	
 								</div>
 								<div class="margen-inf-sm">
 									<%= f.label :carrera, 'Carrera' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-caronabajo"></i></div>
-										<%= f.select :carrera, options_for_select(@opciones_carrera), {}, id: 'carrera' %>
+										<%= f.select :carrera, options_for_select(@opciones_carrera, @user.carrera), {}, id: 'carrera' %>
 									</div>	
 								</div>
 								<div class="margen-inf-sm">

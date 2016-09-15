@@ -13,6 +13,11 @@
 								<td><%=userKind(user.tipo)%></td>
 								<td>
 									<ul class="tooltip-demo margen-vertical-md">
+									<% if params[:filtro] == 'bloqueados' %>
+										<li>
+											<a class='userdel sans btn btn-xs btn-alerta' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Eliminar"> <i class="icn icn-equis" ></i></a>
+										</li>
+									<% else %>
 										<li>
 											<a href="/users/<%=user.id%>/edit" class='useredit sans btn btn-xs btn-accion' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Editar"><i class="icn icn-lapiz" ></i></a>
 										</li>
@@ -29,7 +34,7 @@
 											<a class='userlock sans btn btn-xs btn-alerta<%=(user.status) ? '-hover' : ''%>' data-toggle="tooltip" data-toggle="tooltip" userid="<%=user.id%>" data-original-title="Bloquear"><i class="icn icn-prohibir" ></i>
 											</a>
 										</li>
-										
+									<% end %>			
 									</ul>
 								</td>
 							</tr>
@@ -38,6 +43,7 @@
 					</table>
 					<script type="text/javascript" >
 						$(function(){
+							// Usuario admin
 							$('.useradmin').click(function(event){
 								event.preventDefault();
 								console.log($(this).attr('userid'));
@@ -45,15 +51,11 @@
 									method: "GET",
 									url: "useradmin/"+$(this).attr('userid'),
 									success: function(data){
-										// console.log(data);
-										// console.log(data.message);
-										// alert(data.message);
-										// $(this).removeClass('btn-accion').addClass('btn-accion-hover');
 										location.reload();
 									}
 								});
 							});
-
+							// Bloqueo usuario
 							$('.userlock').click(function(event){
 								event.preventDefault();
 								console.log($(this).attr('userid'));
@@ -62,22 +64,21 @@
 									method: "GET",
 									url: "userlock/"+$(this).attr('userid'),
 									success: function(data){
-										// console.log(data);
-										// console.log(data.message);
-										// alert(data.message);
-										// console.log(button);
-										// button.toggleClass("hovered");
-										// .removeClass('btn-alerta')
-										// button.addClass('btn-alerta-hover');
-										// console.log(button);
 										location.reload();
 									}
 								});
 							});
-
-							// $('.usermsj').click(function(event){
-							// 	event.preventDefault();
-							// 	console.log($(this).attr('userid'));
-							// });
+							// Eliminar usuario
+							$('.userdel').click(function(event){
+								event.preventDefault();
+								console.log($(this).attr('userid'));
+								$.ajax({
+									method: "GET",
+									url: "userdel/"+$(this).attr('userid'),
+									success: function(data){
+										location.reload();
+									}
+								});
+							});
 						});
 					</script>

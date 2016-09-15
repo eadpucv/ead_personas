@@ -181,6 +181,15 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def user_del
+		if !params[:userid].nil?
+			User.find_by_id(params[:userid]).destroy
+			render :json => { :status => true, :message => "Se elimino el usuario." }, :status => 201
+		else
+			render :json => { :status => false, :message => "No fue posible eliminar el usuario." }, :status => 200
+		end
+	end
+
 	def message
 		if params[:to]
 			@to_user = User.find_by_id(params[:to])

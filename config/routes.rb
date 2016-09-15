@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root :to => "users#index"
 
   # Perfil
-  get 'profile/:user_id' => 'users#profile'
+  get 'profile/:id' => 'users#profile'
 
   # Helpers
   get 'login' => 'session#login'

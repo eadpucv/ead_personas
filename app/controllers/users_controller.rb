@@ -72,10 +72,25 @@ class UsersController < ApplicationController
 
 	# Inicia el flujo de edicion para usuarios.
 	def edit
+		@opciones_tipo = [
+			['Selecciona', ''],
+			['Alumno(a)', 'a'],
+			['Profesor(a)', 'p'],
+			['Ex-alumno(a)', 'a'],
+			['Ex-profesor(a', 'a'],
+			['Amigo(a)', 'a'],
+			['Otro(a)', 'a']
+		]
+		@opciones_carrera = [
+			['Selecciona', ''],
+			['Arquitectura', 'arquitectura'],
+			['Diseño', 'diseño'],
+			['Diseño Gráfico', 'diseño_grafico'],
+			['Diseño Industrial', 'diseño:industrial'],
+			['Magister en Arquitectura y Diseño', 'magister_en_arquitectura_y_diseño'],
+		]
 		if is_admin || edit_my_own_user(params[:id])
 			@user = User.find(params[:id])
-			puts @user.inspect
-			puts "kaosbite"
 		else
 			redirect_to  root_path
 		end
@@ -87,8 +102,8 @@ class UsersController < ApplicationController
 
 	# Perfil publico del usuario.
 	def profile
-		if is_admin || edit_my_own_user(params[:user_id])
-			if User.exists?(params[:user_id])
+		if is_admin || edit_my_own_user(params[:id])
+			if User.exists?(params[:id])
 				@user = User.find(params[:id])
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0

@@ -49,7 +49,7 @@
 							<p <% if @profile[:carrera_ead].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:carrera_ead].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:carrera_ead] %></p>
 						</div>
 						<div class="margen-inf-sm">
-							<a href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>&action=formedit" target="_blank" class="btn btn-accion btn-lg btn-bloque">Editar en Wiki Casiopea</a>
+							<a href="http://wiki.ead.pucv.cl/index.php?title=<%= @profile[:url_wiki] %>&action=formedit" target="_blank" class="btn btn-accion btn-lg btn-bloque">Editar en Wiki Casiopea</a>
 							<a class="xs centrado sin-margen bloque" href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">ir a Perfil Wiki Casiopea</a>
 						</div>
 					</div>

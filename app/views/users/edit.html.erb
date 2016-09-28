@@ -1,9 +1,21 @@
 <section class="modulo">
 	<div class="contenedor-modulo">
-		<div class="modulo-encabezado">
-			<h1 class="fino pizarra sin-margen rojo">e[ad]<span class='sans pizarra fino'>Escuela de Arquitectura y Diseño</span></h1>
-			<span class='xs bloque izquierda sans negro-fundido en-linea'>Pontificia Universidad Católica de Valparaíso</span>
-		</div>
+		
+
+			<nav class="menu-pyxis flexbox">
+
+			<div class="modulo-encabezado">
+				<h1 class="fino pizarra sin-margen rojo">e[ad]<span class='sans pizarra fino'> Escuela de Arquitectura y Diseño</span></h1>
+				<span class='xs bloque izquierda sans negro-fundido en-linea'>Pontificia Universidad Católica de Valparaíso</span>
+			</div>
+
+			  <ul class="nav-rotulos container-flex flex-1">
+			    <li><a href="http://ead.pucv.cl">Web</a></li>
+			    <li><a href="http://wiki.ead.pucv.cl">Wiki</a></li>
+			  </ul>
+			</nav>
+
+
 	</div>
 	<div class="modulo-cuerpo">
 		<div class="contenedor-modulo">
@@ -31,14 +43,14 @@
 								<div class="margen-inf-sm">
 									<%= f.label :nombre, 'Nombres' %>
 									<div class="grupo-inputs">		
-										<div class="input"><i class="icn icn-md icn-perfil"></i></div>
+										<div class="input"><i class="icn icn-md icn-ese"></i></div>
 										<%= f.text_field :nombre, id: 'nombre', class: 'control', placeholder: 'Juan José' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
 									<%= f.label :apellido, 'Apellidos' %>
 									<div class="grupo-inputs">		
-										<div class="input"><i class="icn icn-md icn-perfil"></i></div>
+										<div class="input"><i class="icn icn-md icn-hedera"></i></div>
 										<%= f.text_field :apellido, id: 'apellido', class: 'control', placeholder: 'Pérez López' %>
 									</div>
 								</div>
@@ -71,6 +83,13 @@
 									</div>	
 								</div>
 								<div class="margen-inf-sm">
+									<%= f.label :wikipage, 'Wiki' %>
+									<div class="grupo-inputs">		
+										<div class="input"><i class="icn icn-md icn-enlace"></i></div>
+										<%= f.text_field :wikipage, id: 'wikipage', class: 'control', placeholder: 'http://wiki.ead.pucv.cl/index.php/Juan_Pérez_Cotapo' %>
+									</div>
+								</div>
+								<div class="margen-inf-sm">
 									<%= f.label :password, 'Contraseña' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-abierto"></i></div>
@@ -85,14 +104,14 @@
 									</div>
 								</div>
 								<div class="margen-inf-sm">
-									<%= f.submit "Guardar", class: "btn btn-accion btn-lg btn-bloque btn-registro2" %>
+									<%= f.submit "Guardar", class: "btn btn-accion btn-lg derecha btn-registro2" %>
 								</div>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="registro-3">
 							<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
 								<h4 class="fino sans centrado margen-sup-lg margen-inf-lg">Tu cuenta ha sido registrada con éxito. Tu nombre de usuario es <a href="#">juanito_perez</a>, revisa tu email (juanito_prz@hotmail.com) para finalizar el proceso de registro.</h4>
-								<a class="btn btn-accion btn-lg btn-bloque" href="ingresar.html">Ir al home</a>
+								<a class="btn btn-accion btn-lg derecha" href="ingresar.html">Ir al directorio</a>
 							</div>
 						</div>
 					</div>

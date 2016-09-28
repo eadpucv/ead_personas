@@ -44,25 +44,31 @@
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="input01">Nombre</label>
+				<label class="control-label" for="nombre">Nombre</label>
 				<div class="controls">
 					<%= f.text_field :nombre,:size => 20 %> <span class="required">*</span><br />
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="input01">Apellido</label>
+				<label class="control-label" for="apellido">Apellido</label>
 				<div class="controls">
 					<%= f.text_field :apellido,:size => 20 %> <span class="required">*</span><br />
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="input01">Rut</label>
+				<label class="control-label" for="rut">Rut</label>
 				<div class="controls">
 					<%= f.text_field :rut,:size => 20 %> <span class="required">*</span><br />
 				</div>
 			</div>
 			<div class="control-group">
-				<label class="control-label" for="input01">Mail</label>
+				<label class="control-label" for="rut">Wiki</label>
+				<div class="controls">
+					<%= f.text_field :wiki_url,:size => 20 %> <span class="required">*</span><br />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="mail">Mail</label>
 				<div class="controls">
 					<%= f.text_field :mail,:size => 20, :onchange => "checkMail(this.value,'mailNotificacion')" %> <span class="required">*</span><br />
 				</div>

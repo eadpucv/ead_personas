@@ -27,18 +27,18 @@ class UsersController < ApplicationController
 			['Selecciona', ''],
 			['Alumno(a)', 'a'],
 			['Profesor(a)', 'p'],
-			['Ex-alumno(a)', 'a'],
-			['Ex-profesor(a', 'a'],
-			['Amigo(a)', 'a'],
-			['Otro(a)', 'a']
+			['Ex-alumno(a)', 'exa'],
+			['Ex-profesor(a', 'exp'],
+			['Amigo(a)', 'f'],
+			['Otro(a)', 'o']
 		]
 		@opciones_carrera = [
 			['Selecciona', ''],
-			['Arquitectura', 'arquitectura'],
-			['Diseño', 'diseño'],
-			['Diseño Gráfico', 'diseño_grafico'],
-			['Diseño Industrial', 'diseño:industrial'],
-			['Magister en Arquitectura y Diseño', 'magister_en_arquitectura_y_diseño'],
+			['Arquitectura', 'arq'],
+			['Diseño', 'dis'],
+			['Diseño Gráfico', 'dis_dg'],
+			['Diseño Industrial', 'dis_di'],
+			['Magister en Arquitectura y Diseño', 'mg']
 		]
 	end
 
@@ -75,18 +75,18 @@ class UsersController < ApplicationController
 			['Selecciona', ''],
 			['Alumno(a)', 'a'],
 			['Profesor(a)', 'p'],
-			['Ex-alumno(a)', 'a'],
-			['Ex-profesor(a', 'a'],
-			['Amigo(a)', 'a'],
-			['Otro(a)', 'a']
+			['Ex-alumno(a)', 'exa'],
+			['Ex-profesor(a', 'exp'],
+			['Amigo(a)', 'f'],
+			['Otro(a)', 'o']
 		]
 		@opciones_carrera = [
 			['Selecciona', ''],
-			['Arquitectura', 'arquitectura'],
-			['Diseño', 'diseño'],
-			['Diseño Gráfico', 'diseño_grafico'],
-			['Diseño Industrial', 'diseño:industrial'],
-			['Magister en Arquitectura y Diseño', 'magister_en_arquitectura_y_diseño'],
+			['Arquitectura', 'arq'],
+			['Diseño', 'dis'],
+			['Diseño Gráfico', 'dis_dg'],
+			['Diseño Industrial', 'dis_di'],
+			['Magister en Arquitectura y Diseño', 'mg']
 		]
 		if is_admin || edit_my_own_user(params[:id])
 			@user = User.find(params[:id])

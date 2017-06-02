@@ -1415,18 +1415,22 @@ nav[role=navigation] li a {
   transition: 0.2s ease all;
 }
 .nav-busqueda input::-webkit-input-placeholder {
-  color: rgba(87, 88, 81, 0.5);
+  font-style: italic;
+  color: rgba(87, 88, 81, 0.25);
 }
 .nav-busqueda input:-moz-placeholder {
+  font-style: italic;
   /* Firefox 18- */
-  color: rgba(87, 88, 81, 0.5);
+  color: rgba(87, 88, 81, 0.25);
 }
 .nav-busqueda input::-moz-placeholder {
+  font-style: italic;
   /* Firefox 19+ */
-  color: rgba(87, 88, 81, 0.5);
+  color: rgba(87, 88, 81, 0.25);
 }
 .nav-busqueda input:-ms-input-placeholder {
-  color: rgba(87, 88, 81, 0.5);
+  font-style: italic;
+  color: rgba(87, 88, 81, 0.25);
 }
 .nav-busqueda input:focus {
   box-shadow: none !important;
@@ -1440,6 +1444,7 @@ nav[role=navigation] li a {
   transition: 0.2s ease all;
 }
 .nav-busqueda input:focus::-webkit-input-placeholder {
+  font-style: italic;
   color: #575851;
   border-color: 0.9px solid #575851 !important;
   -webkit-transition: 0.2s ease all;
@@ -1448,6 +1453,7 @@ nav[role=navigation] li a {
   transition: 0.2s ease all;
 }
 .nav-busqueda input:focus:-moz-placeholder {
+  font-style: italic;
   /* Firefox 18- */
   color: #575851;
   border-color: 0.9px solid #575851 !important;
@@ -1457,6 +1463,7 @@ nav[role=navigation] li a {
   transition: 0.2s ease all;
 }
 .nav-busqueda input:focus::-moz-placeholder {
+  font-style: italic;
   /* Firefox 19+ */
   color: #575851;
   border-color: 0.9px solid #575851 !important;
@@ -1466,6 +1473,7 @@ nav[role=navigation] li a {
   transition: 0.2s ease all;
 }
 .nav-busqueda input:focus:-ms-input-placeholder {
+  font-style: italic;
   color: #575851;
   border-color: 0.9px solid #575851 !important;
   -webkit-transition: 0.2s ease all;
@@ -7202,7 +7210,7 @@ a.btn:active {
   -moz-box-shadow: inset rgba(1, 1, 1, 0.3) 1px 1px 10px;
   box-shadow: inset rgba(1, 1, 1, 0.3) 1px 1px 10px;
   box-shadow: 0 1.5px 0 rgba(46, 64, 58, 0.05);
-  margin: 18px 0 12px 0;
+  /* margin: 18px 0 12px 0; */
 }
 button.btn-xs,
 button.btn.btn-xs,
@@ -8927,23 +8935,27 @@ form.buscador input[type=submit] {
   }
 }
 ::-webkit-input-placeholder {
-  color: #575851;
+  font-style: italic;
+  color: rgba(0,0,0,.25);
   font-size: .9rem;
   font-weight: 200;
 }
 :-moz-placeholder {
+  font-style: italic;
   /* Firefox 18- */
-  color: #575851;
+  color: rgba(0,0,0,.25);
   font-size: .9rem;
   font-weight: 200;
 }
 ::-moz-placeholder {
+  font-style: italic;
   /* Firefox 19+ */
-  color: #575851;
+  color: rgba(0,0,0,.25);
   font-size: .9rem;
   font-weight: 200;
 }
 :-ms-input-placeholder {
+  font-style: italic;
   color: #575851;
   font-size: .9rem;
   font-weight: 200;
@@ -20276,17 +20288,21 @@ tbody.collapse.in {
   border-bottom: 2px solid #c2c4ba;
 }
 .widget_search .nav-busqueda input::-webkit-input-placeholder {
+  font-style: italic;
   color: #c2c4ba;
 }
 .widget_search .nav-busqueda input:-moz-placeholder {
+  font-style: italic;
   /* Firefox 18- */
   color: #c2c4ba;
 }
 .widget_search .nav-busqueda input::-moz-placeholder {
+  font-style: italic;
   /* Firefox 19+ */
   color: #c2c4ba;
 }
 .widget_search .nav-busqueda input:-ms-input-placeholder {
+  font-style: italic;
   color: #c2c4ba;
 }
 .pag.cf {

@@ -102,9 +102,10 @@ class UsersController < ApplicationController
 			@user.password = Digest::SHA1.hexdigest("#{params[:user][:password]}")
 			@user.token = generateUniqueHexCode(10)
 			@user.save!
-			flash[:notice] = "Contraseña Actualizada."
-			redirect_to edit_user_path
-		elsif @user.update_attributes(user_params)
+		end
+			#flash[:notice] = "Contraseña Actualizada."
+			#redirect_to edit_user_path
+		if @user.update_attributes(user_params)
 			flash[:notice] = "Los datos se han actualizado correctamente."
 			redirect_to edit_user_path
 		else
@@ -239,8 +240,8 @@ class UsersController < ApplicationController
 			:twitter,
 			:flickr,
 			:usuario,
-			:password,
 			:bio,
+			:wikipage,
 			:status
 			)
 	end

@@ -232,12 +232,14 @@ class UsersController < ApplicationController
 				user.token = generateUniqueHexCode(10)
 				user.reset_token = nil
 				user.save!
+				redirect_to  root_path
 			end
 		else
 			if !params[:hash].nil?
 				@user = User.find_by_reset_token(params[:hash])
 			else
 				@user = nil
+				redirect_to  root_path
 			end
 		end
 	end

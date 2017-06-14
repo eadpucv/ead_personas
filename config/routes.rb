@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  # # Auto
-  # get 'home/index'
-  # get 'home/acerca'
-  # get 'home/terminos'
-  # get 'admin/list'
-  # get 'admin/mailing'
-
   # Custom
   root :to => "users#index"
 
@@ -22,18 +15,11 @@ Rails.application.routes.draw do
   get 'export' => 'users#export'
   get 'message/:to' => 'users#message'
   get 'recovery' => 'users#recovery'
-  get 'passwordreset/:password' => 'users#passwordreset'
+  get 'passwordreset/:hash' => 'users#passwordreset'
+  get 'passwordreset' => 'users#passwordreset'
+  post 'passwordreset' => 'users#passwordreset'
   post 'recovery_enpoint' => 'users#recovery_enpoint'
   post 'send_message' => 'users#send_message'
 
   resources :users
-
-  # Legacy
-  # root :to => "user#index"
-  # get 'profile/:user_id' => 'user#profile'
-  # get 'home_user' => 'user#home_user'
-  # get 'admin/list' => 'admin#list'
-  # get 'logout' => 'sessions#logout'
-  # get 'api/data4wp' => 'user#data_for_wp'
-  # get ':controller(/:action(/:id(.:format)))'
 end

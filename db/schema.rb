@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319045427) do
+ActiveRecord::Schema.define(version: 20170614152502) do
 
   create_table "casserver_lt", force: :cascade do |t|
     t.string   "ticket",          limit: 255, null: false
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160319045427) do
     t.string   "o_provider",    limit: 200
     t.string   "o_uid",         limit: 200
     t.string   "o_token",       limit: 200
+    t.string   "reset_token",   limit: 255
     t.boolean  "status",                      default: true, null: false
   end
 
@@ -93,6 +94,43 @@ ActiveRecord::Schema.define(version: 20160319045427) do
   add_index "users", ["usuario"], name: "usuario", unique: true, using: :btree
   add_index "users", ["usuario"], name: "usuario_2", unique: true, using: :btree
   add_index "users", ["usuario"], name: "usuario_3", unique: true, using: :btree
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "rut",           limit: 20
+    t.string   "nombre",        limit: 200
+    t.string   "apellido",      limit: 200
+    t.string   "mail",          limit: 100,                  null: false
+    t.string   "mail_2",        limit: 200
+    t.string   "mail_3",        limit: 200
+    t.string   "telefono_fijo", limit: 15
+    t.string   "telefono_cel",  limit: 15
+    t.text     "direccion",     limit: 65535
+    t.string   "ciudad",        limit: 200
+    t.string   "pais",          limit: 200
+    t.string   "tipo",          limit: 2,     default: "n",  null: false
+    t.integer  "anoingreso",    limit: 4
+    t.string   "carrera",       limit: 100
+    t.string   "web",           limit: 200
+    t.string   "twitter",       limit: 200
+    t.string   "flickr",        limit: 200
+    t.string   "usuario",       limit: 50,                   null: false
+    t.string   "password",      limit: 200
+    t.string   "token",         limit: 20
+    t.text     "bio",           limit: 65535
+    t.string   "admin",         limit: 2,     default: "no", null: false
+    t.datetime "last_edit",                                  null: false
+    t.string   "mail_send",     limit: 5
+    t.string   "wikipage",      limit: 200
+    t.string   "o_user_id",     limit: 200
+    t.string   "o_provider",    limit: 200
+    t.string   "o_uid",         limit: 200
+    t.string   "o_token",       limit: 200
+  end
+
+  add_index "usuarios", ["mail"], name: "mail", unique: true, using: :btree
+  add_index "usuarios", ["usuario"], name: "usuario", unique: true, using: :btree
+  add_index "usuarios", ["usuario"], name: "usuario_2", unique: true, using: :btree
+  add_index "usuarios", ["usuario"], name: "usuario_3", unique: true, using: :btree
 
   create_table "usuariosbloqueados", force: :cascade do |t|
     t.string  "rut",           limit: 20

@@ -225,10 +225,20 @@ class UsersController < ApplicationController
 	end
 
 	def passwordreset
-		if !params[:password].nil?
-			@user = User.find_by_password(params[:password])
+		if request.post? && !params[:id].blank?
+			user = User.find(params[:id])
+			if params[:user][:password] == params[:user][:password_confirmation] && params[:user][:password] != ''
+				user.password = Digest::SHA1.hexdigest("#{params[:user][:password]}")
+				user.token = generateUniqueHexCode(10)
+				user.reset_token = nil
+				user.save!
+			end
 		else
-			@user = nil
+			if !params[:hash].nil?
+				@user = User.find_by_reset_token(params[:hash])
+			else
+				@user = nil
+			end
 		end
 	end
 
@@ -242,6 +252,8 @@ class UsersController < ApplicationController
 				user = nil
 			end
 			if !user.nil?
+				user.reset_token = Digest::SHA1.hexdigest(generateUniqueHexCode(10))
+				user.save!
 				UserMailer.recuperacion_datos(user).deliver_now
 				render :json => { :status => true, :message => "El usuario fue encontrado y se envio un mensaje al correo electronico registrado." }, :status => 201
 			else

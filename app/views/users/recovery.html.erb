@@ -1,0 +1,69 @@
+<section class="modulo modulo-login">
+	<div class="contenedor-modulo">
+		<div class="modulo-encabezado">
+			<h1 class="fino pizarra sin-margen rojo">e[ad]<span class='sans pizarra fino'>Escuela de Arquitectura y Diseño</span></h1>
+			<span class='xs bloque izquierda sans negro-fundido en-linea'>Pontificia Universidad Católica de Valparaíso</span>
+		</div>
+	</div>
+	<div class="modulo-cuerpo">
+		<div class="margen-inf-sm">
+			<div class="contenedor-modulo">
+				<h5 class="rojo sin-margen">Recuperación de Datos</h5>
+			</div>
+		</div>
+		<div class="contenedor-modulo">
+			<form class="grupo-formulario">
+				<div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+					<div class="margen-inf-lg">
+						<div class="checkbox">
+							<label for="name">Solicitar mediante email</label>
+						</div>
+						<div class="grupo-inputs">
+							<div class="input"><i class="icn icn-light icn-email"></i></div>
+							<input type="email" class="control" id="email" placeholder="Ingresa el correo que ya tienes asociado a tu cuenta" />	
+						</div>
+						<button id="btnemail" type="button" class="btn btn-accion btn-lg btn-bloque btn-abrir-alerta">Solicitar</button>
+					</div>
+					<div class="margen-inf-sm">
+						<div class="checkbox">
+							<label for="name">Solicitar mediante RUT</label>
+						</div>
+						<div class="grupo-inputs">
+							<div class="input"><i class="icn icn-light icn-usuario"></i></div>
+							<input type="text" class="control" id="rut" placeholder="Ingresa tu rut sin puntos y con digito verificador 15666777-5" pattern="\d{3,8}-[\d|kK]{1}" title="El formato del rut debe ser 15666777-5" />
+						</div>
+						<button id="btnrut" type="button" class="btn btn-accion btn-lg btn-bloque btn-abrir-alerta">Solicitar</button>
+					</div>
+				</div>
+			</form>
+			<div class="fila">
+				<div class="col-md-12">
+					<div class="margen-sup-sm">
+						<div class="alerta alerta-accion alert-dismissible fade in" role="alert">
+							<button type="button" class="close btn-cerrar-alerta" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="msj">Te hemos enviado un email con información para recuperar tus datos.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	$(document).ready(function(){
+		$('#btnemail').click(function(event){
+			event.preventDefault();
+			alert("por mail");
+			alert($('#email').val());
+			$('.alerta span.msj').html("probamos email.");
+			$('.alerta').show();
+		});
+		$('#btnrut').click(function(event){
+			event.preventDefault();
+			alert("por rut");
+			alert($('#rut').val());
+			$('.alerta span.msj').html("probamos rut.");
+			$('.alerta').show();
+		});
+	});
+</script>

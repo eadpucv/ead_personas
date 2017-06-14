@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new]
+	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new, :recovery]
 	require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.
@@ -220,6 +220,15 @@ class UsersController < ApplicationController
 				headers['Content-Type'] ||= 'text/csv'
 			end
 		end
+	end
+
+	def recovery
+	end
+
+	def recovery_notify
+	end
+
+	def recovery_enpoint
 	end
 
 	def user_params

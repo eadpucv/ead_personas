@@ -233,7 +233,7 @@ class UsersController < ApplicationController
 	end
 
 	def recovery_enpoint
-		if !params[:txt].nil? && !params[:kind].nil?
+		if !params[:txt].blank? && !params[:kind].nil?
 			if params[:kind] == 'email'
 				user = User.find_by_mail(params[:txt])
 			elsif params[:kind] == 'rut'
@@ -241,11 +241,14 @@ class UsersController < ApplicationController
 			else
 				user = nil
 			end
-			UserMailer.recuperacion_datos(user).deliver_now
-			# eliminar user de la respuesta y hacer la respuesta compatible y coherente con el front.
-			render :json => { :status => true, :user => user, :message => "Se elimino el usuario." }, :status => 201
+			if !user.nil?
+				UserMailer.recuperacion_datos(user).deliver_now
+				render :json => { :status => true, :message => "El usuario fue encontrado y se envio un mensaje al correo electronico registrado." }, :status => 201
+			else
+				render :json => { :status => false, :message => "No fue posibel encontrar al usuario con la informacion proporcionada." }, :status => 200
+			end
 		else
-			render :json => { :status => false, :message => "No fue posible eliminar el usuario." }, :status => 200
+			render :json => { :status => false, :message => "Los parametros proporcionados no son suficientes." }, :status => 200
 		end
 	end
 

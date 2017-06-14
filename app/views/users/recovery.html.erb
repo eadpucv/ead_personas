@@ -53,17 +53,32 @@
 	$(document).ready(function(){
 		$('#btnemail').click(function(event){
 			event.preventDefault();
-			alert("por mail");
-			alert($('#email').val());
-			$('.alerta span.msj').html("probamos email.");
-			$('.alerta').show();
+			$.ajax({
+				method: "POST",
+				url: "recovery_enpoint",
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+				data: { txt: $('#email').val(), kind: "email" },
+				success: function(data){
+					console.log(data);
+					$('.alerta span.msj').html("probamos email.");
+					$('.alerta').show();
+				}
+			});
+
 		});
 		$('#btnrut').click(function(event){
 			event.preventDefault();
-			alert("por rut");
-			alert($('#rut').val());
-			$('.alerta span.msj').html("probamos rut.");
-			$('.alerta').show();
+			$.ajax({
+				method: "POST",
+				url: "recovery_enpoint",
+				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+				data: { txt: $('#rut').val(), kind: "rut" },
+				success: function(data){
+					console.log(data);
+					$('.alerta span.msj').html("probamos rut.");
+					$('.alerta').show();
+				}
+			});
 		});
 	});
 </script>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'export' => 'users#export'
   get 'message/:to' => 'users#message'
   get 'recovery' => 'users#recovery'
+  post 'recovery_enpoint' => 'users#recovery_enpoint'
   post 'send_message' => 'users#send_message'
 
   resources :users

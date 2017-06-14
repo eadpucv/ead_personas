@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new, :recovery, :recovery_enpoint]
+	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new, :recovery, :recovery_enpoint, :passwordreset]
 	require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.
@@ -224,12 +224,11 @@ class UsersController < ApplicationController
 	def recovery
 	end
 
-	def recovery_notify
-		if !params[:userid].nil?
-			User.find_by_id(params[:userid]).destroy
-			render :json => { :status => true, :message => "Se elimino el usuario." }, :status => 201
+	def passwordreset
+		if !params[:password].nil?
+			@user = User.find_by_password(params[:password])
 		else
-			render :json => { :status => false, :message => "No fue posible eliminar el usuario." }, :status => 200
+			@user = nil
 		end
 	end
 

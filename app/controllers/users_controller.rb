@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new]
+	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new, :recovery, :recovery_enpoint, :passwordreset]
 	require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.
@@ -200,7 +200,6 @@ class UsersController < ApplicationController
 	end
 
 	def send_message
-
 		if !params[:targetid].nil? && !params[:asunto].nil? && !params[:mensaje].nil?
 			user_target = User.find_by_id(params[:targetid])
 			UserMailer.send_message(user_target.mail, params[:asunto], params[:mensaje]).deliver_now
@@ -219,6 +218,34 @@ class UsersController < ApplicationController
 				headers['Content-Disposition'] = "attachment; filename=\"ead_usuarios.csv\""
 				headers['Content-Type'] ||= 'text/csv'
 			end
+		end
+	end
+
+	def recovery
+	end
+
+	def passwordreset
+		if !params[:password].nil?
+			@user = User.find_by_password(params[:password])
+		else
+			@user = nil
+		end
+	end
+
+	def recovery_enpoint
+		if !params[:txt].nil? && !params[:kind].nil?
+			if params[:kind] == 'email'
+				user = User.find_by_mail(params[:txt])
+			elsif params[:kind] == 'rut'
+				user = User.find_by_rut(params[:txt])
+			else
+				user = nil
+			end
+			UserMailer.recuperacion_datos(user).deliver_now
+			# eliminar user de la respuesta y hacer la respuesta compatible y coherente con el front.
+			render :json => { :status => true, :user => user, :message => "Se elimino el usuario." }, :status => 201
+		else
+			render :json => { :status => false, :message => "No fue posible eliminar el usuario." }, :status => 200
 		end
 	end
 

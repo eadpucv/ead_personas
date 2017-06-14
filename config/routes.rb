@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'userdel/:userid' => 'users#user_del'
   get 'export' => 'users#export'
   get 'message/:to' => 'users#message'
+  get 'recovery' => 'users#recovery'
+  get 'passwordreset/:password' => 'users#passwordreset'
+  post 'recovery_enpoint' => 'users#recovery_enpoint'
   post 'send_message' => 'users#send_message'
 
   resources :users

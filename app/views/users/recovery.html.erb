@@ -16,8 +16,8 @@
 				<div class="col-md-12">
 					<div class="margen-sup-sm">
 						<div class="alerta alerta-accion alert-dismissible fade in" role="alert">
-							<button type="button" class="close btn-cerrar-alerta" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<span class="msj">Te hemos enviado un email con información para recuperar tus datos.</span>
+							<button type="button" class="close btn-cerrar-alerta" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						</div>
 					</div>
 				</div>
@@ -64,7 +64,7 @@
 					if(!data.status){
 						$('.alerta-accion').css('background-color', 'red');
 					}else{
-						$('.alerta-accion').css('background-color', '#76a127');
+						// $('.alerta-accion').css('background-color', '#76a127');
 					}
 					$('.alerta').show();
 				}
@@ -84,11 +84,14 @@
 					if(!data.status){
 						$('.alerta-accion').css('background-color', 'red');
 					}else{
-						$('.alerta-accion').css('background-color', '#76a127');
+						// $('.alerta-accion').css('background-color', '#76a127');
 					}
 					$('.alerta').show();
 				}
 			});
+		});
+		$('.btn-cerrar-alerta').click(function(event){
+			$('.alerta').hide();
 		});
 	});
 </script>

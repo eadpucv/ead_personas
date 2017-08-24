@@ -122,23 +122,45 @@ class UsersController < ApplicationController
 				@user = User.find(params[:id])
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0
-					# wiki_data = get_wikipage(@user.wikipage)
 					require 'open-uri'
-					wiki_data = Nokogiri::HTML(open(@user.wikipage))
+					parse_data = Nokogiri::HTML(open(@user.wikipage))
 					if wiki_data.to_s.strip.length != 0
-						# parse_data = Nokogiri::HTML(wiki_data)
-						parse_data = wiki_data
+						# Ciudad y Pais
+						ciudad_pais = ""
+						if parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(4) > td')
+							ciudad_pais = ciudad_pais + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text
+						end
+						if parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(5) > td')
+							if ciudad_pais.length > 2
+								ciudad_pais = ciudad_pais + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text
+							else
+								ciudad_pais = ciudad_pais + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text
+							end
+						end
+						# Nombre y Apellido
+						nombre_apellido = ""
+						if parse_data.at_css('span.given-name')
+							nombre_apellido = nombre_apellido + parse_data.css('span.given-name').text
+						end
+						if parse_data.at_css('span.family-name')
+							if nombre_apellido.length > 2
+								nombre_apellido = nombre_apellido + " " + parse_data.css('span.family-name').text
+							else
+								nombre_apellido = nombre_apellido + parse_data.css('span.family-name').text
+							end
+						end
+
 						@profile = {
 							url_wiki: @user.wikipage,
 							profile_img_name: parse_data.at_css('div.vcard > div > div > div > img') ? parse_data.css('div.vcard > div > div > div > img').attr('src').text : "",
-							grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
-							fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
-							ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,
-							ciudad_pais: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(4) > td').text + ", " + parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(5) > td').text,
-							relacion_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text,
-							carrera_ead: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text,
-							nombre_apellido: parse_data.css('span.given-name').text + " " + parse_data.css('span.family-name').text,
-							url_web_personal: parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text,
+							grado_academico: parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(1) > td') ? parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text : "",
+							fecha_nacimiento: parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(2) > td') ? parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text : "",
+							ano_ingreso: parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(3) > td') ? parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text : "",
+							ciudad_pais: ciudad_pais,
+							relacion_ead: parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(6) > td') ? parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(6) > td').text : "",
+							carrera_ead: parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(7) > td') ? parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text : "",
+							nombre_apellido: nombre_apellido,
+							url_web_personal: parse_data.at_css('div.vcard > span > div.titulo > span:nth-child(3) > b > a') ? parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text : "",
 							url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
 						}
 					else

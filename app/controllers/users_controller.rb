@@ -123,7 +123,7 @@ class UsersController < ApplicationController
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0
 					# wiki_data = get_wikipage(@user.wikipage)
-					# require 'open-uri'
+					require 'open-uri'
 					wiki_data = Nokogiri::HTML(open(@user.wikipage))
 					if wiki_data.to_s.strip.length != 0
 						parse_data = Nokogiri::HTML(wiki_data)

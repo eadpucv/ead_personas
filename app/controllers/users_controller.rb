@@ -124,7 +124,7 @@ class UsersController < ApplicationController
 				if @user.wikipage.to_s.strip.length != 0
 					require 'open-uri'
 					parse_data = Nokogiri::HTML(open(@user.wikipage))
-					if wiki_data.to_s.strip.length != 0
+					if parse_data.to_s.strip.length != 0
 						# Ciudad y Pais
 						ciudad_pais = ""
 						if parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(4) > td')

@@ -130,7 +130,7 @@ class UsersController < ApplicationController
 						parse_data = wiki_data
 						@profile = {
 							url_wiki: @user.wikipage,
-							profile_img_name: parse_data.css('div.vcard > div > div > div > img').attr('src').text,
+							profile_img_name: parse_data.at_css('div.vcard > div > div > div > img') ? parse_data.css('div.vcard > div > div > div > img').attr('src').text : "",
 							grado_academico: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(1) > td').text,
 							fecha_nacimiento: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(2) > td').text,
 							ano_ingreso: parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(3) > td').text,

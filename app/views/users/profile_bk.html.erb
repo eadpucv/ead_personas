@@ -1,0 +1,65 @@
+<section class="modulo">
+	<div class="modulo-cuerpo">
+		<div class="contenedor-modulo">
+			<div class="tab-content margen-sup">
+			<% if @profile %>
+				<form>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<h3 class="fino sans rojo"><i class="icn icn-perfil nav-icn"></i> Mi Perfil público</h3>
+						<h6 class="xs">Datos obtenidos de Wiki Casiopea: <a href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %></a></h6>
+						<hr>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="margen-inf-sm">
+							<div class="bloque-perfil">
+								<div class="cabecera">
+									<img src="http://wiki.ead.pucv.cl<%= @profile[:profile_img_name] %>" alt="">
+								</div>
+								<h3><%= @profile[:nombre_apellido] %></h3>
+								<h6>Biografía de <%= @profile[:nombre_apellido] %></h6>
+								<p>Sitio web: <a href="<%= @profile[:url_web_personal] %>" target="_blank"><%= @profile[:url_web_personal] %></a></p>
+								<span class="xs">Perfil Público Wiki Casiopea: <br><a href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %></a></span>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="margen-inf-sm">
+							<label for="name">Grado académico</label>
+							<p <% if @profile[:grado_academico].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:grado_academico].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:grado_academico] %></p>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="year">Fecha de nacimiento</label>
+							<p <% if @profile[:fecha_nacimiento].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:fecha_nacimiento].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:fecha_nacimiento] %></p>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="year">Ingreso</label>
+							<p <% if @profile[:ano_ingreso].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:ano_ingreso].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:ano_ingreso] %></p>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="lastname">Ciudad y país</label>
+							<p <% if @profile[:ciudad_pais].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:ciudad_pais].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:ciudad_pais] %></p>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="lastname">Relación con la e[ad]</label>
+							<p <% if @profile[:relacion_ead].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:relacion_ead].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:relacion_ead] %></p>
+						</div>
+						<div class="margen-inf-sm">
+							<label for="lastname">Carrera</label>
+							<p <% if @profile[:carrera_ead].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:carrera_ead].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:carrera_ead] %></p>
+						</div>
+						<div class="margen-inf-sm">
+							<a href="http://wiki.ead.pucv.cl/index.php?title=<%= @profile[:url_wiki] %>&action=formedit" target="_blank" class="btn btn-accion btn-lg btn-bloque">Editar en Wiki Casiopea</a>
+							<a class="xs centrado sin-margen bloque" href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">ir a Perfil Wiki Casiopea</a>
+						</div>
+					</div>
+				</form>
+			<% elsif flash[:notice] %>
+				<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert" style="display:block;">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</section>

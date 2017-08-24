@@ -281,7 +281,7 @@ class UsersController < ApplicationController
 				user.reset_token = Digest::SHA1.hexdigest(generateUniqueHexCode(10))
 				user.save!
 				UserMailer.recuperacion_datos(user).deliver_now
-				render :json => { :status => true, :message => "El usuario fue encontrado y se envio un mensaje al correo electronico registrado. <a target='_self' href='://personas.ead.pucv.cl'>OK</a>" }, :status => 201
+				render :json => { :status => true, :message => "El usuario fue encontrado y se envio un mensaje al correo electronico registrado. <a target='_self' href='http://personas.ead.pucv.cl'>OK</a>" }, :status => 201
 			else
 				render :json => { :status => false, :message => "No fue posibel encontrar al usuario con la informacion proporcionada." }, :status => 200
 			end

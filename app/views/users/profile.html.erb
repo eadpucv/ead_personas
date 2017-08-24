@@ -24,30 +24,42 @@
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12">
+						<% if @profile[:grado_academico].to_s.strip.length > 0 %>
 						<div class="margen-inf-sm">
 							<label for="name">Grado académico</label>
-							<p <% if @profile[:grado_academico].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:grado_academico].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:grado_academico] %></p>
+							<p><%= @profile[:grado_academico] %></p>
 						</div>
+						<% end %>
+						<% if @profile[:fecha_nacimiento].to_s.strip.length > 0 %>
 						<div class="margen-inf-sm">
 							<label for="year">Fecha de nacimiento</label>
-							<p <% if @profile[:fecha_nacimiento].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:fecha_nacimiento].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:fecha_nacimiento] %></p>
+							<p><%= @profile[:fecha_nacimiento] %></p>
 						</div>
+						<% end %>
+						<% if @profile[:ano_ingreso].to_s.strip.length > 0 %>
 						<div class="margen-inf-sm">
 							<label for="year">Ingreso</label>
-							<p <% if @profile[:ano_ingreso].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:ano_ingreso].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:ano_ingreso] %></p>
+							<p><%= @profile[:ano_ingreso] %></p>
 						</div>
+						<% end %>
+						<% if @profile[:ciudad_pais].to_s.strip.length > 0 %>
 						<div class="margen-inf-sm">
 							<label for="lastname">Ciudad y país</label>
-							<p <% if @profile[:ciudad_pais].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:ciudad_pais].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:ciudad_pais] %></p>
+							<p><%= @profile[:ciudad_pais] %></p>
 						</div>
+						<% end %>
+						<% if @profile[:relacion_ead].to_s.strip.length > 0 %>
 						<div class="margen-inf-sm">
 							<label for="lastname">Relación con la e[ad]</label>
-							<p <% if @profile[:relacion_ead].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:relacion_ead].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:relacion_ead] %></p>
+							<p><%= @profile[:relacion_ead] %></p>
 						</div>
+						<% end %>
+						<% if @profile[:carrera_ead].to_s.strip.length > 0 %>
 						<div class="margen-inf-sm">
 							<label for="lastname">Carrera</label>
-							<p <% if @profile[:carrera_ead].to_s.strip.length == 0 %> class="no-data" <% end %>><%= (@profile[:carrera_ead].to_s.strip.length == 0) ? @profile[:url_wiki_edit] : @profile[:carrera_ead] %></p>
+							<p><%= @profile[:carrera_ead] %></p>
 						</div>
+						<% end %>
 						<div class="margen-inf-sm">
 							<a href="http://wiki.ead.pucv.cl/index.php?title=<%= @profile[:url_wiki] %>&action=formedit" target="_blank" class="btn btn-accion btn-lg btn-bloque">Editar en Wiki Casiopea</a>
 							<a class="xs centrado sin-margen bloque" href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">ir a Perfil Wiki Casiopea</a>

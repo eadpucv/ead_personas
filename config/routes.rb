@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post 'recovery_enpoint' => 'users#recovery_enpoint'
   post 'send_message' => 'users#send_message'
   get 'others/terminos' => 'users#eula'
+  get 'advanced_exporter' => 'users#advanced_exporter'
+  post 'advanced_exporter' => 'users#advanced_exporter'
 
   resources :users
 end

@@ -61,12 +61,14 @@
 				success: function(data){
 					console.log(data);
 					$('.alerta span.msj').html(data.message);
+					$('.alerta').show();
 					if(!data.status){
 						$('.alerta-accion').css('background-color', 'red');
 					}else{
+						$('.btn-cerrar-alerta').hide();
 						// $('.alerta-accion').css('background-color', '#76a127');
 					}
-					$('.alerta').show();
+					
 				}
 			});
 
@@ -81,12 +83,13 @@
 				success: function(data){
 					console.log(data);
 					$('.alerta span.msj').html(data.message);
+					$('.alerta').show();
 					if(!data.status){
 						$('.alerta-accion').css('background-color', 'red');
 					}else{
+						$('.btn-cerrar-alerta').hide();
 						// $('.alerta-accion').css('background-color', '#76a127');
 					}
-					$('.alerta').show();
 				}
 			});
 		});

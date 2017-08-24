@@ -149,7 +149,6 @@ class UsersController < ApplicationController
 								nombre_apellido = nombre_apellido + parse_data.css('span.family-name').text
 							end
 						end
-
 						@profile = {
 							url_wiki: @user.wikipage,
 							profile_img_name: parse_data.at_css('div.vcard > div > div > div > img') ? parse_data.css('div.vcard > div > div > div > img').attr('src').text : "",
@@ -169,7 +168,7 @@ class UsersController < ApplicationController
 					end
 				else
 					# Wiki no existe.
-					flash[:notice] = "Este usuario no tiene Wiki."
+					flash[:notice] = "Este usuario no tiene Wiki vinculada."
 				end
 			end
 		else

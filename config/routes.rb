@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'passwordreset' => 'users#passwordreset'
   post 'recovery_enpoint' => 'users#recovery_enpoint'
   post 'send_message' => 'users#send_message'
+  get 'others/terminos' => 'users#eula'
 
   resources :users
 end

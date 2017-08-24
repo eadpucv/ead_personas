@@ -290,6 +290,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def eula
+	end
+
 	def user_params
 		params.require(:user).permit(
 			:rut,

@@ -1,0 +1,84 @@
+<section class="modulo">
+	<div class="contenedor-modulo">
+		<div class="tab-content margen-sup">
+			<div class="tab-pane fade in active" id="buscar-usuarios">
+				<div class="fila">
+					<form action="">
+						<div class="col-md-8">
+							<div class="grupo-inputs">
+								<div class="input"><i class="icn icn-light icn-lupa"></i></div>
+								<input type="text" class="control" placeholder="Buscar por nombre o correo electrónico"> 
+							</div>
+
+						</div>
+						<div class="col-md-4">
+							<a href="registro.html"><button type="button" class="btn btn-accion btn-lg btn-bloque sin-margen">Crear nuevo usuario</button></a>
+						</div>
+					</form>
+				</div>
+				<div class="fila">
+					<table class="tabla-personas">
+						<thead>
+							<tr>
+								<th>Usuario</th><th>Nombre</th><th>Apellido</th><th>Correo electrónico</th><th>Tipo</th><th>Acciones</th>		
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="#"><i class="icn icn-lapiz icn-sm icn-light"></i> aalfarop</a></td><td>Arlett Sarhay</td><td>Alfaro Pacheco</td><td>lord_of88@yahoo.com</td><td>Alumno</td>
+								<td>
+									<ul class="tooltip-demo margen-vertical-md">
+										<li>
+											<a class="sans btn btn-xs btn-alerta-hover" data-toggle="tooltip" data-original-title="Bloquear"><i class="icn icn-prohibir"></i></a>
+										</li>
+										<li>
+											<a class="sans btn btn-xs btn-accion-hover" data-toggle="tooltip" data-original-title="Permiso de Administrador"><i data-toggle="modal" data-target="#modalExito" class="icn icn-acto"></i></a>
+										</li>
+										<li>
+											<a class="sans btn btn-xs" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+										</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="#"><i class="icn icn-lapiz icn-sm icn-light"></i> hspencer</a></td><td>Herbert</td><td>Spencer</td><td>hspencer@ead.cl</td><td>Profesor</td>
+								<td>
+									<ul class="tooltip-demo margen-vertical-md">
+										<li>
+											<a class="sans btn btn-xs btn-alerta-hover" data-toggle="tooltip" data-original-title="Bloquear"><i class="icn icn-prohibir"></i></a>
+										</li>
+										<li>
+											<a class="sans btn btn-xs btn-accion" data-toggle="tooltip" data-original-title="Permiso de Administrador"><i data-toggle="modal" data-target="#modalExito" class="icn icn-acto"></i></a>
+										</li>
+										<li>
+											<a class="sans btn btn-xs" data-toggle="tooltip" data-original-title="Enviar e-mail" href="enviar-email.html"><i class="icn icn-email"></i></a> 
+										</li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<nav>
+						<ul class="paginacion">
+							<li class="disabled">
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
+							</li>
+							<li class="activo"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Siguiente">
+									<span aria-hidden="true">»</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

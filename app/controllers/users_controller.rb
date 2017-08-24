@@ -245,6 +245,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def advanced_exporter
+		if request.post?
+			# Es la exportacion parametrizada
+		else
+			# Es desplegar la vista del buscador avanzado.
+		end
+	end
+
 	def recovery
 	end
 

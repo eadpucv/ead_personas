@@ -2,7 +2,8 @@
 	<div class="contenedor-modulo">
 		<div class="tab-content margen-sup">
 			<div class="tab-pane fade in active">
-				<form action="">
+				<!-- <form action=""> -->
+				<%= form_for :user, :url => { :action => :advanced_exporter }, :method => :post do |f| %>
 					<div class="fila">
 						<div class="col-md-8">
 							<span class="checkbox-span" style="margin-left: 5px;">
@@ -31,10 +32,11 @@
 							</span>
 						</div>
 						<div class="col-md-4">
-							<a href="registro.html"><button type="button" class="btn btn-accion btn-lg btn-bloque sin-margen">Descargar</button></a>
+							<%= f.submit "Descargar", class: "btn btn-accion btn-lg btn-bloque sin-margen" %>
 						</div>
 					</div>
-				</form>
+				<% end %>
+				<!-- </form> -->
 			</div>
 		</div>
 	</div>

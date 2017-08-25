@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new, :recovery, :recovery_enpoint, :passwordreset, :eula]
-	require 'media_wiki'
+	# require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.
 	def index
@@ -247,9 +247,75 @@ class UsersController < ApplicationController
 
 	def advanced_exporter
 		if request.post?
-			# Es la exportacion parametrizada
-		else
-			# Es desplegar la vista del buscador avanzado.
+			atributos = 'id'
+			cabeceras = Array.new
+			cabeceras << 'id'
+			if params.has_key?(:rut)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', rut'
+				else
+					atributos =  'rut'
+				end
+				cabeceras << 'Rut'
+			end
+			if params.has_key?(:nombre)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', nombre'
+				else
+					atributos =  'nombre'
+				end
+				cabeceras << 'Nombre'
+			end
+			if params.has_key?(:apellido)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', apellido'
+				else
+					atributos =  'apellido'
+				end
+				cabeceras << 'Apellido'
+			end
+			if params.has_key?(:email)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', mail'
+				else
+					atributos =  'mail'
+				end
+				cabeceras << 'Email'
+			end
+			if params.has_key?(:telefono_movil)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', telefono_cel'
+				else
+					atributos =  'telefono_cel'
+				end
+				cabeceras << 'Telefono movil'
+			end
+			if params.has_key?(:ciudad)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', ciudad'
+				else
+					atributos =  'ciudad'
+				end
+				cabeceras << 'Ciudad'
+			end
+			if params.has_key?(:anoingreso)
+				if atributos.to_s.strip.length > 0
+					atributos = atributos + ', anoingreso'
+				else
+					atributos =  'anoingreso'
+				end
+				cabeceras << 'Año ingreso'
+			end
+			# Obtengo los registros solo las columnas seleccionadas.
+			# Genero el documento CSV a partir de la cabecera configurada y los datos obtenidos.
+			csv_string = CSV.generate do |csv|
+				csv << cabeceras
+				User.all.select(atributos).each do |user|
+					csv << user.attributes.values
+				end
+			end
+			# Exportamos el documento.
+			send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv"
 		end
 	end
 

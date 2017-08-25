@@ -14,24 +14,29 @@
 			<div class="tab-content margen-sup">
 				<div class="fila">
 					<% if @admin %>
+						<% if (params.has_key?(:filtro) && params[:filtro] == 'directorio') || !params.has_key?(:filtro) %>
 						<%= render 'admin_userssearch' %>
+						<% end %>
 					<% else %>
 						<%= render 'userssearch' %>
 					<% end %>
 				</div>
 				<% if @users %>
 				<div class="fila">
-					<% if @admin %>
-						<%= render 'admin_userslist' %>
+					<% if params.has_key?(:filtro) && params[:filtro] == 'filtrar' %>
 					<% else %>
-						<%= render 'userslist' %>
+						<% if @admin %>
+							<%= render 'admin_userslist' %>
+						<% else %>
+							<%= render 'userslist' %>
+						<% end %>
+						<nav>
+							<%= will_paginate @users,
+								:class => 'paginacion',
+								:previous_label => '<span aria-hidden="true">&laquo;</span>',
+								:next_label => '<span aria-hidden="true">&raquo;</span>' %>
+						</nav>
 					<% end %>
-					<nav>
-						<%= will_paginate @users,
-							:class => 'paginacion',
-							:previous_label => '<span aria-hidden="true">&laquo;</span>',
-							:next_label => '<span aria-hidden="true">&raquo;</span>' %>
-					</nav>
 				</div>
 				<% end %>
 			</div>

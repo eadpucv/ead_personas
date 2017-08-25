@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		elsif !params[:filtro].nil? && params[:filtro] == "bloqueados"
 			@users = User.where(status: false).order(id: :desc).paginate(:page => params[:page], :per_page => 15)
 		else
-			@users = User.order(id: :desc).paginate(:page => params[:page], :per_page => 15)
+			@users = User.where(status: true).order(id: :desc).paginate(:page => params[:page], :per_page => 15)
 		end
 	end
 

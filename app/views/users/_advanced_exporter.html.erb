@@ -1,5 +1,5 @@
 <div class="tab-pane fade active in" id="filtrar">
-	<form id="csvdownload">
+	<form id="csvdownload" action="/advanced_exporter" method="POST">
 		<h5 class="sans rojo">Archivo CSV</h5>
 		<div class="fila flexbox">
 			<div class="col-md-4 container-flex">
@@ -50,18 +50,19 @@
 			<div class="col-md-8 container-flex">
 				<div class="checkbox bloque">
 					<label>
-						<input type="checkbox" checked="checked"> Arquitectura
+						<input type="checkbox" id="arquitectura" name="arquitectura" checked="checked"> Arquitectura
 					</label>
 				</div>
 				<div class="checkbox bloque">
 					<label>
-						<input type="checkbox"> Diseño
+						<input type="checkbox" id="diseño" name="diseño"> Diseño
 					</label>
 				</div>
 			</div>
 		</div>
 		<div class="fila">
 			<div class="col-md-4 col-md-offset-8">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 				<button id="csvdownloadbtn" type="button" class="btn btn-accion btn-md btn-bloque btn-consultar">Descargar</button>
 			</div>
 		</div>
@@ -164,9 +165,22 @@
 </div>
 <script type="text/javascript">
 	$(function(){
+		var csrf_token = $('meta[name="csrf-token"]').attr('content');
 		$('#csvdownloadbtn').click(function(event){
-			event.preventDefault();
-			$('#csvdownload').serializeArray();
+			$('#csvdownload').submit();
+			// event.preventDefault();
+			// data = $('#csvdownload').serializeArray();
+			// data[data.length] = { name: "authenticity_token", value: csrf_token };
+			// $.ajax({
+			// 	method: "POST",
+			// 	url: "/advanced_exporter",
+			// 	data: data,
+			// 	dataType: "csv",
+			// 	success: function(data){
+			// 		// window.location.href = "..."
+			// 		console.log(data);
+			// 	}
+			// });
 		});
 	});
 </script>

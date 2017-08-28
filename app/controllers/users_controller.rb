@@ -315,7 +315,7 @@ class UsersController < ApplicationController
 				end
 			end
 			# Exportamos el documento.
-			send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv"
+			send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv", disposition: "attachment"
 		end
 	end
 

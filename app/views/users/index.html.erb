@@ -24,6 +24,7 @@
 				<% if @users %>
 				<div class="fila">
 					<% if params.has_key?(:filtro) && params[:filtro] == 'filtrar' %>
+						<%= render 'advanced_exporter' %>
 					<% else %>
 						<% if @admin %>
 							<%= render 'admin_userslist' %>

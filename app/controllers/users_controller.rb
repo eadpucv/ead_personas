@@ -321,6 +321,50 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def advanced_exporter_list
+		startdate = params[:startdate].to_date
+		enddate = params[:enddate].to_date
+		# tipo = ""
+		# if params.has_key?(:alumno)
+		# 	if tipo.to_s.strip.length > 0
+		# 		tipo = tipo + ', alumno'
+		# 	else
+		# 		tipo =  'alumno'
+		# 	end
+		# end
+		# if params.has_key?(:exalumno)
+		# 	if tipo.to_s.strip.length > 0
+		# 		tipo = tipo + ', exalumno'
+		# 	else
+		# 		tipo =  'exalumno'
+		# 	end
+		# end
+		# carrera = ""
+		# if params.has_key?(:diseño)
+		# 	if carrera.to_s.strip.length > 0
+		# 		carrera = carrera + ', diseño'
+		# 	else
+		# 		carrera =  'diseño'
+		# 	end
+		# end
+		# if params.has_key?(:arquitectura)
+		# 	if carrera.to_s.strip.length > 0
+		# 		carrera = carrera + ', arquitectura'
+		# 	else
+		# 		carrera =  'arquitectura'
+		# 	end
+		# end
+		# Date.strptime("6/15/2012", '%m/%d/%Y')
+		# puts tipo
+		# puts carrera
+		puts startdate
+		puts enddate
+		# Query
+		users = User.where(:anoingreso => (startdate.year.to_i..enddate.year.to_i)).select("id, mail")
+		users_string = users.map(&:mail).join ','
+		render :json => { :status => true, :list => users_string }, :status => 201
+	end
+
 	def recovery
 	end
 

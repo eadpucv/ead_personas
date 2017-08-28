@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   # Custom
   root :to => "users#index"
-
   # Perfil
   get 'profile/:id' => 'users#profile'
-
   # Helpers
   get 'login' => 'session#login'
   get 'logout' => 'session#logout'
-
   get 'useradmin/:userid' => 'users#user_admin'
   get 'userlock/:userid' => 'users#user_lock'
   get 'userdel/:userid' => 'users#user_del'
@@ -23,6 +20,6 @@ Rails.application.routes.draw do
   get 'others/terminos' => 'users#eula'
   get 'advanced_exporter' => 'users#advanced_exporter'
   post 'advanced_exporter' => 'users#advanced_exporter'
-
+  post 'advanced_exporter_list' => 'users#advanced_exporter_list'
   resources :users
 end

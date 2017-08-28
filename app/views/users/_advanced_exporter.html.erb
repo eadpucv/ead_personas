@@ -72,42 +72,42 @@
 <br/><br/>
 
 <div class="tab-pane fade active in" id="filtrar">
-	<form id="emaillist">
+	<form id="emaillist" action="/advanced_exporter_list" method="POST" >
 		<h5 class="sans rojo">Lista de Correos</h5>
-		<div class="fila flexbox">
+		<!-- <div class="fila flexbox">
 			<div class="col-md-4 container-flex">
 				<label class="derecha flex-centrar" for="type">Tipo</label>
 			</div>
 			<div class="col-md-8 container-flex">
 				<div class="checkbox bloque">
 					<label>
-						<input type="checkbox"> Alumno
+						<input type="checkbox" id="alumno" name="alumno" > Alumno
 					</label>
 				</div>
 				<div class="checkbox bloque">
 					<label>
-						<input type="checkbox"> Ex-Alumno
+						<input type="checkbox" id="exalumno" name="exalumno" > Ex-Alumno
 					</label>
 				</div>
 			</div>
-		</div>
-		<div class="fila flexbox">
+		</div> -->
+		<!-- <div class="fila flexbox">
 			<div class="col-md-4 container-flex">
 				<label class="derecha flex-centrar" for="course">Carrera</label>
 			</div>
 			<div class="col-md-8 container-flex">
 				<div class="checkbox bloque">
 					<label>
-						<input type="checkbox"> Arquitectura
+						<input type="checkbox" id="arquitectura" name="arquitectura" > Arquitectura
 					</label>
 				</div>
 				<div class="checkbox bloque">
 					<label>
-						<input type="checkbox"> Diseño
+						<input type="checkbox" id="diseño" name="diseño" > Diseño
 					</label>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="fila flexbox">
 			<div class="col-md-4 container-flex">
 				<label class="derecha flex-centrar" for="course">Año ingreso desde</label>
@@ -115,7 +115,7 @@
 			<div class="col-md-8 container-flex">
 				<div class="grupo-inputs">
 					<div class="input"><i class="icn icn-md icn-ingresar"></i></div>
-					<input class="control" id="startdate" name="startdate" min="1972-01-01" max="2016-01-01" type="date">
+					<input class="control" id="startdate" name="startdate" min="2000-01-01" max="<%= Time.now.strftime("%Y-%m-%d") %>" type="date">
 				</div>
 			</div>
 		</div>
@@ -126,7 +126,7 @@
 			<div class="col-md-8 container-flex">
 				<div class="grupo-inputs">
 					<div class="input"><i class="icn icn-md icn-salir"></i></div>
-					<input class="control" id="enddate" name="enddate" min="1973-01-01" max="2016-01-01" type="date">
+					<input class="control" id="enddate" name="enddate" min="2000-01-01" max="<%= Time.now.strftime("%Y-%m-%d") %>" type="date">
 				</div>
 			</div>
 		</div>
@@ -145,27 +145,28 @@
 		</div> -->
 		<div class="fila">
 			<div class="col-md-8 col-md-offset-4">
-				<button type="button" class="btn btn-accion btn-md btn-bloque btn-consultar">Consultar</button>
-			</div>
-		</div>
-		<!-- Resultados -->
-		<div class="fila bloque-resultado">
-			<!-- <div class="col-md-12">
-				<div class="margen-inf-sm">
-					<div class="alerta alerta-accion alert-dismissible fade in" role="alert">
-						<span><b>106</b> usuarios encontrados:</span>
-					</div>
-				</div>
-			</div> -->
-			<div class="col-md-12">
-				<textarea name="data" id="data" rows="5" readonly="" onclick="this.focus();this.select()"></textarea>
+				<button id="emaillistbtn" type="button" class="btn btn-accion btn-md btn-bloque btn-consultar">Consultar</button>
 			</div>
 		</div>
 	</form>
+	<!-- Resultados -->
+	<div id="listresult" class="fila bloque-resultado">
+		<!-- <div class="col-md-12">
+			<div class="margen-inf-sm">
+				<div class="alerta alerta-accion alert-dismissible fade in" role="alert">
+					<span><b>106</b> usuarios encontrados:</span>
+				</div>
+			</div>
+		</div> -->
+		<div class="col-md-12">
+			<textarea name="data" id="data" rows="5" readonly="" onclick="this.focus();this.select();document.execCommand('copy');alert('El texto fue copiado al portapapeles')"></textarea>
+		</div>
+	</div>
 </div>
 <script type="text/javascript">
 	$(function(){
 		var csrf_token = $('meta[name="csrf-token"]').attr('content');
+		// CSV
 		$('#csvdownloadbtn').click(function(event){
 			$('#csvdownload').submit();
 			// event.preventDefault();
@@ -181,6 +182,25 @@
 			// 		console.log(data);
 			// 	}
 			// });
+		});
+		// Lista
+		$('#emaillistbtn').click(function(event){
+			event.preventDefault();
+			data = $('#emaillist').serializeArray();
+			data[data.length] = { name: "authenticity_token", value: csrf_token };
+			$.ajax({
+				method: "POST",
+				url: "/advanced_exporter_list",
+				dataType: "json",
+				data: data,
+				success: function(data){
+					// console.log(data.status);
+					// console.log(data.list);
+					// console.log(data);
+					$('#data').val(data.list);
+					$('#listresult').toggle();
+				}
+			});
 		});
 	});
 </script>

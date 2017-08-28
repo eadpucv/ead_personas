@@ -315,7 +315,9 @@ class UsersController < ApplicationController
 				end
 			end
 			# Exportamos el documento.
-			send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv", disposition: "attachment"
+			send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv"
+			# send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv", disposition: "attachment"
+			# send_data csv_string, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment;data=usuarios_#{Date.today}_#{Time.now.to_i}.csv"
 		end
 	end
 

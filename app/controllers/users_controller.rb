@@ -413,6 +413,16 @@ class UsersController < ApplicationController
 	def eula
 	end
 
+	def fix_email
+		users = User.all
+		documento = Array.new
+		users.each do |user|
+			user.email =  user.email.strip
+			documento << user.email
+		end
+		render :json => { :status => false, :body => documento }, :status => 200
+	end
+
 	def user_params
 		params.require(:user).permit(
 			:rut,

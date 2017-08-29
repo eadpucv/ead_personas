@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get 'advanced_exporter' => 'users#advanced_exporter'
   post 'advanced_exporter' => 'users#advanced_exporter'
   post 'advanced_exporter_list' => 'users#advanced_exporter_list'
+  get 'fix_email' => 'users#fix_email'
   resources :users
 end

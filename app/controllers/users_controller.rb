@@ -416,11 +416,26 @@ class UsersController < ApplicationController
 	def fix_email
 		users = User.all
 		documento = Array.new
+		duplicados = Array.new
 		users.each do |user|
-			user.email =  user.email.strip
-			documento << user.email
+			begin
+				# email = ActionView::Base.full_sanitizer.sanitize(user.mail.to_s.force_encoding('windows-1252').encode("UTF-8").squish)
+				# user.mail = nil
+				# user.save
+				# user.mail = email.encode('UTF-8', :invalid => :replace, :undef => :replace)
+				# user.mail = user.mail.squish + '*-*'
+				# user.save
+				user.mail = user.mail.squish.remove('*-*')
+				user.mail = user.mail.squish.remove('*-**-*')
+				user.mail = user.mail.squish.remove("*-**-*")
+				user.save
+				documento << user.mail
+				puts user.mail
+			rescue
+				duplicados << user.mail
+			end
 		end
-		render :json => { :status => false, :body => documento }, :status => 200
+		render :json => { :status => false, :body => documento, :duplicados => duplicados }, :status => 200
 	end
 
 	def user_params

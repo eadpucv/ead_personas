@@ -123,7 +123,11 @@ class UsersController < ApplicationController
 				# Verifico que tengamos el dato.
 				if @user.wikipage.to_s.strip.length != 0
 					require 'open-uri'
-					parse_data = Nokogiri::HTML(open(@user.wikipage))
+					begin
+						parse_data = Nokogiri::HTML(open(@user.wikipage))
+					rescue
+						flash[:notice] = "La Wiki ingresada '#{@user.wikipage}' no es una URL valida."
+					end
 					if parse_data.to_s.strip.length != 0
 						# Ciudad y Pais
 						ciudad_pais = ""

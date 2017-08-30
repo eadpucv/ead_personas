@@ -6,7 +6,7 @@
 				<form>
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<h3 class="fino sans rojo"><i class="icn icn-perfil nav-icn"></i> Mi Perfil público</h3>
-						<h6 class="xs">Datos obtenidos de Wiki Casiopea: <a href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %></a></h6>
+						<h6 class="xs">Datos obtenidos de Wiki Casiopea: <a href="<%= @profile[:url_wiki] %>" target="_blank"><%= @profile[:url_wiki] %></a></h6>
 						<hr>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12">
@@ -18,7 +18,7 @@
 								<h3><%= @profile[:nombre_apellido] %></h3>
 								<h6>Biografía de <%= @profile[:nombre_apellido] %></h6>
 								<p>Sitio web: <a href="<%= @profile[:url_web_personal] %>" target="_blank"><%= @profile[:url_web_personal] %></a></p>
-								<span class="xs">Perfil Público Wiki Casiopea: <br><a href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %></a></span>
+								<span class="xs">Perfil Público Wiki Casiopea: <br><a href="<%= @profile[:url_wiki] %>" target="_blank"><%= @profile[:url_wiki] %></a></span>
 							</div>
 
 						</div>
@@ -61,8 +61,8 @@
 						</div>
 						<% end %>
 						<div class="margen-inf-sm">
-							<a href="http://wiki.ead.pucv.cl/index.php?title=<%= @profile[:url_wiki] %>&action=formedit" target="_blank" class="btn btn-accion btn-lg btn-bloque">Editar en Wiki Casiopea</a>
-							<a class="xs centrado sin-margen bloque" href="http://wiki.ead.pucv.cl/index.php/<%= @profile[:url_wiki] %>" target="_blank">ir a Perfil Wiki Casiopea</a>
+							<a href="<%= @profile[:url_wiki_edit] %>" target="_blank" class="btn btn-accion btn-lg btn-bloque">Editar en Wiki Casiopea</a>
+							<a class="xs centrado sin-margen bloque" href="<%= @profile[:url_wiki] %>" target="_blank">ir a Perfil Wiki Casiopea</a>
 						</div>
 					</div>
 				</form>

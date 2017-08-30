@@ -161,7 +161,7 @@ class UsersController < ApplicationController
 								carrera_ead: parse_data.at_css('table.wikitable.plantilla.persona > tr:nth-child(7) > td') ? parse_data.css('table.wikitable.plantilla.persona > tr:nth-child(7) > td').text : "",
 								nombre_apellido: nombre_apellido,
 								url_web_personal: parse_data.at_css('div.vcard > span > div.titulo > span:nth-child(3) > b > a') ? parse_data.css('div.vcard > span > div.titulo > span:nth-child(3) > b > a').text : "",
-								url_wiki_edit: "<p class='no-data'><a href='" + @user.wikipage + "&action=edit' target='_self' title='Sin datos, por favor edite su perfil'>Sin datos, por favor edite su perfil</a></p>"
+								url_wiki_edit: "http://wiki.ead.pucv.cl/index.php?title=" + @user.wikipage.gsub('http://wiki.ead.pucv.cl/','').gsub('https://wiki.ead.pucv.cl/','') + "&action=formedit"
 							}
 						else
 							# Wiki en blanco, pero existe.

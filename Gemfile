@@ -49,16 +49,17 @@ gem 'json'
 
 # auth
 gem 'recaptcha', require: 'recaptcha/rails'
-gem 'rubycas-client', git: 'git://github.com/rubycas/rubycas-client.git'
+gem 'doorkeeper'
+# gem 'rubycas-client', git: 'git://github.com/rubycas/rubycas-client.git'
 
 # others
 gem 'will_paginate', '~> 3.0.6'
-gem 'mediawiki-gateway'
+# gem 'mediawiki-gateway'
 
 # Social login
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-facebook'
+# gem 'omniauth'
+# gem 'omniauth-google-oauth2'
+# gem 'omniauth-facebook'
 
 # Export
 gem 'sanitize'

@@ -1,13 +1,12 @@
 class AdminController < ApplicationController
-# before_filter CASClient::Frameworks::Rails::Filter
-before_filter :check_user
+	before_filter :check_user
 
 	##############
 	#### MAIL LIST
 	# mailList : En base a ciertos filtros, se genera una lista de correo.
 	def maillist
 		if isAdmin?
-			@loged = Usuario.find(:first, :conditions =>["usuario = ?", session[:cas_user]])
+			@loged = Usuario.find(:first, :conditions =>["usuario = ?", session[:user]["usuario"]])
 		else
 			redirect_to  root_path
 		end

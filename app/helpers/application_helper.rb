@@ -10,8 +10,8 @@ module ApplicationHelper
 
 	# retorna true en caso de que el usuario sea administrador, en el caso contrario retorna false.
 	def isAdmin
-		if session[:cas_user]
-			if User.where(["usuario = ?", session[:cas_user]]).first.admin == "si"
+		if session[:user]["usuario"]
+			if User.where(["usuario = ?", session[:user]["usuario"]]).first.admin == "si"
 				true
 			else
 				false

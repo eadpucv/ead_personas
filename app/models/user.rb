@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
 	validates_presence_of :usuario, :message => "Es necesario un nombre de usuario."
 	validates_presence_of :mail, :message => "Es necesario una direccion de correo electronico."
 	validates_presence_of :nombre, :message => "Es necesario indicar tus nombres."
@@ -17,4 +18,5 @@ class User < ActiveRecord::Base
 			nil
 		end
 	end
+	
 end

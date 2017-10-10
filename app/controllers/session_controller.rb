@@ -11,6 +11,7 @@ class SessionController < ApplicationController
 				id: user.id,
 				nombre: user.nombre,
 				apellido: user.apellido,
+				usuario: user.usuario,
 				mail: user.mail,
 				wikipage: user.wikipage,
 				admin: user.admin,

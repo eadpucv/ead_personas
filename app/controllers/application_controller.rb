@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 	# A partir del usuario almacenado en la sesion, verifica si el asuario actual es admin.
 	# Retorna true o false segun sea el caso. 
 	def is_admin
-		if session[:cas_user]
-			if User.where(["usuario = ?", session[:cas_user]]).first.admin == "si"
+		if session[:user]["usuario"]
+			if User.where(["usuario = ?", session[:user]["usuario"]]).first.admin == "si"
 				true
 			else
 				false
@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
 	# A partir del user_id determina si el usuario es el mismo que inicio sesion.
 	# Retorna true o false segun sea el caso.
 	def edit_my_own_user(user_id)
-		if session[:cas_user]
-			if User.exists?(['usuario = ? AND id = ?',session[:cas_user], user_id])
+		if session[:user]["usuario"]
+			if User.exists?(['usuario = ? AND id = ?',session[:user]["usuario"], user_id])
 				true
 			else
 				false

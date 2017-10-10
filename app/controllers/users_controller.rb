@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-	# before_action CASClient::Frameworks::Rails::Filter, :except => [ :data_for_wp, :signup, :editPublico, :update, :create, :checkUser, :checkMail, :enviaRecuperaMail, :recuperacionDatos, :new, :recovery, :recovery_enpoint, :passwordreset, :eula]
 	before_filter :check_user, :except => [:new]
-	# require 'media_wiki'
 
 	# Carga el buscador y el resultado paginado segun corresponda.
 	def index
@@ -321,50 +319,12 @@ class UsersController < ApplicationController
 			end
 			# Exportamos el documento.
 			send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv"
-			# send_data csv_string, filename: "usuarios_#{Date.today}_#{Time.now.to_i}.csv", disposition: "attachment"
-			# send_data csv_string, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment;data=usuarios_#{Date.today}_#{Time.now.to_i}.csv"
 		end
 	end
 
 	def advanced_exporter_list
 		startdate = params[:startdate].to_date
 		enddate = params[:enddate].to_date
-		# tipo = ""
-		# if params.has_key?(:alumno)
-		# 	if tipo.to_s.strip.length > 0
-		# 		tipo = tipo + ', alumno'
-		# 	else
-		# 		tipo =  'alumno'
-		# 	end
-		# end
-		# if params.has_key?(:exalumno)
-		# 	if tipo.to_s.strip.length > 0
-		# 		tipo = tipo + ', exalumno'
-		# 	else
-		# 		tipo =  'exalumno'
-		# 	end
-		# end
-		# carrera = ""
-		# if params.has_key?(:diseño)
-		# 	if carrera.to_s.strip.length > 0
-		# 		carrera = carrera + ', diseño'
-		# 	else
-		# 		carrera =  'diseño'
-		# 	end
-		# end
-		# if params.has_key?(:arquitectura)
-		# 	if carrera.to_s.strip.length > 0
-		# 		carrera = carrera + ', arquitectura'
-		# 	else
-		# 		carrera =  'arquitectura'
-		# 	end
-		# end
-		# Date.strptime("6/15/2012", '%m/%d/%Y')
-		# puts tipo
-		# puts carrera
-		puts startdate
-		puts enddate
-		# Query
 		users = User.where(:anoingreso => (startdate.year.to_i..enddate.year.to_i)).select("id, mail")
 		users_string = users.map(&:mail).join ','
 		render :json => { :status => true, :list => users_string }, :status => 201
@@ -424,12 +384,6 @@ class UsersController < ApplicationController
 		duplicados = Array.new
 		users.each do |user|
 			begin
-				# email = ActionView::Base.full_sanitizer.sanitize(user.mail.to_s.force_encoding('windows-1252').encode("UTF-8").squish)
-				# user.mail = nil
-				# user.save
-				# user.mail = email.encode('UTF-8', :invalid => :replace, :undef => :replace)
-				# user.mail = user.mail.squish + '*-*'
-				# user.save
 				user.mail = user.mail.squish.remove('*-*')
 				user.mail = user.mail.squish.remove('*-**-*')
 				user.mail = user.mail.squish.remove("*-**-*")
@@ -468,85 +422,3 @@ class UsersController < ApplicationController
 	end
 
 end
-
-	# # USUARIO
-	# def data_for_wp
-	# 	if params[:key].to_s == "d0c0e3d43f100c138b2142fd48eaac32"
-	# 		@usuario = Usuario.find(:first, :conditions => ["usuario = ?",params[:u]])
-	# 		render(:json => @usuario)
-	# 	else
-	# 		render(:json => {"error"=>"key_error"})
-	# 	end
-	# end
-
-	# #
-	# def editPublico
-	# 	@id = params[:id]
-	# 	@t = params[:t]
-	# 	@usuario = Usuario.find(:first, :conditions => ["id = ? AND token = ?",@id,@t])
-	# 	if @usuario.nil?
-	# 		redirect_to  root_path
-	# 	end
-	# end
-
-	# # Upadate user attributes.
-	# def update
-	# 	@usuario = Usuario.find(params[:id])
-	# 	if isAdmin? || params[:t] == @usuario.token || editMyOwnUser?(params[:id])
-	# 		if params[:usuario][:password]
-	# 			if params[:usuario][:password] == params[:contrasena_rep]
-	# 				@usuario.password = Digest::SHA1.hexdigest("#{params[:usuario][:password]}")
-	# 				@usuario.save!
-	# 				flash[:notice] = "Contraseña Actualizada"		
-	# 				redirect_to  root_path
-	# 			else
-	# 				flash[:notice] = "Las contraseñas no coinciden"		
-	# 				redirect_to :action => 'edit', :id=> params[:id]
-	# 			end
-	# 		else
-	# 			if @usuario.update_attributes(params[:usuario])
-	# 				flash[:notice] = "Los datos se han actualizado correctamente."		
-	# 				redirect_to  root_path
-	# 			else
-	# 				flash[:notice] = "Tienes problemas con tu formulario, Completa todos los datos"		
-	# 				redirect_to :action => 'edit', :id=> params[:id]					
-	# 			end
-	# 		end
-	# 	end
-	# end
-
-	# # CHECKS
-	# def checkUser
-	# 	@usuario = Usuario.find(:all, :conditions => ["usuario = ? ", params[:user]])
-	# 	if @usuario.blank?
-	# 		@notificacion = '<span class="label label-success">disponible</span>'
-	# 	else
-	# 		@notificacion = '<span class="label label-important">no disponible</span>'
-	# 	end
-	# 	render(:text => @notificacion)
-	# end
-
-	# # Verifica email.
-	# def checkMail
-	# 	@usuario = Usuario.find(:all, :conditions => ["mail = ? ", params[:mail]])
-	# 	if @usuario.blank?
-	# 		@notificacion = '<span class="label label-success">disponible</span>'
-	# 	else
-	# 		@notificacion = '<span class="label label-important">no disponible</span>'
-	# 	end
-	# 	render(:text => @notificacion)
-	# end
-
-	# # Recupera Correo
-	# def enviaRecuperaMail
-	# 	@tipo ="recupera"
-	# 	@usuario = Usuario.find(:first, :conditions => ["mail = ?", params[:mail]])
-	# 	if @usuario.nil?
-	# 		flash[:notice] = "Este correo no figura en nuestro registro. Tal vez te registraste con un correo antiguo que ya no usas."
-	# 		redirect_to :action => 'recuperacionDatos'
-	# 	else
-	# 		UserMailer.recuperacion_datos(@usuario).deliver
-	# 		flash[:notice] = "Los datos del usuario #{@usuario.nombre}  #{@usuario.apellido} [#{@usuario.usuario}] han sido enviados a la direccion de mail."
-	# 		redirect_to root_path
-	# 	end
-	# end

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-before_filter CASClient::Frameworks::Rails::Filter
-
+# before_filter CASClient::Frameworks::Rails::Filter
+before_filter :check_user
 
 	##############
 	#### MAIL LIST

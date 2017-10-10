@@ -32,11 +32,11 @@
 				<a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
 					<i class="icn icn-menu"></i>
 				</a>
-				<% if !session[:cas_user].nil? %>
+				<% if !session[:user].nil? %>
 					<ul class="nav-rotulos nav nav-pills collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-						<li><%= link_to controller: "users", action: "profile", id: session[:cas_extra_attributes]["id"] do %><i class='icn icn-usuario'></i> Mi perfil<% end %></li>
-						<li><%= link_to controller: "users", action: "edit", id: session[:cas_extra_attributes]["id"] do %><i class="icn icn-lapiz"></i> Editar cuenta<% end %></li>
-						<li><%= link_to controller: "session", action: "logout" do %><i class="icn icn-salir"></i> Cerrar sesión<% end %></li>
+						<li><%= link_to controller: "users", action: "profile", id: session[:user]["id"] do %><i class='icn icn-usuario'></i> Mi perfil<% end %></li>
+						<li><%= link_to controller: "users", action: "edit", id: session[:user]["id"] do %><i class="icn icn-lapiz"></i> Editar cuenta<% end %></li>
+						<li><%= link_to controller: "session", action: "destroy" do %><i class="icn icn-salir"></i> Cerrar sesión<% end %></li>
 					</ul>
 				<% end %>
 			</nav> 	

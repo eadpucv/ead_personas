@@ -1,19 +1,31 @@
 class SessionController < ApplicationController
-	
-	# Step of logout
+	before_filter :check_user, :except => [:create, :destroy]
+
+	def new
+	end
+
+	def create
+		user = User.authenticate(params[:email], params[:password])
+		if user
+			session[:user] = {
+				id: user.id,
+				nombre: user.nombre,
+				apellido: user.apellido,
+				mail: user.mail,
+				wikipage: user.wikipage,
+				admin: user.admin,
+				status: user.status
+			}
+			redirect_to root_url, :notice => "Logged in!"
+		else
+			flash.now.alert = "Invalid email or password"
+			render "new"
+		end
+	end
+
 	def destroy
-		session[:user_id] = nil
-		redirect_to root_url, :notice => "Signed out!"
+		session[:user] = nil
+		redirect_to root_url, :notice => "Logged out!"
 	end
 
-	# Logout
-	def logout
-		CASClient::Frameworks::Rails::Filter.logout(self)
-	end
-
-	# Login
-	def login
-		redirect_to CASClient::Frameworks::Rails::Filter.login_url(self)
-	end
-	
 end

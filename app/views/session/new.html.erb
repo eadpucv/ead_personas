@@ -1,0 +1,60 @@
+<div class="pag">
+	<section class="modulo modulo-login">
+		<div class="contenedor-modulo">
+			<div class="modulo-encabezado">
+				<h1 class="fino pizarra sin-margen rojo">e[ad]<span class='sans pizarra fino'>Escuela de Arquitectura y Diseño</span></h1>
+				<span class='xs bloque izquierda sans negro-fundido en-linea'>Pontificia Universidad Católica de Valparaíso</span>
+			</div>
+		</div>
+		<div class="modulo-cuerpo">
+			<div class="contenedor-modulo">
+				<!-- <form class="grupo-formulario"> -->
+					<%= form_tag session_create_path do %>
+					<h3 class="fino sans">Personas e[ad]</h3>
+					<div class="margen-inf-sm">
+						<label for="name">Nombre de Usuario</label>
+						<div class="grupo-inputs">
+							<div class="input"><i class="icn icn-light icn-usuario"></i></div>
+							<!-- <input type="email" class="control" id="email" placeholder="Introduce tu email" /> -->
+							<%= text_field_tag :email, params[:email], class: 'control', placeholder: 'Introduce tu email' %>
+						</div>
+					</div>
+					<div class="margen-inf-sm">
+						<label for="password">Contraseña</label>
+						<div class="grupo-inputs">
+							<div class="input"><i class="icn icn-light icn-cerrado"></i></div>
+							<!-- <input type="password" class="control" id="password" placeholder="Introduce contraseña" required /> -->
+							<%= password_field_tag :password, params[:password], class: 'control', placeholder: 'Introduce contraseña' %>
+						</div>
+					</div>
+					<div class="margen-inf-sm">
+						<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert">
+							<button type="button" class="close btn-cerrar-alerta" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Error de ingreso!</strong> <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
+						</div>
+					</div>
+					<div class="fila">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> Recordarme
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<!-- <input type="sumbit" hidden value="ir"> -->
+							<!-- <a class="btn btn-accion btn-lg btn-bloque btn-abrir-alerta">Iniciar sesión</a> -->
+							<%= submit_tag "Iniciar sesión", class: "btn btn-accion btn-lg btn-bloque btn-abrir-alerta" %>
+						</div>
+					</div>
+					<% end %>
+					<div class="fila">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<a href="registro.html" class="btn btn-md btn-bloque sin-margen">¿Eres nuevo? Regístrate</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</div>

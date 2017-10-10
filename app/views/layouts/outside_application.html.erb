@@ -304,12 +304,12 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){ $( "body" ).load_ead_bar({
-		id: "<%= session[:cas_extra_attributes][:id] if session[:cas_extra_attributes]%>",
-		mail: "<%= session[:cas_extra_attributes][:mail] if session[:cas_extra_attributes]%>",
-		name: "<%= session[:cas_extra_attributes][:nombre] if session[:cas_extra_attributes]%>",
-		lastname: "<%= session[:cas_extra_attributes][:apellido] if session[:cas_extra_attributes]%>",
-		wikipage: "<%= session[:cas_extra_attributes][:wikipage] if session[:cas_extra_attributes]%>",			
-		admin: "<%= session[:cas_extra_attributes][:admin] if session[:cas_extra_attributes]%>",							
+		id: "<%= session[:user][:id] if session[:user]%>",
+		mail: "<%= session[:user][:mail] if session[:user]%>",
+		name: "<%= session[:user][:nombre] if session[:user]%>",
+		lastname: "<%= session[:user][:apellido] if session[:user]%>",
+		wikipage: "<%= session[:user][:wikipage] if session[:user]%>",			
+		admin: "<%= session[:user][:admin] if session[:user]%>",							
 		path_js: "/javascripts/ead-bar/",
 		site_name: "personas", // ead, wiki, metasearch, estorninos, archivo, travesias
 		site_login_url: "<%= set_url_for_bar(:query=>params[:query]) %>",

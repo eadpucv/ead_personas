@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root :to => "users#index"
   # Perfil
   get 'profile/:id' => 'users#profile'
+  # Sesiones
+  resources :session
+  get "log_in" => "session#new", :as => "log_in"
+  get "log_out" => "session#destroy", :as => "log_out"
+  post "session_create" => "session#create", :as => "session_create"
   # Helpers
   get 'login' => 'session#login'
   get 'logout' => 'session#logout'

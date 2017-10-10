@@ -8,7 +8,7 @@ Doorkeeper.configure do
     # Put your resource owner authentication logic here.
     # Example implementation:
     #   User.find_by_id(session[:user_id]) || redirect_to(new_user_session_url)
-    User.find_by_id(session[:current_user_id]) || redirect_to(login_url)
+    User.find_by_id(session[:user_id]) || redirect_to(log_in)
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.

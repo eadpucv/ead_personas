@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	# include all helpers, all the time
 	helper :all
+	helper_method :current_user
 
 	# A partir del usuario almacenado en la sesion, verifica si el asuario actual es admin.
 	# Retorna true o false segun sea el caso. 
@@ -86,6 +87,20 @@ class ApplicationController < ActionController::Base
 		hexCode = ""
 		1.upto(codeLength) { |i| hexCode << validChars[rand(length-1)] }
 		hexCode
+	end
+
+	def check_user
+		puts "kaosbite"
+		puts session[:user].inspect
+		@current_user ||= User.find(session[:user]["id"]) if session[:user]
+		if @current_user.nil?
+			render "session/new"
+		end
+	end
+
+	private
+	def current_user
+		@current_user ||= User.find(session[:user]["id"]) if session[:user]
 	end
 
 end

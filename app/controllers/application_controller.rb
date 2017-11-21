@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 	helper :all
 	helper_method :current_user
 
+	before_filter :check_user, :except => [:create, :destroy, :new]
+
 	# A partir del usuario almacenado en la sesion, verifica si el asuario actual es admin.
 	# Retorna true o false segun sea el caso. 
 	def is_admin
@@ -90,8 +92,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	def check_user
-		puts "kaosbite"
-		puts session[:user].inspect
 		@current_user ||= User.find(session[:user]["id"]) if session[:user]
 		if @current_user.nil?
 			render "session/new"

@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-	# before_filter :check_user, :except => [:create, :destroy]
+	before_filter :check_user, :except => [:create, :destroy]
 
 	def new
 	end

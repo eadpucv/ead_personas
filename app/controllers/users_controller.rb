@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	# before_filter :check_user, :except => [:new]
+	before_filter :check_user, :except => [:new]
 
 	# Carga el buscador y el resultado paginado segun corresponda.
 	def index

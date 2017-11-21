@@ -21,6 +21,12 @@ Doorkeeper.configure do
   #   # Example implementation:
   #   Admin.find_by_id(session[:admin_id]) || redirect_to(new_admin_session_url)
   # end
+  admin_authenticator do
+    if session.key?("user") && session[:user]["admin"] == 'si'
+    else
+      redirect_to(log_in_url)
+    end
+  end
 
   # Authorization Code expiration time (default 10 minutes).
   # authorization_code_expires_in 10.minutes

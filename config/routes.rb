@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   post 'advanced_exporter' => 'users#advanced_exporter'
   post 'advanced_exporter_list' => 'users#advanced_exporter_list'
   get 'fix_email' => 'users#fix_email'
+  get 'me' => 'api#me'
   resources :users
 end

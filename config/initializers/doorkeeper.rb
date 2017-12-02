@@ -13,9 +13,9 @@ Doorkeeper.configure do
   end
 
   # Este bloque permite que no solicite la autorizacion ya que se utilizara oauth solo con aplicaciones de confianza
-  skip_authorization do
-    true
-  end
+  # skip_authorization do
+  #   true
+  # end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
   admin_authenticator do

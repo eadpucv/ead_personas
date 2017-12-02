@@ -25,9 +25,10 @@ module EadPersonas
     config.active_record.raise_in_transactional_callbacks = true
     # Configuraciones copiadas de la aplicacion original.
     # # Configure the default encoding used in templates for Ruby 1.9.
-    # config.encoding = "utf-8"
+    config.encoding = "utf-8"
     # config.generators.javascripts = false
     # # Configure sensitive parameters which will be filtered from the log file.
-    # config.filter_parameters += [:password]
+    config.filter_parameters += [:password]
+    config.active_record.whitelist_attributes = false
   end
 end

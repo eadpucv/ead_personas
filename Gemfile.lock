@@ -118,6 +118,9 @@ GEM
     recaptcha (4.4.1)
       json
     ref (2.0.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rubyzip (1.0.0)
     sanitize (4.5.0)
       crass (~> 1.0.2)
@@ -175,6 +178,7 @@ DEPENDENCIES
   mysql2
   rails (= 4.2.5.1)
   recaptcha
+  responders (~> 2.0)
   sanitize
   sdoc (~> 0.4.0)
   spring
@@ -187,4 +191,4 @@ DEPENDENCIES
   will_paginate (~> 3.0.6)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

@@ -50,6 +50,7 @@ gem 'json'
 # auth
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'doorkeeper'
+gem 'responders', '~> 2.0'
 # gem 'rubycas-client', git: 'git://github.com/rubycas/rubycas-client.git'
 
 # others

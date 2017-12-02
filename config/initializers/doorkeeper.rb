@@ -44,7 +44,7 @@ Doorkeeper.configure do
   # The controller Doorkeeper::ApplicationController inherits from.
   # Defaults to ActionController::Base.
   # https://github.com/doorkeeper-gem/doorkeeper#custom-base-controller
-  base_controller 'ApiController'
+  # base_controller 'ApiController'
 
   # Reuse access token for the same resource owner within an application (disabled by default)
   # Rationale: https://github.com/doorkeeper-gem/doorkeeper/issues/383
@@ -63,7 +63,7 @@ Doorkeeper.configure do
   # For more information go to
   # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
   default_scopes  :public
-  optional_scopes :write, :update
+  optional_scopes :write#, :update
 
   # Change the way client credentials are retrieved from the request object.
   # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then

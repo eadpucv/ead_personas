@@ -29,6 +29,6 @@ module EadPersonas
     # config.generators.javascripts = false
     # # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    config.active_record.whitelist_attributes = false
+    # config.active_record.whitelist_attributes = false
   end
 end

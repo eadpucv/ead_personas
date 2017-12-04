@@ -7,6 +7,7 @@ Doorkeeper.configure do
   resource_owner_authenticator do
     if session.key?("user")
       User.find_by_id(session[:user]["id"]) || redirect_to(log_in_url)
+      # User.find_by_id(session[:user_id]) || redirect_to(new_session_url)
     else
       redirect_to(log_in_url)
     end

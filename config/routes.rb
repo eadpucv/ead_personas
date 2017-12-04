@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
   use_doorkeeper
+
   # Custom
   root :to => "users#index"
+  
   # Perfil
   get 'profile/:id' => 'users#profile'
+
   # Sesiones
   resources :session
   get "log_in" => "session#new", :as => "log_in"
   get "log_out" => "session#destroy", :as => "log_out"
   post "session_create" => "session#create", :as => "session_create"
+
   # Helpers
   get 'login' => 'session#login'
   get 'logout' => 'session#logout'
@@ -28,6 +32,13 @@ Rails.application.routes.draw do
   post 'advanced_exporter' => 'users#advanced_exporter'
   post 'advanced_exporter_list' => 'users#advanced_exporter_list'
   get 'fix_email' => 'users#fix_email'
-  get 'me' => 'api#me'
   resources :users
+
+  # Oauth2 user api
+  scope '/api' do
+    scope '/v1' do
+      get 'user' => 'api#show'
+    end
+  end
+
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Custom
   root :to => "users#index"
-  
+
   # Perfil
   get 'profile/:id' => 'users#profile'
 
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
       get 'user' => 'api#show'
+      patch 'user/update', to: 'users#update'
     end
   end
 

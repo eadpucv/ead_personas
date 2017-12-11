@@ -268,13 +268,13 @@ class UsersController < ApplicationController
 					atributos =  'nombre'
 				end
 				cabeceras << 'Nombre'
-				# Agrego el apellido
-				if atributos.to_s.strip.length > 0
-					atributos = atributos + ', apellido'
-				else
-					atributos =  'apellido'
-				end
-				cabeceras << 'Apellido'
+				# # Agrego el apellido
+				# if atributos.to_s.strip.length > 0
+				# 	atributos = atributos + ', apellido'
+				# else
+				# 	atributos =  'apellido'
+				# end
+				# cabeceras << 'Apellido'
 			end
 			if params.has_key?(:apellido)
 				if atributos.to_s.strip.length > 0

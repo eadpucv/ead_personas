@@ -64,3 +64,5 @@ gem 'omniauth-facebook'
 gem 'sanitize'
 gem 'axlsx'
 
+# Monitor
+gem "sentry-raven"

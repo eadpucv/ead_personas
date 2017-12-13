@@ -1,0 +1,13 @@
+<% if flash[:notice] || flash[:error] %>
+	<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert" style="display: block;">
+		<% if flash[:notice] %>
+			<strong><%=flash[:notice]%></strong>
+		<% end %>
+		<% if flash[:error] && flash[:error].any? %>
+			<% flash[:error].each do |message| %>
+			<br /><%=message%>
+			<% end %>
+		<% end %>
+	</div>
+	<br />
+<% end %>

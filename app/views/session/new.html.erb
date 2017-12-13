@@ -6,17 +6,7 @@
 				<span class='xs bloque izquierda sans negro-fundido en-linea'>Pontificia Universidad Católica de Valparaíso</span>
 			</div>
 		</div>
-		<% if flash[:notice]  %>
-		<div class="alerta alerta-precaucion alert-dismissible fade in" role="alert" style="display: block;">
-			<strong><%=flash[:notice]%></strong>
-			<% if flash[:error] && flash[:error].any? %>
-				<% flash[:error].each do |message| %>
-					<br /><%=message%>
-				<% end %>
-			<% end %>
-		</div>
-		<br />
-		<% end %>
+		<%= render partial: "shared/action_message" %>
 		<div class="modulo-cuerpo">
 			<div class="contenedor-modulo">
 				<!-- <form class="grupo-formulario"> -->

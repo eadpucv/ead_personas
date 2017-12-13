@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :check_user, :except => [:new]
+	before_filter :check_user, :except => [:new, :create]
 
 	# Carga el buscador y el resultado paginado segun corresponda.
 	def index
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
 	# Inicia el flujo de creacion para nuevos usuarios.
 	def new
+		puts "kaosb new"
 		@user = User.new
 		@opciones_tipo = [
 			['Selecciona', ''],
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
 
 	# Culmina el flujo de creacion de nuevos usuarios.
 	def create
+		puts "kaosb create"
 		# Creo el nuevo registro, con la informacion aportada.
 		@user = User.new(user_params)
 		# Verifico el recaptcha.
@@ -54,7 +56,7 @@ class UsersController < ApplicationController
 			if @user.save
 				# Envio el mensaje de bienvenida.
 				# UserMailer.registration_confirmation(@usuario).deliver
-				redirect_to login_path
+				redirect_to new_session_path, :notice => "Tu cuenta fue creada, ahora con tus credenciales inicia sesion."
 			else
 				# No se pudo crear el nuevo registro.
 				flash[:notice] = "No fue posible crear el usuario, verifica los datos y vuelve a intentarlo."

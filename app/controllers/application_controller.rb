@@ -94,6 +94,7 @@ class ApplicationController < ActionController::Base
 		@current_user ||= User.find(session[:user]["id"]) if session[:user]
 		if @current_user.nil?
 			render "session/new"
+			# redirect_to root_url, :notice => "Es necesario que inicies sesion!"
 		end
 	end
 

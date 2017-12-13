@@ -7,12 +7,8 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :usuario, :message => "El nombre de usuario que indicaste ya existe."
 	validates_uniqueness_of :mail, :message => "La direccion de correo electronico que indicaste ya existe."
 
-	def User.authenticate(email, password)
-		user = User.find_by_mail(email)
-		# Rails.logger.info "test kaosb"
-		# Rails.logger.info email.inspect
-		# Rails.logger.info password.inspect
-		# Rails.logger.info user.inspect
+	def self.authenticate(email, password)
+		user = self.find_by_mail(email)
 		if user && user.password == Digest::SHA1.hexdigest(password)
 			user
 		else

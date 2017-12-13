@@ -5,7 +5,7 @@ class SessionController < ApplicationController
 	end
 
 	def create
-		user = User.authenticate(params[:email], params[:password])
+		user = self.authenticate(params[:email], params[:password])
 		if user
 			session[:user] = {
 				id: user.id,
@@ -21,6 +21,15 @@ class SessionController < ApplicationController
 		else
 			flash.now.alert = "Invalid email or password"
 			render "new"
+		end
+	end
+
+	def authenticate(email, password)
+		user = User.find_by_mail(email)
+		if !user.nil? && user[:password] == Digest::SHA1.hexdigest(password)
+			user
+		else
+			nil
 		end
 	end
 

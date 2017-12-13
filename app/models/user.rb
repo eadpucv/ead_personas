@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
 	def User.authenticate(email, password)
 		user = User.find_by_mail(email)
+		# Rails.logger.info "test kaosb"
+		# Rails.logger.info email.inspect
+		# Rails.logger.info password.inspect
+		# Rails.logger.info user.inspect
 		if user && user.password == Digest::SHA1.hexdigest(password)
 			user
 		else

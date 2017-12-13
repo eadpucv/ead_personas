@@ -5,21 +5,21 @@ class SessionController < ApplicationController
 	end
 
 	def create
-		user = User.authenticate(params[:email], params[:password])
-		if !user.nil?
+		result = User.authenticate(params[:email], params[:password])
+		if !result[:user].nil?
 			session[:user] = {
-				id: user.id,
-				nombre: user.nombre,
-				apellido: user.apellido,
-				usuario: user.usuario,
-				mail: user.mail,
-				wikipage: user.wikipage,
-				admin: user.admin,
-				status: user.status
+				id: result[:user].id,
+				nombre: result[:user].nombre,
+				apellido: result[:user].apellido,
+				usuario: result[:user].usuario,
+				mail: result[:user].mail,
+				wikipage: result[:user].wikipage,
+				admin: result[:user].admin,
+				status: result[:user].status
 			}
 			redirect_to root_url, :notice => "Sesion iniciada!"
 		else
-			redirect_to root_url, :notice => "Correo o password invalido!"
+			redirect_to root_url, :notice => result[:notice]
 		end
 	end
 

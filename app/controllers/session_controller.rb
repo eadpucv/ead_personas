@@ -10,7 +10,7 @@ class SessionController < ApplicationController
 		puts "Lo que volvio desde el authenticate."
 		puts user.inspect
 		puts "*******************************"
-		if !user.id.nil?
+		if !user.nil?
 			session[:user] = {
 				id: user.id,
 				nombre: user.nombre,
@@ -23,7 +23,6 @@ class SessionController < ApplicationController
 			}
 			puts "---------------------------"
 			puts "Estoy en la session."
-			# puts session.inspect
 			puts "---------------------------"
 			redirect_to root_url, :notice => "Logged in!"
 		else

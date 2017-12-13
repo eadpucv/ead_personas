@@ -5,7 +5,7 @@ class SessionController < ApplicationController
 	end
 
 	def create
-		user = self.authenticate(params[:email], params[:password])
+		user = User.authenticate(params[:email], params[:password])
 		if user
 			session[:user] = {
 				id: user.id,
@@ -25,7 +25,7 @@ class SessionController < ApplicationController
 	end
 
 	def authenticate(email, password)
-		user = self.find(mail: email)
+		user = User.where(mail: email).first
 		if !user.nil? && user.password == Digest::SHA1.hexdigest(password)
 			user
 		else

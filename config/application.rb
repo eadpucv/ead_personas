@@ -32,3 +32,8 @@ module EadPersonas
     # config.active_record.whitelist_attributes = false
   end
 end
+
+Raven.configure do |config|
+  config.dsn = 'https://0718fd8c9b8748f7a2956bfabc71d83d:afbf9733b29648c19a812f72393aa2c1@sentry.io/257782'
+end
+

@@ -128,6 +128,8 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sentry-raven (2.7.1)
+      faraday (>= 0.7.6, < 1.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (3.7.1)
@@ -180,6 +182,7 @@ DEPENDENCIES
   responders (~> 2.0)
   sanitize
   sdoc (~> 0.4.0)
+  sentry-raven
   spring
   therubyracer
   thin

@@ -25,8 +25,8 @@ class SessionController < ApplicationController
 	end
 
 	def authenticate(email, password)
-		user = User.find_by_mail(email)
-		if !user.nil? && user[:password] == Digest::SHA1.hexdigest(password)
+		user = self.find(mail: email)
+		if !user.nil? && user.password == Digest::SHA1.hexdigest(password)
 			user
 		else
 			nil

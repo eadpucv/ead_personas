@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
 		puts "Lo que encontre"
 		puts user.inspect
 		puts "==========================="
+		result = nil
 		if !user.nil? && user.password == Digest::SHA1.hexdigest(password)
-			user
-		else
-			nil
+			result = user
 		end
+		return result
 	end
 	
 end

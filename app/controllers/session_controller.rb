@@ -17,6 +17,10 @@ class SessionController < ApplicationController
 				admin: user.admin,
 				status: user.status
 			}
+			puts "---------------------------"
+			puts "Estoy en la session."
+			puts session.inspect
+			puts "---------------------------"
 			redirect_to root_url, :notice => "Logged in!"
 		else
 			flash.now.alert = "Invalid email or password"

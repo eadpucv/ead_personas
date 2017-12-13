@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :mail, :message => "La direccion de correo electronico que indicaste ya existe."
 
 	def self.authenticate(email, password)
-		user = find_by_mail(email)
+		user = self.find_by_mail(email)
 		Rails.logger.info "test kaosb"
 		Rails.logger.info email.inspect
 		Rails.logger.info password.inspect

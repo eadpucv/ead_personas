@@ -24,15 +24,6 @@ class SessionController < ApplicationController
 		end
 	end
 
-	def authenticate(email, password)
-		user = User.where(mail: email).first
-		if !user.nil? && user.password == Digest::SHA1.hexdigest(password)
-			user
-		else
-			nil
-		end
-	end
-
 	def destroy
 		session[:user] = nil
 		redirect_to root_url, :notice => "Logged out!"

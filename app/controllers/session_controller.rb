@@ -17,15 +17,15 @@ class SessionController < ApplicationController
 				admin: user.admin,
 				status: user.status
 			}
-			redirect_to root_url, :notice => "Logged in!"
+			redirect_to root_url, :notice => "Sesion iniciada!"
 		else
-			redirect_to root_url, :notice => "Invalid email or password!"
+			redirect_to root_url, :notice => "Correo o password invalido!"
 		end
 	end
 
 	def destroy
 		session[:user] = nil
-		redirect_to root_url, :notice => "Logged out!"
+		redirect_to root_url, :notice => "Sesion cerrada!"
 	end
 
 end

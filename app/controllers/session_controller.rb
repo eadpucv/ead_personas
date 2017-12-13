@@ -6,10 +6,6 @@ class SessionController < ApplicationController
 
 	def create
 		user = User.authenticate(params[:email], params[:password])
-		puts "*******************************"
-		puts "Lo que volvio desde el authenticate."
-		puts user.inspect
-		puts "*******************************"
 		if !user.nil?
 			session[:user] = {
 				id: user.id,
@@ -21,13 +17,8 @@ class SessionController < ApplicationController
 				admin: user.admin,
 				status: user.status
 			}
-			puts "---------------------------"
-			puts "Estoy en la session."
-			puts "---------------------------"
 			redirect_to root_url, :notice => "Logged in!"
 		else
-			# flash.now.alert = "Invalid email or password"
-			# render "new"
 			redirect_to root_url, :notice => "Invalid email or password!"
 		end
 	end

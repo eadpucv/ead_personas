@@ -91,6 +91,12 @@ class ApplicationController < ActionController::Base
 	end
 
 	def check_user
+		# Leo la cookie si existe y creo la session.
+		if cookies.signed[:user_id] && !cookies.signed[:user_id].empty?
+			@current_user = User.find(cookies.signed[:user_id])
+			session[:user] = @current_user
+		end
+		# Leo la session si existe,  sino retorno lo correspondiente.
 		@current_user ||= User.find(session[:user]["id"]) if session[:user]
 		if @current_user.nil?
 			render "session/new"

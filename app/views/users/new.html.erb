@@ -32,7 +32,7 @@
 									<%= f.label :usuario, 'Nombre de usuario' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-usuario"></i></div>
-										<%= f.text_field :usuario, :value => params[:user][:usuario], id: 'usuario', class: 'control', placeholder: 'juanperez' %>
+										<%= f.text_field :usuario, :value => (!params[:user].nil? && !params[:user][:usuario].nil?) ? params[:user][:usuario] : "" , id: 'usuario', class: 'control', placeholder: 'juanperez' %>
 									</div>
 									<span class="xs margen-sup-xs">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</span>
 								</div>
@@ -40,21 +40,21 @@
 									<%= f.label :nombre, 'Nombres' %>
 									<div class="grupo-inputs">		
 										<div class="input"><i class="icn icn-md icn-perfil"></i></div>
-										<%= f.text_field :nombre, :value => params[:user][:nombre], id: 'nombre', class: 'control', placeholder: 'Juan José' %>
+										<%= f.text_field :nombre, :value => (!params[:user].nil? && !params[:user][:nombre].nil?) ? params[:user][:nombre] : "" , id: 'nombre', class: 'control', placeholder: 'Juan José' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
 									<%= f.label :apellido, 'Apellidos' %>
 									<div class="grupo-inputs">		
 										<div class="input"><i class="icn icn-md icn-perfil"></i></div>
-										<%= f.text_field :apellido, :value => params[:user][:apellido], id: 'apellido', class: 'control', placeholder: 'Pérez López' %>
+										<%= f.text_field :apellido, :value => (!params[:user].nil? && !params[:user][:apellido].nil?) ? params[:user][:apellido] : "" , id: 'apellido', class: 'control', placeholder: 'Pérez López' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
 									<%= f.label :rut, 'Rut' %>
 									<div class="grupo-inputs">		
 										<div class="input"><i class="icn icn-md icn-acto"></i></div>
-										<%= f.text_field :rut, :value => params[:user][:rut], id: 'rut', class: 'control', placeholder: '12.345.678-9' %>
+										<%= f.text_field :rut, :value => (!params[:user].nil? && !params[:user][:rut].nil?) ? params[:user][:rut] : "" , id: 'rut', class: 'control', placeholder: '12.345.678-9' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
@@ -75,7 +75,7 @@
 									<%= f.label :mail, 'Correo' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-email"></i></div>
-										<%= f.email_field :mail, :value => params[:user][:mail], id: 'mail', class: 'control', placeholder: 'juanperez@tudominio.doh' %>
+										<%= f.email_field :mail, :value => (!params[:user].nil? && !params[:user][:mail].nil?) ? params[:user][:mail] : "" , id: 'mail', class: 'control', placeholder: 'juanperez@tudominio.doh' %>
 									</div>	
 								</div>
 								<div class="margen-inf-sm">
@@ -106,12 +106,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane fade" id="registro-3">
+<!-- 						<div class="tab-pane fade" id="registro-3">
 							<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
 								<h4 class="fino sans centrado margen-sup-lg margen-inf-lg">Tu cuenta ha sido registrada con éxito. Tu nombre de usuario es <a href="#">juanito_perez</a>, revisa tu email (juanito_prz@hotmail.com) para finalizar el proceso de registro.</h4>
 								<a class="btn btn-accion btn-lg btn-bloque" href="ingresar.html">Ir al home</a>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				<% end %>
 			</div>

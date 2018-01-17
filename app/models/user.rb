@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :mail, :message => "Es necesario una direccion de correo electronico."
 	validates_presence_of :nombre, :message => "Es necesario indicar tus nombres."
 	validates_presence_of :apellido, :message => "Es necesario indicar tus apellidos."
+	validates_presence_of :accept_terms_and_conditions, :message => "Es necesario que aceptes los terminos y condiciones de uso."
 	validates_uniqueness_of :usuario, :message => "El nombre de usuario que indicaste ya existe."
 	validates_uniqueness_of :mail, :message => "La direccion de correo electronico que indicaste ya existe."
 
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
 				result[:notice] = "Password incorrecto!"
 			end
 		else
-			result[:notice] = "Correo no existe!"
+			result[:notice] = "Email o Username no existe!"
 		end
 		return result
 	end

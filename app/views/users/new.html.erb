@@ -32,7 +32,7 @@
 									<%= f.label :usuario, 'Nombre de usuario' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-usuario"></i></div>
-										<%= f.text_field :usuario, id: 'usuario', class: 'control', placeholder: 'juanperez' %>
+										<%= f.text_field :usuario, :value => params[:user][:usuario], id: 'usuario', class: 'control', placeholder: 'juanperez' %>
 									</div>
 									<span class="xs margen-sup-xs">Elije un nombre que puedas recordar con facilidad. Se recomienda no utilizar espacios ni mayúsculas ya que el sistema los distingue y después son fáciles de olvidar.</span>
 								</div>
@@ -40,21 +40,21 @@
 									<%= f.label :nombre, 'Nombres' %>
 									<div class="grupo-inputs">		
 										<div class="input"><i class="icn icn-md icn-perfil"></i></div>
-										<%= f.text_field :nombre, id: 'nombre', class: 'control', placeholder: 'Juan José' %>
+										<%= f.text_field :nombre, :value => params[:user][:nombre], id: 'nombre', class: 'control', placeholder: 'Juan José' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
 									<%= f.label :apellido, 'Apellidos' %>
 									<div class="grupo-inputs">		
 										<div class="input"><i class="icn icn-md icn-perfil"></i></div>
-										<%= f.text_field :apellido, id: 'apellido', class: 'control', placeholder: 'Pérez López' %>
+										<%= f.text_field :apellido, :value => params[:user][:apellido], id: 'apellido', class: 'control', placeholder: 'Pérez López' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
 									<%= f.label :rut, 'Rut' %>
 									<div class="grupo-inputs">		
 										<div class="input"><i class="icn icn-md icn-acto"></i></div>
-										<%= f.text_field :rut, id: 'rut', class: 'control', placeholder: '12.345.678-9' %>
+										<%= f.text_field :rut, :value => params[:user][:rut], id: 'rut', class: 'control', placeholder: '12.345.678-9' %>
 									</div>
 								</div>
 								<div class="margen-inf-sm">
@@ -75,7 +75,7 @@
 									<%= f.label :mail, 'Correo' %>
 									<div class="grupo-inputs">
 										<div class="input"><i class="icn icn-md icn-email"></i></div>
-										<%= f.email_field :mail, id: 'mail', class: 'control', placeholder: 'juanperez@tudominio.doh' %>
+										<%= f.email_field :mail, :value => params[:user][:mail], id: 'mail', class: 'control', placeholder: 'juanperez@tudominio.doh' %>
 									</div>	
 								</div>
 								<div class="margen-inf-sm">
@@ -98,7 +98,8 @@
 								<div class="margen-inf-sm">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> <span class="xs"> <a href="http://personas.ead.pucv.cl/others/terminos" target="_blank"><span> </span>Acepto los términos y condiciones e[ad]</a></span>
+											<%= check_box_tag 'accept_terms_and_conditions' %> <span class="xs"> <a href="http://personas.ead.pucv.cl/others/terminos" target="_blank"><span> </span>Acepto los términos y condiciones e[ad]</a></span>
+											<!-- <input type="checkbox"> <span class="xs"> <a href="http://personas.ead.pucv.cl/others/terminos" target="_blank"><span> </span>Acepto los términos y condiciones e[ad]</a></span> -->
 										</label>
 									</div>
 									<%= f.submit "Crear nuevo usuario", class: "btn btn-accion btn-lg derecha btn-registro2" %>

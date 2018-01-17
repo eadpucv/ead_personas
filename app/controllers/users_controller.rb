@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 
 	# Inicia el flujo de creacion para nuevos usuarios.
 	def new
-		puts "kaosb new"
 		@user = User.new
 		@opciones_tipo = [
 			['Selecciona', ''],
@@ -44,11 +43,10 @@ class UsersController < ApplicationController
 
 	# Culmina el flujo de creacion de nuevos usuarios.
 	def create
-		puts "kaosb create"
 		# Creo el nuevo registro, con la informacion aportada.
 		@user = User.new(user_params)
 		# Verifico el recaptcha.
-		if verify_recaptcha()
+		if verify_recaptcha() && params.has_key?(:accept_terms_and_conditions)
 			# Aseguro la password y creo un token para el usuario.
 			@user.password = Digest::SHA1.hexdigest("#{params[:user][:password]}")
 			@user.token = generateUniqueHexCode(10)
@@ -64,9 +62,14 @@ class UsersController < ApplicationController
 				redirect_to new_user_path
 			end
 		else
-			# El recaptcha no paso la verificacion.
-			flash[:notice] = "No fue posible crear el usuario, ya que la verificacion captcha no fue superada."
-			redirect_to new_user_path
+			if params.has_key?(:accept_terms_and_conditions)
+				# El recaptcha no paso la verificacion.
+				flash[:notice] = "No fue posible crear el usuario, ya que la verificacion captcha no fue superada."
+			else
+				# No acepto los terminos y condiciones.
+				flash[:notice] = "No fue posible crear el usuario, es necesario que aceptes los terminos y condiciones de uso."
+			end
+			redirect_to new_user_path(request.parameters)
 		end
 	end
 
@@ -406,6 +409,8 @@ class UsersController < ApplicationController
 		render :json => { :status => false, :body => documento, :duplicados => duplicados }, :status => 200
 	end
 
+	private
+
 	def user_params
 		params.require(:user).permit(
 			:rut,
@@ -426,6 +431,7 @@ class UsersController < ApplicationController
 			:usuario,
 			:bio,
 			:wikipage,
+			:accept_terms_and_conditions,
 			:status
 			)
 	end

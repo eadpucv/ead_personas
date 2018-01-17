@@ -17,7 +17,11 @@ class SessionController < ApplicationController
 				admin: result[:user].admin,
 				status: result[:user].status
 			}
-			redirect_to root_url, :notice => "Sesion iniciada!"
+			if params[:redirect_uri]
+				redirect_to params[:redirect_uri]
+			else
+				redirect_to root_url, :notice => "Sesion iniciada!"
+			end
 		else
 			redirect_to root_url, :notice => result[:notice]
 		end

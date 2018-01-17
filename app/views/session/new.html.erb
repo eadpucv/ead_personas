@@ -13,11 +13,11 @@
 					<%= form_tag session_create_path do %>
 					<h3 class="fino sans">Personas e[ad]</h3>
 					<div class="margen-inf-sm">
-						<label for="name">Email</label>
+						<label for="name">Email o Username</label>
 						<div class="grupo-inputs">
 							<div class="input"><i class="icn icn-light icn-usuario"></i></div>
 							<!-- <input type="email" class="control" id="email" placeholder="Introduce tu email" /> -->
-							<%= text_field_tag :email, params[:email], class: 'control', placeholder: 'Introduce tu email' %>
+							<%= text_field_tag :email, params[:email], class: 'control', placeholder: 'Introduce tu email o username' %>
 						</div>
 					</div>
 					<div class="margen-inf-sm">

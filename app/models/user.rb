@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 	def self.authenticate(email, password)
 		result = { user: nil }
 		user = self.where(mail: email).first
+		if !user
+			user = self.where(usuario: email).first
+		end
 		if user
 			if user.password == Digest::SHA1.hexdigest(password)
 				result[:user] = user

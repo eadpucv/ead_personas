@@ -36,7 +36,7 @@
 					<ul class="nav-rotulos nav nav-pills collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 						<li><%= link_to controller: "users", action: "profile", id: session[:user]["id"] do %><i class='icn icn-usuario'></i> Mi perfil<% end %></li>
 						<li><%= link_to controller: "users", action: "edit", id: session[:user]["id"] do %><i class="icn icn-lapiz"></i> Editar cuenta<% end %></li>
-						<li><%= link_to controller: "session", action: "destroy" do %><i class="icn icn-salir"></i> Cerrar sesión<% end %></li>
+						<li><%= link_to log_out_path do %><i class="icn icn-salir"></i> Cerrar sesión<% end %></li>
 					</ul>
 				<% end %>
 			</nav> 	

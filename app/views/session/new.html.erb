@@ -18,6 +18,7 @@
 							<div class="input"><i class="icn icn-light icn-usuario"></i></div>
 							<!-- <input type="email" class="control" id="email" placeholder="Introduce tu email" /> -->
 							<%= text_field_tag :email, params[:email], class: 'control', placeholder: 'Introduce tu email o username' %>
+							<%= hidden_field_tag :redirect_uri, params[:redirect_uri] %>
 						</div>
 					</div>
 					<div class="margen-inf-sm">

@@ -234,7 +234,7 @@ class UsersController < ApplicationController
 	def send_message
 		if !params[:targetid].nil? && !params[:asunto].nil? && !params[:mensaje].nil?
 			user_target = User.find_by_id(params[:targetid])
-			UserMailer.send_message(user_target.mail, params[:asunto], params[:mensaje]).deliver_now
+			UserMailer.send_message(user_target.mail, params[:asunto], params[:mensaje], session[:user]["nombre"] + " " +  session[:user]["apellido"]).deliver_now
 			flash[:notice] = "El mensaje se envio de forma exitosa."
 		else
 			flash[:notice] = "El no se pudo enviar."

@@ -2,6 +2,7 @@ class SessionController < ApplicationController
 	before_filter :check_user, :except => [:create, :destroy]
 
 	def new
+		session[:return_to] = params[:return_to]
 	end
 
 	def create
@@ -24,7 +25,7 @@ class SessionController < ApplicationController
 			# 	redirect_to params[:redirect_uri], params: request.parameters
 			# 	# redirect_to new_user_path(request.parameters)
 			# else
-				redirect_to root_url, :notice => "Sesion iniciada!" # Esto se esta ejecutando cuando me logeo y ya existo.
+				redirect_to session[:return_to] || root_url, :notice => "Sesion iniciada!" # Esto se esta ejecutando cuando me logeo y ya existo.
 			# end
 		else
 			redirect_to root_url, :notice => result[:notice]

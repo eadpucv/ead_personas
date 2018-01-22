@@ -20,12 +20,12 @@ class SessionController < ApplicationController
 			if params.has_key?(:remember_me)
 				cookies.signed[:user_id] = { value: result[:user].id.to_s, expires: 2.weeks.from_now }
 			end
-			if params.has_key?(:redirect_uri)
-				redirect_to params[:redirect_uri], params: request.parameters
-				# redirect_to new_user_path(request.parameters)
-			else
+			# if params.has_key?(:redirect_uri)
+			# 	redirect_to params[:redirect_uri], params: request.parameters
+			# 	# redirect_to new_user_path(request.parameters)
+			# else
 				redirect_to root_url, :notice => "Sesion iniciada!" # Esto se esta ejecutando cuando me logeo y ya existo.
-			end
+			# end
 		else
 			redirect_to root_url, :notice => result[:notice]
 		end

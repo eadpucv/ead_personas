@@ -2,7 +2,7 @@ class SessionController < ApplicationController
 	before_filter :check_user, :except => [:create, :destroy]
 
 	def new
-		session[:return_to] = "https://www.google.com"
+		# session[:return_to] = "https://www.google.com"
 	end
 
 	def create

@@ -8,7 +8,7 @@ Doorkeeper.configure do
     if session.key?("user")
       puts "kaosbite"
       puts request.fullpath.inspect
-      User.find_by_id(session[:user]["id"]) || (redirect_to log_in_url(return_to: request.fullpath))
+      User.find_by_id(session[:user]["id"]) || (redirect_to log_in_url(return_to: "www.google.cl"))
       # User.find_by_id(session[:user_id]) || redirect_to(new_session_url)
       # redirect_to(new_session_url(return_to: request.fullpath))
     else

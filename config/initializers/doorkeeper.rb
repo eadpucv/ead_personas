@@ -6,10 +6,10 @@ Doorkeeper.configure do
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
     if session.key?("user")
-      User.find_by_id(session[:user]["id"]) || (redirect_to log_in(request.parameters))
+      User.find_by_id(session[:user]["id"]) || (redirect_to log_in_url(request.parameters))
       # User.find_by_id(session[:user_id]) || redirect_to(new_session_url)
     else
-      redirect_to log_in(request.parameters)
+      redirect_to log_in_url(request.parameters)
     end
   end
 
@@ -22,7 +22,7 @@ Doorkeeper.configure do
   admin_authenticator do
     if session.key?("user") && session[:user]["admin"] == 'si'
     else
-      redirect_to log_in(request.parameters)
+      redirect_to log_in_url(request.parameters)
     end
   end
 

@@ -33,6 +33,7 @@ class SessionController < ApplicationController
 	end
 
 	def destroy
+		session[:return_to] = request.fullpath
 		session[:user] = nil
 		cookies.delete :user_id
 		redirect_to session[:return_to] || root_url, :notice => "Sesion cerrada!"

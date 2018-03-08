@@ -1,7 +1,9 @@
+.DS_Store
+config/.DS_Store
+
 config/database.yml
 config/initializers/recaptcha.rb
 *.log
-
 *.pid
 
-.DS_Store
+tmp/cache/*

@@ -1,13 +1,15 @@
 <div class="pag">
-	<section class="modulo modulo-login">
+	<div class='container-flex'>
+	<div class='flex-centrar'>
+	<section class="x">
 		<div class="contenedor-modulo">
 			<div class="modulo-encabezado">
 				<h1 class="fino pizarra sin-margen rojo">e[ad]<span class='sans pizarra fino'>Escuela de Arquitectura y Diseño</span></h1>
-				<span class='xs bloque izquierda sans negro-fundido en-linea'>Pontificia Universidad Católica de Valparaíso</span>
+				<span class='bloque margen-xs sans gris'>Pontificia Universidad Católica de Valparaíso</span>
 			</div>
 		</div>
 		<%= render partial: "shared/action_message" %>
-		<div class="modulo-cuerpo">
+		<div class="modulo-cuerpo ">
 			<div class="contenedor-modulo">
 				<!-- <form class="grupo-formulario"> -->
 					<%= form_tag session_create_path do %>
@@ -47,24 +49,28 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<!-- <input type="sumbit" hidden value="ir"> -->
 							<!-- <a class="btn btn-accion btn-lg btn-bloque btn-abrir-alerta">Iniciar sesión</a> -->
-							<%= submit_tag "Iniciar sesión", class: "btn btn-accion btn-lg btn-bloque btn-abrir-alerta" %>
+							<%= submit_tag "Inicia sesión", class: "btn btn-accion btn-lg btn-bloque btn-abrir-alerta" %>
 						</div>
+
+				
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<%= link_to "Regístrate", { controller: "users", action: "new" }, class: "btn btn-md btn-bloque" %>
+							<!-- <a href="registro.html" class="btn btn-md btn-bloque sin-margen">¿Eres nuevo? Regístrate</a> -->
+						</div>
+					
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<%= link_to "¿Olvidaste tu contraseña?", { controller: "users", action: "recovery" }, class: "derecha margen" %>
+							<!-- <a href="registro.html" class="btn btn-md btn-bloque sin-margen">¿Eres nuevo? Regístrate</a> -->
+						</div>
+					
+
 					</div>
 					<% end %>
-					<div class="fila">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<%= link_to "¿Eres nuevo? Regístrate", { controller: "users", action: "new" }, class: "btn btn-md btn-bloque sin-margen" %>
-							<!-- <a href="registro.html" class="btn btn-md btn-bloque sin-margen">¿Eres nuevo? Regístrate</a> -->
-						</div>
-					</div>
-					<div class="fila">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<%= link_to "¿Olvidaste tu contraseña? Recuperala", { controller: "users", action: "recovery" }, class: "btn btn-md btn-bloque sin-margen" %>
-							<!-- <a href="registro.html" class="btn btn-md btn-bloque sin-margen">¿Eres nuevo? Regístrate</a> -->
-						</div>
-					</div>
+
 				</form>
 			</div>
 		</div>
 	</section>
+	</div>
+	</div>
 </div>

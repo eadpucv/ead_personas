@@ -99,7 +99,7 @@ class ApplicationController < ActionController::Base
 		# Leo la session si existe,  sino retorno lo correspondiente.
 		@current_user ||= User.find(session[:user]["id"]) if session[:user]
 		if @current_user.nil?
-			if request.path != "/recovery"
+			if request.path != "/recovery" && request.path != "/recovery_enpoint"
 				render "session/new"
 				# redirect_to root_url, :notice => "Es necesario que inicies sesion!"
 			end
